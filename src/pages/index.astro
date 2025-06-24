@@ -1,0 +1,11 @@
+---
+import Header from "@/components/Header.astro";
+import Layout from "@/layouts/Layout.astro";
+
+import { SITE } from "@consts";
+---
+
+<Layout title={SITE.TITLE} description={SITE.DESCRIPTION}>
+  <Header />
+  <h1 class="">Hello, World!</h1>
+</Layout>
