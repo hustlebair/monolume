@@ -1,12 +1,18 @@
 ---
-
+import { SITE } from "@consts";
 ---
 
-<header>
-  <a href="/">M.</a>
-  <nav>
-    <a href="#about" class="">about</a>
-    <a href="#work" class="">work</a>
-    <a href="#contact" class="">contact</a>
-  </nav>
+<header
+  class="border-b border-b-secondary border-dashed p-6 fixed top-0 w-full"
+>
+  <div class="container mx-auto flex justify-between">
+    <a href="/" class="font-bold font-plex text-4xl"
+      >{SITE.TITLE.toUpperCase().charAt(0)}.</a
+    >
+    <nav class="space-x-3.5 text-secondary text-lg">
+      <a href="#about">about</a>
+      <a href="#work">work</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </div>
 </header>

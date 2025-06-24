@@ -9,7 +9,7 @@
   --color-primary: oklch(86.89 0.29 142.02); /* #27FF0B*/
   --color-background: oklch(99.7 0 0); /* #fefefe */
   --color-foreground: oklch(0 0 0); /* #000000 */
-  --color-secondary: oklch(38.29 0 0); /* #434343*/
+  --color-secondary: oklch(0.38 0 1); /* #434343*/
 }
 
 h1,
@@ -18,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-plex;
+  @apply font-plex tracking-[-0.1em];
 }
 
 body {
