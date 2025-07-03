@@ -1,29 +1,17 @@
 ---
 import Header from "@/components/Header.astro";
 import Layout from "@/layouts/Layout.astro";
+import About from "@components/About.astro";
+import Projects from "@components/Projects.astro";
+
+import Hero from "@/components/Hero.astro";
 
 import { SITE } from "@consts";
 ---
 
 <Layout title={SITE.TITLE} description={SITE.DESCRIPTION}>
   <Header />
-  <section
-    class="flex flex-col md:flex-row justify-center md:justify-around items-center container mx-auto min-h-screen p-6 md:p-0"
-  >
-    <h1 class="text-[12.5em] uppercase flex-1">
-      {SITE.TITLE}
-    </h1>
-    <div class="space-y-4 md:flex-1">
-      <p class="text-lg text-secondary">
-        A full-stack developer with a strong focus on building fast, accessible,
-        and maintainable web applications.
-      </p>
-      <div class="flex flex-col md:flex-row gap-2.5">
-        <button class="bg-primary rounded-4xl py-6 px-26">View Work</button>
-        <button class="bg-foreground text-background rounded-4xl py-6 px-26"
-          >Hire me</button
-        >
-      </div>
-    </div>
-  </section>
+  <Hero />
+  <About />
+  <Projects />
 </Layout>
