@@ -2,15 +2,30 @@
 import { SITE } from "@consts";
 ---
 
-<header class="p-6 fixed top-0 w-full">
-  <div class="container mx-auto flex justify-between">
+<header class="fixed top-0 w-full">
+  <div class="container mx-auto flex items-center justify-between p-6">
     <a href="/" class="font-bold font-plex text-4xl"
       >{SITE.TITLE.toUpperCase().charAt(0)}.</a
     >
-    <nav class="space-x-3.5 text-secondary text-lg">
-      <a href="#about">about</a>
-      <a href="#work">work</a>
-      <a href="#contact">contact</a>
+    <nav class="space-x-3.5 text-secondary">
+      <a
+        href="#about"
+        class="hover:border-b-2 hover:border-dashed hover:border-secondary pb-0.5"
+      >
+        about
+      </a>
+      <a
+        href="#work"
+        class="hover:border-b-2 hover:border-dashed hover:border-secondary pb-0.5"
+      >
+        work
+      </a>
+      <a
+        href="#contact"
+        class="hover:border-b-2 hover:border-dashed hover:border-secondary pb-0.5"
+      >
+        contact
+      </a>
     </nav>
   </div>
 </header>
