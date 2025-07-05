@@ -1,6 +1,24 @@
 <div
-  class="flex flex-col md:flex-row odd:md:flex-row-reverse items-center justify-between gap-8 md:gap-12 mb-8 pb-8 border-dashed border-b border-b-secondary"
+  class="group relative flex flex-col md:flex-row odd:md:flex-row-reverse items-center justify-between gap-8 md:gap-12 mb-8 pb-8 border-dashed border-b border-b-secondary cursor-none"
 >
+  <div
+    id="cursor-circle"
+    class="absolute w-[70px] h-[70px] bg-primary border bordre-dashed border-secondary rounded-full pointer-events-none hidden group-hover:grid place-items-center transform -translate-x-1/2 -translate-y-1/2"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      class="w-10 h-10 text-accent"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M7 7h10v10"></path>
+      <path d="M7 17 17 7"></path>
+    </svg>
+  </div>
   <div
     class="w-full md:max-w-[610px] aspect-[610/400] overflow-hidden border-dashed border-secondary rounded-3xl"
   >
@@ -20,3 +38,17 @@
     </p>
   </div>
 </div>
+
+<script>
+  document.querySelectorAll(".group").forEach((card: Element) => {
+    const cardElement = card as HTMLElement;
+    const circle = cardElement.querySelector("#cursor-circle") as HTMLElement;
+    cardElement.addEventListener("mousemove", (e: MouseEvent) => {
+      const rect = cardElement.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      circle.style.left = `${x}px`;
+      circle.style.top = `${y}px`;
+    });
+  });
+</script>
