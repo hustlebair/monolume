@@ -1,0 +1,51 @@
+---
+import { SITE } from "@consts";
+---
+
+<footer class="bg-primary container mx-auto rounded-t-[80px] p-10 space-y-8">
+  <div
+    class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6"
+  >
+    <h2 class="text-5xl lg:text-9xl uppercase">{SITE.TITLE}</h2>
+    <p class="text-2xl lg:text-3xl max-w-[760px]">
+      Simplicity is the ultimate sophistication — especially in code.
+    </p>
+  </div>
+  <div class="flex flex-col sm:flex-row sm:flex-wrap justify-between gap-10">
+    <div>
+      <h3 class="font-bold mb-2">Contact</h3>
+      <ul>
+        <li>{SITE.EMAIL}</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="mb-2">Navigation</h3>
+      <ul class="space-y-1">
+        <li><a href="/">Home</a></li>
+        <li><a href="#About">About</a></li>
+        <li><a href="#Projects">Projects</a></li>
+        <li><a href="#Contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="mb-2">Socials</h3>
+      <ul class="space-y-1">
+        <li><a href="#">X</a></li>
+        <li><a href="#">Github</a></li>
+        <li><a href="#">Linkedin</a></li>
+        <li><a href="#">Peerlist</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="mb-2">Projects</h3>
+      <ul class="space-y-1">
+        <li><a href="#">PromptSmith</a></li>
+        <li><a href="#">ZenTrack</a></li>
+        <li><a href="#">FormSync</a></li>
+      </ul>
+    </div>
+  </div>
+  <span class="block text-center text-sm opacity-70">
+    © Mono Lume. Built with Astro
+  </span>
+</footer>
