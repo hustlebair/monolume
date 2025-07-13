@@ -2,18 +2,34 @@
   document.querySelectorAll(".group").forEach((card: Element) => {
     const cardElement = card as HTMLElement;
     const circle = cardElement.querySelector("#cursor-circle") as HTMLElement;
+
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
     cardElement.addEventListener("mousemove", (e: MouseEvent) => {
       const rect = cardElement.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      circle.style.left = `${x}px`;
-      circle.style.top = `${y}px`;
+      targetX = e.clientX - rect.left;
+      targetY = e.clientY - rect.top;
     });
+
+    function animateCursor() {
+      const speed = 0.1;
+      currentX += (targetX - currentX) * speed;
+      currentY += (targetY - currentY) * speed;
+
+      circle.style.left = `${currentX}px`;
+      circle.style.top = `${currentY}px`;
+
+      requestAnimationFrame(animateCursor);
+    }
+
+    animateCursor();
   });
 </script>
-
 <div
-  class="group relative flex flex-col md:flex-row odd:md:flex-row-reverse items-center justify-between gap-8 md:gap-12 mb-8 pb-8 border-dashed border-b border-b-secondary cursor-none"
+  class="group relative flex flex-col md:flex-row odd:md:flex-row-reverse items-center justify-between gap-8 md:gap-12 mb-8 pb-8 border-dashed border-b border-b-secondary cursor-pointer"
 >
   <div
     id="cursor-circle"
