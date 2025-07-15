@@ -16,6 +16,10 @@
   @apply font-plex tracking-[-2%] font-bold;
 }
 
+html {
+  @apply scroll-smooth;
+}
+
 body {
   @apply font-geist text-foreground bg-background;
 }
