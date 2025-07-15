@@ -1,33 +1,63 @@
 <script>
-  document.querySelectorAll(".group").forEach((card: Element) => {
-    const cardElement = card as HTMLElement;
-    const circle = cardElement.querySelector("#cursor-circle") as HTMLElement;
+  document
+    .querySelectorAll<HTMLElement>(".group")
+    .forEach((card: HTMLElement) => {
+      const cardElement: HTMLElement = card;
+      const circle: HTMLElement = cardElement.querySelector(
+        "#cursor-circle",
+      ) as HTMLElement;
 
-    let targetX = 0;
-    let targetY = 0;
-    let currentX = 0;
-    let currentY = 0;
+      let targetX: number = 0;
+      let targetY: number = 0;
+      let currentX: number = 0;
+      let currentY: number = 0;
+      let isHovering: boolean = false;
+      let animationFrameId: number | null = null;
 
-    cardElement.addEventListener("mousemove", (e: MouseEvent) => {
-      const rect = cardElement.getBoundingClientRect();
-      targetX = e.clientX - rect.left;
-      targetY = e.clientY - rect.top;
+      cardElement.addEventListener("mouseenter", (e: MouseEvent) => {
+        const rect: DOMRect = cardElement.getBoundingClientRect();
+        targetX = e.clientX - rect.left;
+        targetY = e.clientY - rect.top;
+        currentX = targetX;
+        currentY = targetY;
+        circle.style.left = `${currentX}px`;
+        circle.style.top = `${currentY}px`;
+        circle.style.opacity = "1";
+        isHovering = true;
+        if (!animationFrameId) {
+          animateCursor();
+        }
+      });
+
+      cardElement.addEventListener("mousemove", (e: MouseEvent) => {
+        const rect: DOMRect = cardElement.getBoundingClientRect();
+        targetX = e.clientX - rect.left;
+        targetY = e.clientY - rect.top;
+      });
+
+      cardElement.addEventListener("mouseleave", () => {
+        isHovering = false;
+        circle.style.opacity = "0";
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = null;
+        }
+      });
+
+      function animateCursor(): void {
+        if (!isHovering) return;
+        const speed: number = 0.1;
+        currentX += (targetX - currentX) * speed;
+        currentY += (targetY - currentY) * speed;
+
+        circle.style.left = `${currentX}px`;
+        circle.style.top = `${currentY}px`;
+
+        animationFrameId = requestAnimationFrame(animateCursor);
+      }
     });
-
-    function animateCursor() {
-      const speed = 0.1;
-      currentX += (targetX - currentX) * speed;
-      currentY += (targetY - currentY) * speed;
-
-      circle.style.left = `${currentX}px`;
-      circle.style.top = `${currentY}px`;
-
-      requestAnimationFrame(animateCursor);
-    }
-
-    animateCursor();
-  });
 </script>
+
 <div
   class="group relative flex flex-col md:flex-row odd:md:flex-row-reverse items-center justify-between gap-8 md:gap-12 mb-8 pb-8 border-dashed border-b border-b-secondary cursor-pointer"
 >
