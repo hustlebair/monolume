@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@plugin '@tailwindcss/typography';
+
 @theme {
   /* fonts */
   --font-plex: "IBM Plex Mono", monospace;
@@ -22,4 +24,10 @@ html {
 
 body {
   @apply font-geist text-foreground bg-background;
+}
+
+article {
+  @apply prose prose-neutral prose-img:mx-auto prose-img:my-auto text-lg leading-8;
+  @apply prose-headings:font-bold prose-headings:font-plex prose-headings:text-foreground mx-auto;
+  @apply text-secondary prose-a:underline-offset-2;
 }
