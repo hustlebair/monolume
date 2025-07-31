@@ -1,5 +1,10 @@
 ---
 import ProjectCard from "./ProjectCard.astro";
+
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const allProjects: CollectionEntry<"projects">[] =
+  await getCollection("projects");
 ---
 
 <section id="Projects" class="container mx-auto px-6">
@@ -25,7 +30,7 @@ import ProjectCard from "./ProjectCard.astro";
       </div>
     </div>
   </div>
-  {Array.from({ length: 4 }).map((_) => <ProjectCard />)}
+  {allProjects.map((project) => <ProjectCard entry={project} />)}
 </section>
 
 <style>
