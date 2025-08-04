@@ -41,7 +41,7 @@ const { Content } = await render(project);
       <span>Back</span>
     </button>
     <div
-      class="flex justify-between items-center pb-4 border-b border-dashed border-secondary"
+      class="flex justify-between md:items-center pb-4 border-b border-dashed border-secondary gap-4 flex-col md:flex-row"
     >
       <div class="space-y-4">
         <h1 class="heading text-3xl md:text-5xl uppercase">
@@ -50,7 +50,7 @@ const { Content } = await render(project);
         <p>{project.data.description}</p>
       </div>
 
-      <div class="flex flex-col md:flex-row gap-2.5">
+      <div class="flex gap-2.5">
         <a
           href={project.data.githubUrl}
           class="inline-flex items-center justify-center bg-primary rounded-4xl py-6 px-26 cursor-pointer hover:bg-background hover:outline-1 hover:outline-dashed hover:outline-secondary hover:text-foreground"
