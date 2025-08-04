@@ -1,81 +1,42 @@
 ---
 title: PromptSmith
-description: Prompt smith starts smithing the prompt when no one was around.
+description: An AI prompt management tool for developers and creators using OpenAI APIs, with support for versioning, tags, and export to JSON.
 liveUrl: https://example.com
 githubUrl: https://github.com
 image: {
-url: "https://images.pexels.com/photos/32965523/pexels-photo-32965523.jpeg",
+url: "/promptsmith.jpeg",
 alt:  "Promptsmith thumbnail"
 }
 ---
 
-# Hello I am the prompt smith
+## Overview
 
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
+**PromptSmith** is a prompt management interface built for developers, researchers, and creators working with OpenAI’s API. It offers a streamlined workflow to organize, tag, and version prompts — making experimentation and reuse effortless.
 
-## Hello I am the prompt smith
+## Features
 
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
+- 🧠 Version-controlled prompts
+- 🏷️ Tag system for categorization
+- 📤 Export prompts to JSON for easy integration
+- 🔍 Search and filter UI
+- 🌗 Dark mode support
+- ⚡ Built with Astro + TypeScript
 
-### Hello I am the prompt smith
+## Tech Stack
 
-1. We
-2. are
-3. the
-4. gremlins
+- **Frontend**: Astro, TailwindCSS, TypeScript
+- **Backend**: Serverless (Optional), File-based storage or Supabase
+- **Deployment**: Vercel
 
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
+## Why I Built This
 
-#### Hello I am the prompt smith
+Managing prompts manually in notepad files or scattered in code wasn't scalable — especially when iterating rapidly. PromptSmith brings order to chaos, with a minimal interface that respects developer ergonomics.
 
-- We
-  - are
-  - are
-- the
-- gremlins
+## Links
 
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
+- 🔗 [Live Demo](https://promptsmith.dev)
+- 💾 [Source Code](https://github.com/yourusername/promptsmith)
 
-##### Hello I am the prompt smith
+---
 
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
-I'm here to help you with your prompts and problems
+_Built with clarity and intention._
