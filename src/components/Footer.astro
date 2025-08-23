@@ -1,5 +1,5 @@
 ---
-import { SITE } from "@consts";
+import { SITE, SOCIALS } from "@consts";
 ---
 
 <footer class="bg-primary container mx-auto rounded-t-[80px] p-10 space-y-8">
@@ -30,10 +30,10 @@ import { SITE } from "@consts";
     <div>
       <h3 class="mb-2 text-xl">Socials</h3>
       <ul class="space-y-1 text-secondary">
-        <li><a href="#">X</a></li>
-        <li><a href="#">Github</a></li>
-        <li><a href="#">Linkedin</a></li>
-        <li><a href="#">Peerlist</a></li>
+        <li><a href={SOCIALS.X}>X</a></li>
+        <li><a href={SOCIALS.GITHUB}>Github</a></li>
+        <li><a href={SOCIALS.LINKEDIN}>Linkedin</a></li>
+        <li><a href={SOCIALS.PEERLIST}>Peerlist</a></li>
       </ul>
     </div>
     <div>
@@ -46,6 +46,6 @@ import { SITE } from "@consts";
     </div>
   </div>
   <span class="block text-center text-sm opacity-70">
-    © Mono Lume. Built with Astro
+    © {SITE.TITLE}. Built with Astro
   </span>
 </footer>
