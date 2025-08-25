@@ -26,31 +26,9 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
 
 <Layout title={SITE.TITLE} description={SITE.DESCRIPTION}>
   <section id="Blog" class="container mx-auto px-6 pt-18">
-    <div class="space-y-8">
-      <button
-        class="flex gap-2 items-center text-secondary hover:text-primary cursor-pointer pl-2"
-        title="back"
-        id="back-button"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="28"
-          height="28"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-move-left-icon lucide-move-left"
-          ><path d="M6 8L2 12L6 16"></path><path d="M2 12H22"></path></svg
-        >
-        <span>Back</span>
-      </button>
-      <h2 class="heading text-5xl md:text-9xl uppercase mr-4 md:mr-8 mb-4">
-        work
-      </h2>
-    </div>
+    <h2 class="heading text-5xl md:text-9xl uppercase mr-4 md:mr-8 mb-4">
+      Blog
+    </h2>
     <section>
       {
         years.map((year) => (
@@ -69,9 +47,3 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
     </section>
   </section>
 </Layout>
-
-<script is:inline>
-  document.getElementById("back-button").addEventListener("click", () => {
-    window.history.back();
-  });
-</script>
