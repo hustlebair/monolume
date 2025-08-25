@@ -1,3 +1,7 @@
+---
+import { SOCIALS } from "@consts";
+---
+
 <section id="Contact" class="container mx-auto my-28 p-10 space-y-12">
   <h2 class="heading text-5xl lg:text-9xl uppercase">Get in Touch</h2>
 
@@ -9,28 +13,19 @@
       </p>
 
       <div class="text-xl space-y-2">
-        <p>
-          <a
-            href="https://github.com/yourusername"
-            target="_blank"
-            class="underline hover:text-secondary transition">GitHub</a
-          >
-        </p>
-        <p>
-          <a
-            href="https://linkedin.com/in/yourusername"
-            target="_blank"
-            class="underline hover:text-secondary transition">LinkedIn</a
-          >
-        </p>
-        <p>
-          <a
-            href="https://x.com/yourusername"
-            target="_blank"
-            class="underline hover:text-secondary transition"
-            >X (formerly Twitter)</a
-          >
-        </p>
+        {
+          SOCIALS.map((link) => (
+            <p>
+              <a
+                href={link.HREF}
+                target="_blank"
+                class="underline hover:text-secondary transition"
+              >
+                {link.NAME}
+              </a>
+            </p>
+          ))
+        }
       </div>
     </div>
 

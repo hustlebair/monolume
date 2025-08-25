@@ -30,10 +30,13 @@ import { SITE, SOCIALS } from "@consts";
     <div>
       <h3 class="mb-2 text-xl">Socials</h3>
       <ul class="space-y-1 text-secondary">
-        <li><a href={SOCIALS.X}>X</a></li>
-        <li><a href={SOCIALS.GITHUB}>Github</a></li>
-        <li><a href={SOCIALS.LINKEDIN}>Linkedin</a></li>
-        <li><a href={SOCIALS.PEERLIST}>Peerlist</a></li>
+        {
+          SOCIALS.map((link) => (
+            <li>
+              <a href={link.HREF}>{link.NAME}</a>
+            </li>
+          ))
+        }
       </ul>
     </div>
     <div>

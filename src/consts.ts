@@ -5,9 +5,17 @@ export const SITE = {
   EMAIL: "hi@monolume.com",
 };
 
-export const SOCIALS = {
-  X: "https://x.com/your_username",
-  LINKEDIN: "https://linkedin.com/",
-  GITHUB: "https://github.com/your_username",
-  PEERLIST: "https://peerlist.io/your_username",
-};
+export const SOCIALS = [
+  {
+    NAME: "X",
+    HREF: "https://x.com/your_username",
+  },
+  {
+    NAME: "Linkedin",
+    HREF: "https://linkedin.com/",
+  },
+  {
+    NAME: "Github",
+    HREF: "https://github.com/your_username",
+  },
+];
