@@ -2,13 +2,13 @@
 import Layout from "@layouts/Layout.astro";
 import Card from "@components/Card.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
-import { SITE } from "@consts";
+import { PROJECTS } from "@consts";
 
 const allProjects: CollectionEntry<"projects">[] =
   await getCollection("projects");
 ---
 
-<Layout title={SITE.TITLE} description={SITE.DESCRIPTION}>
+<Layout title={PROJECTS.TITLE} description={PROJECTS.DESCRIPTION}>
   <section id="Projects" class="container mx-auto px-6 pt-18">
     <h2 class="heading text-5xl md:text-9xl uppercase mr-4 md:mr-8 mb-4">
       work

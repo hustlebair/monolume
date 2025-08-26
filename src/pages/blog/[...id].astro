@@ -19,7 +19,7 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout title={SITE.TITLE} description={SITE.DESCRIPTION}>
+<Layout title={post.data.title} description={post.data.description}>
   <div class="container mx-auto space-y-8 pt-18 px-6">
     <button
       class="flex gap-2 items-center text-secondary hover:text-primary cursor-pointer pl-2 my-6"

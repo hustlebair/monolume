@@ -5,6 +5,24 @@ export const SITE = {
   EMAIL: "hi@monolume.com",
 };
 
+export const HOME = {
+  TITLE: "Home",
+  DESCRIPTION:
+    "A personal blog about coding, building projects, and figuring things out",
+};
+
+export const BLOG = {
+  TITLE: "Blog",
+  DESCRIPTION:
+    "A collection of articles on programming, projects and other stuff",
+};
+
+export const PROJECTS = {
+  TITLE: "Projects",
+  DESCRIPTION:
+    "A collection of my projects with links to repositories and live demos.",
+};
+
 export const SOCIALS = [
   {
     NAME: "X",
