@@ -3,7 +3,10 @@ import Card from "./Card.astro";
 
 import { getCollection, type CollectionEntry } from "astro:content";
 
-const allPosts: CollectionEntry<"blog">[] = await getCollection("blog");
+const allPosts: CollectionEntry<"blog">[] = (await getCollection("blog")).slice(
+  0,
+  3,
+);
 ---
 
 <section id="Projects" class="container mx-auto px-6 mt-18">

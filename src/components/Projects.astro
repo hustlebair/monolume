@@ -3,8 +3,9 @@ import Card from "./Card.astro";
 
 import { getCollection, type CollectionEntry } from "astro:content";
 
-const allProjects: CollectionEntry<"projects">[] =
-  await getCollection("projects");
+const allProjects: CollectionEntry<"projects">[] = (
+  await getCollection("projects")
+).slice(0, 3);
 ---
 
 <section id="Projects" class="container mx-auto px-6">
@@ -47,3 +48,5 @@ const allProjects: CollectionEntry<"projects">[] =
     animation: scroll 15s linear infinite;
   }
 </style>
+-->
+
