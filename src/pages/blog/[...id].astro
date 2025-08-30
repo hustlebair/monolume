@@ -51,14 +51,13 @@ const { Content } = await render(post);
         <p>{post.data.description}</p>
       </div>
     </div>
-
     {
       post.data.image && (
-        <div class="w-full h-[70vh] overflow-hidden rounded-2xl">
+        <div class="w-full lg:h-[70vh] aspect-[610/400] overflow-hidden rounded-2xl">
           <img
             src={post.data.image?.url}
             alt={post.data.image?.alt}
-            class="w-full h-full object-cover"
+            class="w-full h-full object-contain"
           />
         </div>
       )
