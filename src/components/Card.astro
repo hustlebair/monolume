@@ -97,7 +97,8 @@ const { entry } = Astro.props as {
     class="w-full md:max-w-[610px] aspect-[610/400] overflow-hidden border-dashed border-secondary rounded-3xl"
   >
     <img
-      src={entry.data.image?.url}
+      src={entry.data.image?.url ||
+        `https://placehold.co/600x400?text=${entry.data.title}`}
       alt={entry.data.image?.alt}
       class="w-full h-full object-cover"
     />
