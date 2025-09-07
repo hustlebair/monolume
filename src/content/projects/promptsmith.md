@@ -4,7 +4,7 @@ description: An AI prompt management tool for developers and creators using Open
 liveUrl: https://example.com
 githubUrl: https://github.com
 image: {
-url: "/promptsmith.jpeg",
+url: "/promptsmith.webp",
 alt:  "Promptsmith thumbnail"
 }
 ---

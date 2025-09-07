@@ -4,7 +4,7 @@ description: "A habit and task tracker designed with progressive enhancement in 
 liveUrl: https://example.com
 githubUrl: https://github.com
 image: {
-url: "/zentrack.jpeg",
+url: "/zentrack.webp",
 alt:  "ZenTrack thumbnail"
 }
 ---
