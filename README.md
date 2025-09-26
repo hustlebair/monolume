@@ -5,7 +5,7 @@ It’s designed for developers, designers, and freelancers who want to showcase 
 
 ## Demo
 
-[Live Preview](https://monoume.vercel.app)
+[Live Preview](https://monolume.vercel.app)
 
 ✨ Features
 
