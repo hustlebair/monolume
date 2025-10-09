@@ -10,9 +10,9 @@
 
   /* colors */
   --color-primary: oklch(86.89 0.29 142.02); /* #27FF0B*/
-  --color-background: oklch(99.7 0 0); /* #fefefe */
-  --color-foreground: oklch(0 0 0); /* #000000 */
-  --color-secondary: oklch(0.38 0 1); /* #434343*/
+  --color-background: oklch(0 0 0); /* #000000 */
+  --color-foreground: oklch(99.7 0 0); /* #fefefe */
+  --color-secondary: oklch(0.7 0 0); /* #b3b3b3 */
 }
 
 .heading {

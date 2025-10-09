@@ -1,6 +1,6 @@
 export const SITE = {
   URL: "https://your_site.com",
-  TITLE: "Mono Lume",
+  TITLE: "Jake Vibe Codes",
   DESCRIPTION:
     "A full-stack developer with a strong focus on building fast, accessible, and maintainable web applications.",
   EMAIL: "hi@monolume.com",
