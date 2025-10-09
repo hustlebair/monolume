@@ -1,11 +1,11 @@
 ---
-title: PromptSmith
-description: An AI prompt management tool for developers and creators using OpenAI APIs, with support for versioning, tags, and export to JSON.
-liveUrl: https://example.com
+title: KIDERA
+description: The Modern Digital Parenting Journal For Your Kids. Organizing Your Child's Life Story Using AI With Beautiful Calendar Layout.
+liveUrl: https://kidera.co
 githubUrl: https://github.com
 image: {
-url: "/promptsmith.webp",
-alt:  "Promptsmith thumbnail"
+url: "/kidera.jpg",
+alt:  "Kidera Parenting App"
 }
 ---
 

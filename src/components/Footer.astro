@@ -7,7 +7,7 @@ const Projects: CollectionEntry<"projects">[] = (
 ).slice(0, 3);
 ---
 
-<footer class="bg-white container mx-auto rounded-t-[80px] p-10 space-y-8 text-black">
+<footer class="container mx-auto rounded-t-[80px] p-10 space-y-8 text-white bg-cover bg-center bg-no-repeat" style="background-image: url('/gradient_footer.jpg');">
   <div
     class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6"
   >
@@ -25,7 +25,7 @@ const Projects: CollectionEntry<"projects">[] = (
     </div>
     <div>
       <h3 class="mb-2 text-xl">Navigation</h3>
-      <ul class="space-y-1 text-secondary">
+      <ul class="space-y-1 text-white">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/blog">Blog</a></li>
@@ -35,7 +35,7 @@ const Projects: CollectionEntry<"projects">[] = (
     </div>
     <div>
       <h3 class="mb-2 text-xl">Socials</h3>
-      <ul class="space-y-1 text-secondary">
+      <ul class="space-y-1 text-white">
         {
           SOCIALS.map((link) => (
             <li>
@@ -47,7 +47,7 @@ const Projects: CollectionEntry<"projects">[] = (
     </div>
     <div>
       <h3 class="mb-2 text-xl">Projects</h3>
-      <ul class="space-y-1 text-secondary">
+      <ul class="space-y-1 text-white">
         {
           Projects.map((project) => (
             <li>
@@ -59,6 +59,6 @@ const Projects: CollectionEntry<"projects">[] = (
     </div>
   </div>
   <span class="block text-center text-sm opacity-70">
-    © {SITE.TITLE}. Built with Astro
+    © {SITE.TITLE}. 
   </span>
 </footer>

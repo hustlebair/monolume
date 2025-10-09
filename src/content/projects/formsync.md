@@ -4,8 +4,8 @@ description: "Completely Anonymous End-to-end Ecnrypted Online Chat. Securely Me
 liveUrl: https://mink.chat
 githubUrl: https://github.com
 image: {
-url: "/formsync.webp",
-alt:  "FormSync thumbnail"
+url: "/mink_cover.JPG",
+alt:  "Mink Chat Thumbnail"
 }
 ---
 
