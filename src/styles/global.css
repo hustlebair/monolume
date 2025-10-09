@@ -9,7 +9,7 @@
   --font-bricolage: "Bricolage Grotesque", sans-serif;
 
           /* colors */
-          --color-primary: #3b82f6;
+          --color-primary: #e6be8a;
   --color-background: oklch(0 0 0); /* #000000 */
   --color-foreground: oklch(99.7 0 0); /* #fefefe */
   --color-secondary: #d9d9d9; /* near-white gray for normal text */
@@ -45,14 +45,9 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
-/* Scrolling text gradient - works on both light and dark backgrounds */
+/* Scrolling text - solid yellow color */
 .scrolling-text {
-  background: linear-gradient(135deg, #c7a8ff, #a8d8ff, #ffa8d8, #a8ffd8);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 3s ease-in-out infinite;
+  color: #e6be8a;
 }
 
 @keyframes gradient-shift {
@@ -66,18 +61,17 @@
 
 /* Futuristic blue gradient for primary elements */
 .primary-gradient {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8, #60a5fa);
-  background-size: 200% 200%;
-  animation: gradient-shift 4s ease-in-out infinite;
+  background: #e6be8a;
+  color: #000;
 }
 
 .primary-gradient-text {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8, #60a5fa);
+  background: linear-gradient(135deg, #c7a8ff, #a8d8ff, #ffa8d8, #a8ffd8);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 4s ease-in-out infinite;
+  animation: gradient-shift 3s ease-in-out infinite;
 }
 
 .heading {
@@ -99,10 +93,37 @@ article {
 }
 
 article h1, article h2, article h3, article h4, article h5, article h6 {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8, #60a5fa);
+  background: linear-gradient(135deg, #c7a8ff, #a8d8ff, #ffa8d8, #a8ffd8);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 4s ease-in-out infinite;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+/* Beehiiv subscribe button styling */
+.beehiiv-embed iframe {
+  border-radius: 8px !important;
+}
+
+.beehiiv-embed input[type="email"] {
+  border-radius: 8px !important;
+  border: 1px solid #e5e7eb !important;
+  padding: 12px 16px !important;
+  font-size: 16px !important;
+}
+
+.beehiiv-embed button {
+  background: #e6be8a !important;
+  border: none !important;
+  border-radius: 8px !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+  padding: 12px 24px !important;
+  transition: all 0.3s ease !important;
+}
+
+.beehiiv-embed button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
 }
