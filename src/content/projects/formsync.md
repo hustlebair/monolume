@@ -1,7 +1,7 @@
 ---
-title: "FormSync"
-description: "Serverless forms with instant email notifications, reCAPTCHA, and zero backend. Just drop in a <form>."
-liveUrl: https://example.com
+title: "Mink Chat"
+description: "Completely Anonymous End-to-end Ecnrypted Online Chat. Securely Message Anyone Online Without Any History Or Sign Up Required."
+liveUrl: https://mink.chat
 githubUrl: https://github.com
 image: {
 url: "/formsync.webp",

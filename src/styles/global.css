@@ -12,7 +12,7 @@
   --color-primary: #b9ff66;
   --color-background: oklch(0 0 0); /* #000000 */
   --color-foreground: oklch(99.7 0 0); /* #fefefe */
-  --color-secondary: oklch(0.7 0 0); /* #b3b3b3 */
+  --color-secondary: #d9d9d9; /* near-white gray for normal text */
 }
 
 .heading {
@@ -29,6 +29,6 @@ body {
 
 article {
   @apply prose prose-neutral prose-img:mx-auto prose-img:my-auto text-lg leading-8;
-  @apply prose-headings:font-bold prose-headings:font-bricolage prose-headings:text-foreground mx-auto;
-  @apply text-secondary prose-a:underline-offset-2;
+  @apply prose-headings:font-bold prose-headings:font-bricolage prose-headings:text-primary prose-strong:text-foreground mx-auto;
+  @apply text-secondary prose-a:underline-offset-2 prose-a:text-sky-300 hover:prose-a:text-sky-200;
 }

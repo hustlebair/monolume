@@ -53,10 +53,10 @@ Each project needs **frontmatter** at the top, like this:
 
 ```yaml
 ---
-title: "FormSync"
-description: "Serverless forms with instant email notifications, reCAPTCHA, and zero backend. Just drop in a <form>."
-liveUrl: https://example.com
-githubUrl: https://github.com
+title: "Mink Chat"
+description: "Completely Anonymous End-to-end Ecnrypted Online Chat."
+liveUrl: https://mink.chat
+githubUrl: 
 image: { url: "/formsync.jpeg", alt: "FormSync thumbnail" }
 ---
 ```
