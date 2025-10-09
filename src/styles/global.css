@@ -6,6 +6,7 @@
   /* fonts */
   --font-plex: "IBM Plex Mono", monospace;
   --font-geist: "Geist", sans-serif;
+  --font-bricolage: "Bricolage Grotesque", sans-serif;
 
   /* colors */
   --color-primary: oklch(86.89 0.29 142.02); /* #27FF0B*/
@@ -15,7 +16,7 @@
 }
 
 .heading {
-  @apply font-plex tracking-[-2%] font-bold;
+  @apply font-bricolage tracking-[-2%] font-bold;
 }
 
 html {
@@ -28,6 +29,6 @@ body {
 
 article {
   @apply prose prose-neutral prose-img:mx-auto prose-img:my-auto text-lg leading-8;
-  @apply prose-headings:font-bold prose-headings:font-plex prose-headings:text-foreground mx-auto;
+  @apply prose-headings:font-bold prose-headings:font-bricolage prose-headings:text-foreground mx-auto;
   @apply text-secondary prose-a:underline-offset-2;
 }
