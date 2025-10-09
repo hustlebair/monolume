@@ -135,14 +135,14 @@ const links = [
       toggle.setAttribute("aria-expanded", String(expanded));
     });
 
-    // Theme toggle
-    const currentTheme = localStorage.getItem("theme") || "dark";
-    document.documentElement.setAttribute("data-theme", currentTheme);
-    
-    if (currentTheme === "light") {
-      sunIcon?.classList.add("hidden");
-      moonIcon?.classList.remove("hidden");
-    }
+            // Theme toggle
+            const currentTheme = localStorage.getItem("theme") || "light";
+            document.documentElement.setAttribute("data-theme", currentTheme);
+            
+            if (currentTheme === "light") {
+              sunIcon?.classList.add("hidden");
+              moonIcon?.classList.remove("hidden");
+            }
 
     themeToggle?.addEventListener("click", () => {
       const currentTheme = document.documentElement.getAttribute("data-theme");
