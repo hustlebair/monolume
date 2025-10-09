@@ -9,7 +9,7 @@
   --font-bricolage: "Bricolage Grotesque", sans-serif;
 
   /* colors */
-  --color-primary: oklch(86.89 0.29 142.02); /* #27FF0B*/
+  --color-primary: #b9ff66;
   --color-background: oklch(0 0 0); /* #000000 */
   --color-foreground: oklch(99.7 0 0); /* #fefefe */
   --color-secondary: oklch(0.7 0 0); /* #b3b3b3 */
