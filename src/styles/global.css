@@ -8,11 +8,76 @@
   --font-geist: "Geist", sans-serif;
   --font-bricolage: "Bricolage Grotesque", sans-serif;
 
-  /* colors */
-  --color-primary: #b9ff66;
+          /* colors */
+          --color-primary: #3b82f6;
   --color-background: oklch(0 0 0); /* #000000 */
   --color-foreground: oklch(99.7 0 0); /* #fefefe */
   --color-secondary: #d9d9d9; /* near-white gray for normal text */
+}
+
+/* Light mode overrides */
+[data-theme="light"] {
+  --color-background: oklch(99.7 0 0); /* #fefefe */
+  --color-foreground: oklch(0 0 0); /* #000000 */
+  --color-secondary: oklch(0.3 0 0); /* #4d4d4d */
+}
+
+/* Hero grid background - only on hero section */
+.hero-grid-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.15) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+[data-theme="light"] .hero-grid-bg::before {
+  background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.1) 1px, transparent 0);
+}
+
+/* Header glow - theme aware */
+.header-glow {
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .header-glow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Scrolling text gradient - works on both light and dark backgrounds */
+.scrolling-text {
+  background: linear-gradient(135deg, #c7a8ff, #a8d8ff, #ffa8d8, #a8ffd8);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Futuristic blue gradient for primary elements */
+.primary-gradient {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8, #60a5fa);
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
+
+.primary-gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8, #60a5fa);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 4s ease-in-out infinite;
 }
 
 .heading {
@@ -29,6 +94,15 @@ body {
 
 article {
   @apply prose prose-neutral prose-img:mx-auto prose-img:my-auto text-lg leading-8;
-  @apply prose-headings:font-bold prose-headings:font-bricolage prose-headings:text-primary prose-strong:text-foreground mx-auto;
+  @apply prose-headings:font-bold prose-headings:font-bricolage prose-strong:text-foreground mx-auto;
   @apply text-secondary prose-a:underline-offset-2 prose-a:text-sky-300 hover:prose-a:text-sky-200;
+}
+
+article h1, article h2, article h3, article h4, article h5, article h6 {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8, #60a5fa);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 4s ease-in-out infinite;
 }

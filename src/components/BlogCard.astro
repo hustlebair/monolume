@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+    entry: CollectionEntry<"blog">;
+};
+
+const { entry } = Astro.props as {
+    entry: CollectionEntry<"blog">;
+};
+---
+
+<a
+    class="group relative flex flex-col gap-6 mb-8 pb-8 border-dashed border-b border-b-secondary cursor-pointer"
+    href={`/${entry.collection}/${entry.id}`}
+>
+    <div
+        class="w-full aspect-[610/400] overflow-hidden border-dashed border-secondary rounded-3xl"
+    >
+        <img
+            src={entry.data.image?.url ||
+                `https://placehold.co/600x400?text=${entry.data.title}`}
+            alt={entry.data.image?.alt || entry.data.title}
+            class="w-full h-full object-cover"
+        />
+    </div>
+
+    <div class="space-y-4 text-center">
+                <h3
+                    class="heading uppercase text-xl md:text-2xl line-clamp-2 primary-gradient-text"
+                >
+            {entry.data.title}
+        </h3>
+        <p
+            class="text-base md:text-lg text-secondary line-clamp-3"
+        >
+            {entry.data.description}
+        </p>
+    </div>
+</a>
