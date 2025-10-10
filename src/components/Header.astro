@@ -3,10 +3,11 @@ import { SITE } from "@consts";
 
 const links = [
   { name: "Home", href: "/", target: "_self" },
+  { name: "AI Tools", href: "/ai-tools", target: "_self" },
+  { name: "Make Money", href: "/make-money", target: "_self" },
+  { name: "Investing", href: "/investing", target: "_self" },
+  { name: "The Resistance", href: "/blog", target: "_self" },
   { name: "About", href: "/about", target: "_self" },
-  { name: "Work", href: "/projects", target: "_self" },
-  { name: "Blog", href: "/blog", target: "_self" },
-  { name: "Contact", href: "/contact", target: "_self" },
 ];
 ---
 
@@ -136,7 +137,7 @@ const links = [
     });
 
             // Theme toggle
-            const currentTheme = localStorage.getItem("theme") || "light";
+            const currentTheme = localStorage.getItem("theme") || "dark";
             document.documentElement.setAttribute("data-theme", currentTheme);
             
             if (currentTheme === "light") {

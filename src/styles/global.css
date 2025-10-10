@@ -48,15 +48,46 @@
 /* Mobile menu glow - theme aware */
 .mobile-menu-glow {
   box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.mobile-menu-glow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FF4C4C, #FF6B3D, #E63946);
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease-in-out infinite;
 }
 
 [data-theme="light"] .mobile-menu-glow {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
-/* Scrolling text - same gradient as headlines */
+/* Scrolling text - updated gradient colors */
 .scrolling-text {
-  background: linear-gradient(90deg, #FF4C4C, #FF6B3D, #FF6B3D);
+  background: linear-gradient(90deg, #FF4C4C, #FF6B3D, #E63946);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+/* Hero gradient text for specific words */
+.hero-gradient-text {
+  background: linear-gradient(90deg, #FF4C4C, #FF6B3D, #E63946);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+/* Project title gradient - same as blog headlines */
+.project-title-gradient {
+  background: linear-gradient(90deg, #5AA469, #6FC7B8, #2E8BC0);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
