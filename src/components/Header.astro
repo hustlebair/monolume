@@ -4,9 +4,10 @@ import { SITE } from "@consts";
 const links = [
   { name: "Home", href: "/", target: "_self" },
   { name: "AI Tools", href: "/ai-tools", target: "_self" },
-  { name: "Make Money", href: "/make-money", target: "_self" },
-  { name: "Investing", href: "/investing", target: "_self" },
-  { name: "The Resistance", href: "/blog", target: "_self" },
+  { name: "Systems 💸", href: "/systems", target: "_self" },
+  { name: "The Market", href: "/market", target: "_self" },
+  { name: "The Takeover", href: "/takeover", target: "_self" },
+  { name: "The Resistance", href: "/blog", target: "_self", glowing: true },
   { name: "About", href: "/about", target: "_self" },
 ];
 ---
@@ -22,7 +23,7 @@ const links = [
           links.map((link) => (
             <a
               href={link.href}
-              class="hover:border-b-2 hover:border-dashed hover:border-secondary pb-0.5"
+              class={`hover:border-b-2 hover:border-dashed hover:border-secondary pb-0.5 ${link.glowing ? 'resistance-glow' : ''}`}
             >
               {link.name}
             </a>
@@ -61,7 +62,7 @@ const links = [
         links.map((link) => (
           <a
             href={link.href}
-            class="hover:border-b-2 hover:border-dashed hover:border-secondary pb-0.5"
+            class={`hover:border-b-2 hover:border-dashed hover:border-secondary pb-0.5 ${link.glowing ? 'resistance-glow' : ''}`}
           >
             {link.name}
           </a>
@@ -72,6 +73,21 @@ const links = [
 </header>
 
 <style>
+  .resistance-glow {
+    color: #FF4C4C;
+    text-shadow: 0 0 10px #FF4C4C, 0 0 20px rgba(255, 76, 76, 0.5);
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse-glow {
+    from {
+      text-shadow: 0 0 10px #FF4C4C, 0 0 20px rgba(255, 76, 76, 0.5);
+    }
+    to {
+      text-shadow: 0 0 15px #FF4C4C, 0 0 30px rgba(255, 76, 76, 0.8);
+    }
+  }
+
   .hamburger {
     gap: 5px;
     cursor: pointer;

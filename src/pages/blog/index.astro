@@ -27,7 +27,7 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
 
 <Layout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
   <!-- Fixed left decorative Warp outside main container -->
-  <div class="fixed left-0 top-0 h-screen w-[2px] sm:w-4 md:w-12 lg:w-72 overflow-hidden rounded-b-full pointer-events-none z-0">
+  <div class="fixed left-0 top-0 h-screen w-[2px] sm:w-4 md:w-12 lg:w-72 overflow-hidden rounded-b-full pointer-events-none -z-10">
     <WarpBackground
       colors={["#ffffff", "#27272a", "#FF4C4C"]}
       speed={0.25}

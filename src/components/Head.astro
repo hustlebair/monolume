@@ -15,10 +15,20 @@ const { title, description, image = "/placeholder.png" } = Astro.props;
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VFF4VBWT1C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VFF4VBWT1C');
+</script>
+
 <!-- Primary Meta Tags -->
-<title>Jake Vibe Codes</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+<title>PLANET TAKE OVER | Join The Resistance. Master AI Before It Masters You.</title>
+<meta name="title" content="PLANET TAKE OVER | Join The Resistance. Master AI Before It Masters You." />
+<meta name="description" content="The AI revolution is here. Learn the tools, build systems, and join The Resistance to stay ahead of the takeover." />
 
 <!-- google fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
