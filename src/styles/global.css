@@ -57,10 +57,10 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #FF4C4C, #FF6B3D, #E63946);
-  background-size: 200% 200%;
-  animation: gradient-shift 8s ease-in-out infinite;
+  height: 8px;
+  background: #FF4C4C;
+  box-shadow: 0 0 20px #FF4C4C, 0 0 40px rgba(255, 76, 76, 0.5), 0 0 60px rgba(255, 76, 76, 0.3);
+  border-radius: 0 0 16px 16px;
 }
 
 [data-theme="light"] .mobile-menu-glow {
