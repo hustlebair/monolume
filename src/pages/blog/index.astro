@@ -1,5 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import WarpBackground from "@components/warp-background";
 import Card from "@components/Card.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { BLOG } from "@consts";
@@ -25,7 +26,20 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
 ---
 
 <Layout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
-  <section id="Blog" class="container mx-auto px-6 pt-18">
+  <!-- Fixed left decorative Warp outside main container -->
+  <div class="fixed left-0 top-0 h-screen w-[2px] sm:w-4 md:w-12 lg:w-72 overflow-hidden rounded-b-full pointer-events-none z-0">
+    <WarpBackground
+      colors={["#ffffff", "#27272a", "#FF4C4C"]}
+      speed={0.25}
+      swirl={1.5}
+      swirlIterations={10}
+      shapeScale={0.3}
+      client:load
+    />
+  </div>
+
+  <section id="Blog" class="container mx-auto px-6 pt-18 relative z-10 pl-[2px] sm:pl-4 md:pl-12 lg:pl-72">
+    <div>
         <h2 class="heading text-5xl md:text-9xl uppercase mr-4 md:mr-8 my-8 hero-gradient-text">
           THE RESISTANCE
         </h2>
@@ -37,7 +51,7 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
             The Resistance is your intel source for learning the tools, skills, and systems to stay ahead in the age of AI. Adapt fast. Upgrade your mind. Stay human.
           </p>
         </div>
-    <section>
+        <section>
       {
         years.map((year) => (
           <section class="animate space-y-4">
@@ -52,6 +66,7 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
           </section>
         ))
       }
-    </section>
+        </section>
+    </div>
   </section>
 </Layout>
