@@ -12,9 +12,9 @@ const links = [
 
 <header class="fixed top-0 w-full z-50">
   <div class="container mx-auto flex items-center justify-between p-4 bg-background/90 backdrop-blur-sm rounded-b-2xl mx-4 shadow-sm header-glow">
-    <a href="/" class="font-bold font-plex text-4xl"
-      >{SITE.TITLE.toUpperCase().charAt(0)}.</a
-    >
+    <a href="/" class="font-bold font-plex text-4xl">
+      P.T.O
+    </a>
     <div class="flex items-center space-x-4">
       <nav class="space-x-3 text-secondary hidden md:block">
         {
@@ -51,10 +51,10 @@ const links = [
       </button>
     </div>
   </div>
-  <div
-    id="menu-mobile"
-    class="hidden md:hidden space-x-3 text-secondary bg-background backdrop-blur-2xl w-screen p-4"
-  >
+          <div
+            id="menu-mobile"
+            class="hidden md:hidden space-x-3 text-secondary bg-background backdrop-blur-2xl w-screen p-4 mobile-menu-glow"
+          >
     <nav class="flex flex-col gap-4 text-2xl">
       {
         links.map((link) => (

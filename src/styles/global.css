@@ -9,7 +9,7 @@
   --font-bricolage: "Bricolage Grotesque", sans-serif;
 
           /* colors */
-          --color-primary: #e6be8a;
+          --color-primary: #FF4C4C;
   --color-background: oklch(0 0 0); /* #000000 */
   --color-foreground: oklch(99.7 0 0); /* #fefefe */
   --color-secondary: #d9d9d9; /* near-white gray for normal text */
@@ -45,9 +45,22 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
-/* Scrolling text - solid yellow color */
+/* Mobile menu glow - theme aware */
+.mobile-menu-glow {
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .mobile-menu-glow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Scrolling text - same gradient as headlines */
 .scrolling-text {
-  color: #e6be8a;
+  background: linear-gradient(90deg, #FF4C4C, #FF6B3D, #FF6B3D);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 8s ease-in-out infinite;
 }
 
 @keyframes gradient-shift {
@@ -61,17 +74,16 @@
 
 /* Futuristic blue gradient for primary elements */
 .primary-gradient {
-  background: #e6be8a;
-  color: #000;
+  background: #FF4C4C;
+  color: #fff;
 }
 
 .primary-gradient-text {
-  background: linear-gradient(135deg, #c7a8ff, #a8d8ff, #ffa8d8, #a8ffd8);
+  background: linear-gradient(90deg, #5AA469, #6FC7B8, #2E8BC0);
   background-size: 200% 200%;
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 3s ease-in-out infinite;
+  animation: gradient-shift 8s ease-in-out infinite;
 }
 
 .heading {
@@ -93,12 +105,16 @@ article {
 }
 
 article h1, article h2, article h3, article h4, article h5, article h6 {
-  background: linear-gradient(135deg, #c7a8ff, #a8d8ff, #ffa8d8, #a8ffd8);
+  background: linear-gradient(90deg, #5AA469, #6FC7B8, #2E8BC0);
   background-size: 200% 200%;
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 3s ease-in-out infinite;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+/* Hide the first H1 in blog posts since title is already shown in header */
+article h1:first-child {
+  display: none;
 }
 
 /* Beehiiv subscribe button styling */
@@ -114,10 +130,10 @@ article h1, article h2, article h3, article h4, article h5, article h6 {
 }
 
 .beehiiv-embed button {
-  background: #e6be8a !important;
+  background: #FF4C4C !important;
   border: none !important;
   border-radius: 8px !important;
-  color: #000 !important;
+  color: #fff !important;
   font-weight: 600 !important;
   padding: 12px 24px !important;
   transition: all 0.3s ease !important;

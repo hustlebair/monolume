@@ -1,10 +1,10 @@
 ---
-title: "ZenTrack"
-description: "A habit and task tracker designed with progressive enhancement in mind. Zero distractions, all momentum."
-liveUrl: https://example.com
+title: "First 3 Seconds"
+description: "Attention Spans are non existent. You have 3 seconds to capture attention. Here's how you make that happen."
+liveUrl: https://first3seconds.com
 githubUrl: https://github.com
 image: {
-url: "/zentrack.webp",
+url: "/first3seconds.JPG",
 alt:  "ZenTrack thumbnail"
 }
 ---
