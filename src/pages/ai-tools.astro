@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import AIToolCard from "@components/AIToolCard.astro";
+import TabNavigation from "@components/TabNavigation.astro";
 import { sortedAiTools } from "@data/ai-tools";
 ---
 
@@ -28,6 +29,9 @@ import { sortedAiTools } from "@data/ai-tools";
           </ul>
         </div>
       </div>
+
+      <!-- Tab Navigation -->
+      <TabNavigation />
 
       <!-- AI Tools Grid -->
       <div class="space-y-6">

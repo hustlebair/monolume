@@ -8,7 +8,7 @@ type Props = {
 const { tool } = Astro.props as Props;
 ---
 
-<div class="ai-tool-card">
+<div class="ai-tool-card" data-category={tool.categoryId}>
   <!-- Main Card Content -->
   <div class="card-main">
     <!-- Left Section: Logo and Apply Button -->
