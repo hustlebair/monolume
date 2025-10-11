@@ -8,11 +8,11 @@ export default function AIToolsHero() {
       {/* Warp Background Layer */}
       <div className="hero-warp-background">
         <WarpBackground
-          colors={["#5AA469", "#6FC7B8", "#2E8BC0"]}
-          speed={0.3}
-          swirl={1.2}
-          swirlIterations={8}
-          shapeScale={0.4}
+          colors={["#ffffff", "#27272a"]}
+          speed={0.25}
+          swirl={1.5}
+          swirlIterations={10}
+          shapeScale={0.3}
         />
       </div>
       

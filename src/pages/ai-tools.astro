@@ -13,23 +13,19 @@ import { sortedAiTools } from "@data/ai-tools";
       <AIToolsHero client:load />
     </div>
 
-    <!-- Content Area with White Background -->
-    <div class="ai-tools-page-wrapper">
-    <!-- Sticky Navigation -->
+  <!-- Sticky Navigation - Full Width -->
+  <div class="sticky-nav-container">
     <ImprovedStickyTabs client:load />
+  </div>
 
+  <!-- Content Area with White Background -->
+  <div class="ai-tools-page-wrapper">
     <!-- AI Tools Grid Container -->
     <div class="container mx-auto px-6">
       <div class="max-w-6xl mx-auto">
-        <div class="space-y-6 py-8">
-            {sortedAiTools.map((tool, index) => (
+          <div class="space-y-6 py-8">
+            {sortedAiTools.map((tool) => (
               <div class="relative">
-                <!-- Ranking Badge -->
-                <div class="absolute -left-4 -top-4 z-10">
-                  <div class="ranking-badge">
-                    #{index + 1}
-                  </div>
-                </div>
                 <AIToolCard tool={tool} />
               </div>
             ))}
@@ -72,6 +68,12 @@ import { sortedAiTools } from "@data/ai-tools";
     padding: 0;
   }
 
+  /* Sticky Navigation Container - Full Width */
+  .sticky-nav-container {
+    width: 100%;
+    background: #ffffff;
+  }
+
   /* Content Area - Back to Centered Layout */
   .ai-tools-page-wrapper {
     min-height: 100vh;
@@ -80,21 +82,6 @@ import { sortedAiTools } from "@data/ai-tools";
     max-width: 1280px;
     margin: 0 auto;
     padding: 0;
-  }
-
-  .ranking-badge {
-    background: linear-gradient(135deg, #FF4C4C, #FF6B3D);
-    color: white;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 18px;
-    box-shadow: 0 4px 12px rgba(255, 76, 76, 0.3);
-    border: 3px solid rgba(255, 255, 255, 0.9);
   }
 
   .footer-disclosure {
@@ -116,13 +103,5 @@ import { sortedAiTools } from "@data/ai-tools";
   .disclosure-date {
     color: #4a4a4a;
     font-size: 0.875rem;
-  }
-
-  @media (max-width: 768px) {
-    .ranking-badge {
-      width: 40px;
-      height: 40px;
-      font-size: 16px;
-    }
   }
 </style>
