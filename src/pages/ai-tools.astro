@@ -197,15 +197,20 @@ const toolsByCategory = categories.reduce((acc, category) => {
 
   /* Responsive section headers */
   @media (max-width: 768px) {
+    .ai-tools-page-wrapper .container {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+
     .category-section {
       padding-top: 2rem;
       padding-bottom: 2rem;
     }
 
     .section-header {
-      padding: 1.5rem 1.75rem;
+      padding: 1.5rem 1rem;
       margin-bottom: 2rem;
-      border-radius: 16px;
+      border-radius: 12px;
     }
 
     .section-title {
@@ -218,9 +223,14 @@ const toolsByCategory = categories.reduce((acc, category) => {
   }
 
   @media (max-width: 480px) {
+    .ai-tools-page-wrapper .container {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
     .section-header {
-      padding: 1.25rem 1.5rem;
-      border-radius: 14px;
+      padding: 1rem 0.75rem;
+      border-radius: 10px;
     }
 
     .section-title {

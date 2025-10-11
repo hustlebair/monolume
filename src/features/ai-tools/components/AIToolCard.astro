@@ -375,9 +375,15 @@ const { tool } = Astro.props as Props;
 
   /* Mobile Responsive */
   @media (max-width: 768px) {
+    .ai-tool-card {
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
     .card-main {
       flex-direction: column;
-      gap: 24px;
+      gap: 20px;
+      margin-bottom: 12px;
     }
 
     .card-left {
@@ -397,6 +403,29 @@ const { tool } = Astro.props as Props;
     .visit-site-btn {
       padding: 10px 20px;
       font-size: 13px;
+    }
+
+    .card-right {
+      gap: 12px;
+    }
+
+    .details-section {
+      gap: 6px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ai-tool-card {
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .card-main {
+      gap: 16px;
+    }
+
+    .section-header {
+      padding: 0.75rem 0.5rem;
     }
   }
 </style>
