@@ -191,3 +191,68 @@ article h1:first-child {
   transform: translateY(-2px) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
 }
+
+/* AI Tools Page Specific Styles */
+.ai-tools-page {
+  background: linear-gradient(135deg, rgba(255, 76, 76, 0.05) 0%, rgba(255, 107, 61, 0.05) 100%);
+}
+
+/* Enhanced card hover effects */
+.ai-tool-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-tool-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.ai-tool-card:hover::before {
+  left: 100%;
+}
+
+/* Star rating animation */
+.star {
+  transition: all 0.2s ease;
+}
+
+.star:hover {
+  transform: scale(1.1);
+}
+
+/* Collapsible section animations */
+.collapsible-section[open] .section-content {
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ranking badge pulse animation */
+.ranking-badge {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(255, 76, 76, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(255, 76, 76, 0.5);
+  }
+}

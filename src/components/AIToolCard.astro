@@ -1,0 +1,396 @@
+---
+import type { AITool } from "../data/ai-tools";
+
+type Props = {
+  tool: AITool;
+};
+
+const { tool } = Astro.props as Props;
+---
+
+<div class="ai-tool-card">
+  <!-- Main Card Content -->
+  <div class="card-main">
+    <!-- Left Section: Logo and Apply Button -->
+    <div class="card-left">
+      <div class="logo-container">
+        <img 
+          src={tool.logo} 
+          alt={`${tool.name} logo`}
+          class="tool-logo"
+        />
+      </div>
+      <a 
+        href={tool.affiliateUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="visit-site-btn"
+      >
+        <span>VISIT SITE</span>
+        <svg class="external-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15,3 21,3 21,9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </a>
+      <p class="website-text">on {tool.name}'s website</p>
+    </div>
+
+    <!-- Right Section: Rating and Details -->
+    <div class="card-right">
+      <div class="rating-section">
+        <div class="rating-header">
+          <span class="rating-label">Jake's Rating</span>
+          <svg class="info-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </div>
+        <div class="rating-display">
+        <div class="stars">
+          {Array.from({ length: 5 }, (_, i) => (
+            <svg 
+              class={`star ${i < Math.floor(tool.rating) ? 'filled' : ''} ${i === Math.floor(tool.rating) && tool.rating % 1 !== 0 ? 'half' : ''}`}
+              width="20" 
+              height="20" 
+              viewBox="0 0 24 24" 
+              fill="currentColor"
+            >
+              <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+            </svg>
+          ))}
+        </div>
+          <span class="rating-number">{tool.rating}/5</span>
+        </div>
+        <a href={tool.reviewUrl} class="review-link">Read Review</a>
+      </div>
+
+      <div class="details-section">
+        <div class="detail-item">
+          <span class="detail-label">Category</span>
+          <span class="detail-value">{tool.category}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Pricing</span>
+          <span class="detail-value">{tool.pricing}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Best For</span>
+          <span class="detail-value">{tool.notes}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Collapsible Sections -->
+  <div class="collapsible-sections">
+    <details class="collapsible-section">
+      <summary class="section-summary">
+        <span>Product Details</span>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6,9 12,15 18,9"></polyline>
+        </svg>
+      </summary>
+      <div class="section-content">
+        <p>{tool.productDetails}</p>
+        <div class="features-list">
+          <h4>Key Features:</h4>
+          <ul>
+            {tool.features.map(feature => (
+              <li>{feature}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <details class="collapsible-section">
+      <summary class="section-summary">
+        <span>Quick Take</span>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6,9 12,15 18,9"></polyline>
+        </svg>
+      </summary>
+      <div class="section-content">
+        <p>{tool.quickTake}</p>
+      </div>
+    </details>
+  </div>
+</div>
+
+<style>
+  .ai-tool-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .ai-tool-card:hover {
+    border-color: rgba(255, 76, 76, 0.3);
+    box-shadow: 0 8px 32px rgba(255, 76, 76, 0.1);
+  }
+
+  .card-main {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 24px;
+  }
+
+  .card-left {
+    flex: 0 0 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo-container {
+    width: 120px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .tool-logo {
+    max-width: 100px;
+    max-height: 60px;
+    object-fit: contain;
+  }
+
+  .visit-site-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #FF4C4C;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+  }
+
+  .visit-site-btn:hover {
+    background: #E63946;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 76, 76, 0.3);
+  }
+
+  .external-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .website-text {
+    font-size: 12px;
+    color: #d9d9d9;
+    margin: 0;
+  }
+
+  .card-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .rating-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .rating-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .rating-label {
+    font-weight: 600;
+    color: #d9d9d9;
+    font-size: 14px;
+  }
+
+  .info-icon {
+    color: #d9d9d9;
+    opacity: 0.7;
+  }
+
+  .rating-display {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .stars {
+    display: flex;
+    gap: 2px;
+  }
+
+  .star {
+    color: #d9d9d9;
+    opacity: 0.3;
+  }
+
+  .star.filled {
+    color: #FFD700;
+    opacity: 1;
+  }
+
+  .star.half {
+    background: linear-gradient(90deg, #FFD700 50%, #d9d9d9 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 1;
+  }
+
+  .rating-number {
+    font-weight: 600;
+    font-size: 18px;
+    color: #d9d9d9;
+    text-decoration: underline;
+  }
+
+  .review-link {
+    color: #60A5FA;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .review-link:hover {
+    color: #93C5FD;
+    text-decoration: underline;
+  }
+
+  .details-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .detail-label {
+    font-size: 14px;
+    color: #d9d9d9;
+    font-weight: 500;
+  }
+
+  .detail-value {
+    font-size: 16px;
+    color: #fefefe;
+    font-weight: 400;
+  }
+
+  .collapsible-sections {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 16px;
+  }
+
+  .collapsible-section {
+    margin-bottom: 16px;
+  }
+
+  .section-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: #d9d9d9;
+    list-style: none;
+  }
+
+  .section-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .chevron {
+    transition: transform 0.3s ease;
+    color: #d9d9d9;
+  }
+
+  .collapsible-section[open] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .section-content {
+    padding: 16px 0;
+    color: #d9d9d9;
+    line-height: 1.6;
+  }
+
+  .features-list {
+    margin-top: 16px;
+  }
+
+  .features-list h4 {
+    color: #fefefe;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .features-list ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .features-list li {
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .features-list li::before {
+    content: "•";
+    color: #FF4C4C;
+    position: absolute;
+    left: 0;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .card-main {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .card-left {
+      flex: none;
+    }
+
+    .logo-container {
+      width: 100px;
+      height: 60px;
+    }
+
+    .tool-logo {
+      max-width: 80px;
+      max-height: 40px;
+    }
+
+    .visit-site-btn {
+      padding: 10px 20px;
+      font-size: 13px;
+    }
+  }
+</style>

@@ -1,21 +1,85 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import AIToolCard from "@components/AIToolCard.astro";
+import { sortedAiTools } from "@data/ai-tools";
 ---
 
-<Layout title="AI Tools" description="Discover powerful AI tools and resources">
+<Layout title="AI Tools" description="Discover powerful AI tools and resources ranked by Jake's reviews">
   <div class="container mx-auto px-6 pt-24">
-    <div class="max-w-4xl mx-auto text-center py-20">
-      <h1 class="heading text-4xl md:text-6xl mb-8 primary-gradient-text">
-        AI Tools
-      </h1>
-      <p class="text-xl text-secondary mb-8">
-        Coming soon - A curated collection of AI tools and resources to boost your productivity.
-      </p>
-      <div class="bg-background/50 backdrop-blur-sm rounded-2xl p-8 border border-dashed border-secondary">
-        <p class="text-lg text-secondary">
-          This page is under construction. Check back soon for our comprehensive AI tools directory.
+    <div class="max-w-6xl mx-auto">
+      <!-- Header Section -->
+      <div class="text-center py-20 mb-12">
+        <h1 class="heading text-4xl md:text-6xl mb-8 primary-gradient-text">
+          AI Tools
+        </h1>
+        <p class="text-xl text-secondary mb-8 max-w-3xl mx-auto">
+          Discover the best AI tools ranked by my personal reviews. Each tool is tested and rated based on performance, usability, and value.
         </p>
+        <div class="bg-background/50 backdrop-blur-sm rounded-2xl p-6 border border-dashed border-secondary max-w-2xl mx-auto">
+          <p class="text-lg text-secondary mb-4">
+            <strong>How I Rate:</strong> Each tool is tested extensively and rated on a 5-star scale based on:
+          </p>
+          <ul class="text-secondary text-left space-y-2">
+            <li>• Performance and accuracy</li>
+            <li>• User experience and interface</li>
+            <li>• Value for money</li>
+            <li>• Unique features and capabilities</li>
+            <li>• Overall recommendation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- AI Tools Grid -->
+      <div class="space-y-6">
+        {sortedAiTools.map((tool, index) => (
+          <div class="relative">
+            <!-- Ranking Badge -->
+            <div class="absolute -left-4 -top-4 z-10">
+              <div class="ranking-badge">
+                #{index + 1}
+              </div>
+            </div>
+            <AIToolCard tool={tool} />
+          </div>
+        ))}
+      </div>
+
+      <!-- Footer Note -->
+      <div class="text-center py-12 mt-16">
+        <div class="bg-background/30 backdrop-blur-sm rounded-2xl p-8 border border-dashed border-secondary max-w-2xl mx-auto">
+          <p class="text-secondary mb-4">
+            <strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links, meaning I may earn a commission if you make a purchase through them. This doesn't affect my reviews or recommendations.
+          </p>
+          <p class="text-sm text-secondary">
+            Last updated: {new Date().toLocaleDateString()}
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </Layout>
+
+<style>
+  .ranking-badge {
+    background: linear-gradient(135deg, #FF4C4C, #FF6B3D);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(255, 76, 76, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .ranking-badge {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+    }
+  }
+</style>
