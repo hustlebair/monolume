@@ -7,11 +7,13 @@ export interface TabCategory {
 }
 
 const categories: TabCategory[] = [
+  
   { id: 'llm', label: 'LLM' },
   { id: 'coding', label: 'AI CODING' },
   { id: 'image', label: 'IMAGE GENERATION' },
   { id: 'video', label: 'VIDEO GENERATION' },
-  { id: 'writing', label: 'AI VOICE' }
+  { id: 'audio', label: 'AUDIO/MUSIC AI' }
+  
 ];
 
 export default function ImprovedStickyTabs() {
@@ -121,3 +123,4 @@ export default function ImprovedStickyTabs() {
     </>
   );
 }
+

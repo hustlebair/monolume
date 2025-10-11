@@ -1,12 +1,12 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import AIToolCard from "@components/AIToolCard.astro";
-import AIToolsHero from "@components/AIToolsHero";
-import ImprovedStickyTabs from "@components/ImprovedStickyTabs";
-import { sortedAiTools } from "@data/ai-tools";
+import Layout from "@/layouts/Layout.astro";
+import AIToolsHero from "@/features/ai-tools/components/AIToolsHero";
+import ImprovedStickyTabs from "@/features/ai-tools/components/ImprovedStickyTabs";
+import AIToolCard from "@/features/ai-tools/components/AIToolCard.astro";
+import { sortedAiTools } from "@/features/ai-tools/data/tools";
 ---
 
-<Layout title="AI Tools" description="Discover powerful AI tools and resources ranked by Jake's reviews">
+<Layout title="AI Tools" description="Discover powerful AI tools and resources ranked by performance, usability, and value">
   <div class="ai-tools-layout">
     <!-- Hero Section - Full Width (outside any container) -->
     <div id="hero-section" class="hero-full-width">

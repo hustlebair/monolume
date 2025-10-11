@@ -139,3 +139,4 @@ export const aiTools: AITool[] = [
 
 // Sort tools by rating (highest to lowest)
 export const sortedAiTools = aiTools.sort((a, b) => b.rating - a.rating);
+

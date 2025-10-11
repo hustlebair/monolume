@@ -1,5 +1,5 @@
 import React from 'react';
-import WarpBackground from './warp-background';
+import WarpBackground from '@/components/warp-background';
 import './AIToolsHero.css';
 
 export default function AIToolsHero() {
@@ -28,3 +28,4 @@ export default function AIToolsHero() {
     </section>
   );
 }
+
