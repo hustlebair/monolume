@@ -1,0 +1,108 @@
+---
+// No props needed - this is a pure client component
+---
+
+<div id="blog-filter" class="flex justify-center mb-12">
+  <div class="flex bg-background/50 backdrop-blur-sm rounded-2xl p-2 border border-dashed border-secondary">
+    <button 
+      class="filter-btn active px-6 py-3 rounded-xl transition-all duration-300 font-medium"
+      data-filter="all"
+    >
+      All
+    </button>
+    <button 
+      class="filter-btn px-6 py-3 rounded-xl transition-all duration-300 font-medium"
+      data-filter="resistance"
+    >
+      The Resistance
+    </button>
+    <button 
+      class="filter-btn px-6 py-3 rounded-xl transition-all duration-300 font-medium"
+      data-filter="takeover"
+    >
+      The Takeover
+    </button>
+  </div>
+</div>
+
+<style>
+  .filter-btn {
+    color: var(--color-secondary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .filter-btn:hover {
+    color: var(--color-foreground);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .filter-btn.active {
+    color: var(--color-foreground);
+    background: linear-gradient(90deg, #FF4C4C, #FF6B3D, #E63946);
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease-in-out infinite;
+  }
+
+  .filter-btn.active[data-filter="resistance"] {
+    background: linear-gradient(90deg, #5AA469, #6FC7B8, #2E8BC0);
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        // Get filter value
+        const filter = button.getAttribute('data-filter');
+        
+        // Filter blog cards
+        blogCards.forEach(card => {
+          const cardTag = card.getAttribute('data-tag');
+          
+          if (filter === 'all' || cardTag === filter) {
+            (card as HTMLElement).style.display = 'block';
+            (card as HTMLElement).style.animation = 'fadeIn 0.5s ease-in-out';
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

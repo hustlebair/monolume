@@ -143,6 +143,23 @@ article h1, article h2, article h3, article h4, article h5, article h6 {
   animation: gradient-shift 8s ease-in-out infinite;
 }
 
+/* Theme-specific article headlines */
+.takeover-article h1, .takeover-article h2, .takeover-article h3, .takeover-article h4, .takeover-article h5, .takeover-article h6 {
+  background: linear-gradient(90deg, #FF4C4C, #FF6B3D, #E63946);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+.resistance-article h1, .resistance-article h2, .resistance-article h3, .resistance-article h4, .resistance-article h5, .resistance-article h6 {
+  background: linear-gradient(90deg, #5AA469, #6FC7B8, #2E8BC0);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
 /* Hide the first H1 in blog posts since title is already shown in header */
 article h1:first-child {
   display: none;

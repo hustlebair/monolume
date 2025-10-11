@@ -1,20 +1,27 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import TradingViewWidget from "@components/TradingViewWidget.jsx";
 ---
 
 <Layout title="The Market" description="Market insights and investment strategies.">
-  <section class="container mx-auto px-6 pt-24 pb-12 text-center min-h-screen flex flex-col items-center justify-center">
-    <h1 class="heading text-5xl md:text-7xl primary-gradient-text mb-8">The Market</h1>
-    <div class="bg-background/90 backdrop-blur-md rounded-2xl p-8 shadow-lg max-w-2xl">
-      <p class="text-xl text-secondary mb-4">
-        This section is currently under construction. We're compiling the best investment strategies and market insights for a future-proof portfolio.
+  <div class="container mx-auto px-6 pt-24">
+    <div class="max-w-4xl mx-auto text-center py-20">
+      <h1 class="heading text-4xl md:text-6xl mb-8 primary-gradient-text">
+        The Market
+      </h1>
+      <p class="text-xl text-secondary mb-8">
+        Real-time market data and investment insights for building wealth.
       </p>
-      <p class="text-lg text-secondary">
-        Check back soon for expert advice and market analysis!
-      </p>
-      <a href="/blog" class="mt-8 inline-flex items-center justify-center primary-gradient text-white rounded-2xl py-3 px-6 sm:py-4 sm:px-10 cursor-pointer hover:opacity-90 transition">
-        Visit The Resistance
-      </a>
+      <div class="bg-background/50 backdrop-blur-sm rounded-2xl p-8 border border-dashed border-secondary">
+        <p class="text-lg text-secondary">
+          Track key stocks and market trends with live data and analysis.
+        </p>
+      </div>
     </div>
-  </section>
+
+    <!-- TradingView Widget: Responsive container -->
+    <div class="max-w-6xl mx-auto mt-10">
+      <TradingViewWidget client:load />
+    </div>
+  </div>
 </Layout>

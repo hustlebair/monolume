@@ -1,0 +1,123 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  entry: CollectionEntry<"blog">;
+};
+
+const { entry } = Astro.props as {
+  entry: CollectionEntry<"blog">;
+};
+
+const tag = entry.data.tag || "resistance";
+const isTakeover = tag === "takeover";
+const isResistance = tag === "resistance";
+---
+
+<a
+  class={`group relative flex flex-col gap-6 mb-8 pb-8 border-dashed border-b border-b-secondary cursor-pointer blog-card ${isTakeover ? 'takeover-theme' : 'resistance-theme'}`}
+  href={`/${entry.collection}/${entry.id}`}
+  data-tag={tag}
+>
+  <div
+    class={`w-full aspect-[610/400] overflow-hidden border-dashed border-secondary rounded-3xl ${isResistance ? 'resistance-glow-border' : ''}`}
+  >
+    <img
+      src={entry.data.image?.url ||
+        `https://placehold.co/600x400?text=${entry.data.title}`}
+      alt={entry.data.image?.alt || entry.data.title}
+      class="w-full h-full object-cover"
+    />
+  </div>
+
+  <div class="space-y-4 text-center">
+    <h3
+      class={`heading uppercase text-xl md:text-2xl line-clamp-2 ${isTakeover ? 'takeover-gradient-text' : 'resistance-gradient-text'}`}
+    >
+      {entry.data.title}
+    </h3>
+    <p
+      class="text-base md:text-lg text-secondary line-clamp-3"
+    >
+      {entry.data.description}
+    </p>
+  </div>
+</a>
+
+<style>
+  .takeover-theme:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+  }
+
+  .takeover-theme:hover .takeover-gradient-text {
+    animation: glitch-effect 0.6s ease-in-out;
+  }
+
+  .resistance-theme:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+  }
+
+  .resistance-glow-border {
+    position: relative;
+  }
+
+  .resistance-glow-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #5AA469, #6FC7B8, #2E8BC0);
+    border-radius: 3xl;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .resistance-theme:hover .resistance-glow-border::before {
+    opacity: 0.3;
+  }
+
+  .takeover-gradient-text {
+    background: linear-gradient(90deg, #FF4C4C, #FF6B3D, #E63946);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 8s ease-in-out infinite;
+  }
+
+  .resistance-gradient-text {
+    background: linear-gradient(90deg, #5AA469, #6FC7B8, #2E8BC0);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 8s ease-in-out infinite;
+  }
+
+  @keyframes glitch-effect {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(-2px);
+    }
+    40% {
+      transform: translateX(2px);
+    }
+    60% {
+      transform: translateX(-1px);
+    }
+    80% {
+      transform: translateX(1px);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+</style>

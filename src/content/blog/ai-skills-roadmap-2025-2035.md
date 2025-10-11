@@ -3,6 +3,7 @@ title: "The Ultimate AI Skills Roadmap: 12 Skills That Will Future-Proof Your Ca
 description: "Discover the essential AI and automation skills that will define the next decade. From RAG systems to AI ethics, this comprehensive roadmap shows you exactly what to learn and why it matters."
 date: 2025-10-08
 draft: false
+tag: "resistance"
 image:
   url: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
   alt: "Futuristic AI and technology concept with glowing neural networks"
