@@ -46,21 +46,6 @@ export const aiTools: AITool[] = [
     features: ["Versatile AI assistant", "Plugin ecosystem", "Custom GPTs", "Code interpreter", "Image generation"]
   },
   {
-    id: "perplexity",
-    name: "Perplexity AI",
-    logo: "/logos/perplexity-logo.png",
-    rating: 4.6,
-    reviewUrl: "/blog/perplexity-ai-review",
-    affiliateUrl: "https://perplexity.ai?ref=your-affiliate-id",
-    notes: "Best for research and fact-checking. Provides sources with every answer.",
-    productDetails: "Perplexity AI is a search engine powered by AI that provides accurate, sourced answers to questions. It excels at research tasks and fact-checking by citing sources and providing up-to-date information.",
-    quickTake: "Perplexity is the go-to tool for research and fact-checking. Its ability to provide sourced answers makes it invaluable for journalists, students, and researchers.",
-    category: "Research & Analysis",
-    categoryId: "research",
-    pricing: "Free tier available, Pro at $20/month",
-    features: ["Sourced answers", "Real-time information", "Research focus", "Fact-checking", "Academic sources"]
-  },
-  {
     id: "midjourney",
     name: "Midjourney",
     logo: "/logos/midjourney-logo.png",

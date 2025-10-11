@@ -4,31 +4,73 @@ import './ImprovedStickyTabs.css';
 export interface TabCategory {
   id: string;
   label: string;
+  title: string;
+  description: string;
 }
 
 const categories: TabCategory[] = [
-  
-  { id: 'llm', label: 'LLM' },
-  { id: 'coding', label: 'AI CODING' },
-  { id: 'image', label: 'IMAGE GENERATION' },
-  { id: 'video', label: 'VIDEO GENERATION' },
-  { id: 'audio', label: 'AUDIO/MUSIC AI' }
-  
+  { 
+    id: 'llm', 
+    label: 'LLM',
+    title: 'Large Language Models',
+    description: 'Advanced language models for general day-to-day tasks, analysis, and creative work'
+  },
+  { 
+    id: 'coding', 
+    label: 'AI CODING',
+    title: 'AI Coding Assistants',
+    description: 'AI-powered coding assistants and development tools to boost your productivity'
+  },
+  { 
+    id: 'image', 
+    label: 'IMAGE GENERATION',
+    title: 'AI Image Generation',
+    description: 'Create stunning visuals and artwork with AI-powered image generators'
+  },
+  { 
+    id: 'video', 
+    label: 'VIDEO GENERATION',
+    title: 'AI Video Generation',
+    description: 'AI tools for video creation, editing, and visual storytelling'
+  },
+  { 
+    id: 'audio', 
+    label: 'AUDIO/MUSIC AI',
+    title: 'AI Audio & Music',
+    description: 'Generate music, audio effects, and voice synthesis with AI'
+  },
+  { 
+    id: 'writing', 
+    label: 'AI WRITING',
+    title: 'AI Writing Assistants',
+    description: 'Enhance your writing with AI-powered tools for content creation'
+  }
 ];
 
+export { categories };
+
 export default function ImprovedStickyTabs() {
-  const [activeTab, setActiveTab] = useState<string>('all');
+  const [activeTab, setActiveTab] = useState<string>('llm');
   const [isFixed, setIsFixed] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const placeholderRef = useRef<HTMLDivElement>(null);
   const [navHeight, setNavHeight] = useState(0);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
+  // Set up sticky behavior for the nav bar
   useEffect(() => {
     const heroElement = document.getElementById('hero-section');
     if (!heroElement || !navRef.current) return;
 
+    // Function to update nav height
+    const updateNavHeight = () => {
+      if (navRef.current) {
+        setNavHeight(navRef.current.offsetHeight);
+      }
+    };
+
     // Store the nav height for placeholder
-    setNavHeight(navRef.current.offsetHeight);
+    updateNavHeight();
 
     // Create intersection observer for the hero section
     const observer = new IntersectionObserver(
@@ -44,46 +86,85 @@ export default function ImprovedStickyTabs() {
 
     observer.observe(heroElement);
 
+    // Handle window resize
+    window.addEventListener('resize', updateNavHeight);
+
     return () => {
       observer.disconnect();
+      window.removeEventListener('resize', updateNavHeight);
     };
   }, []);
 
-  // Handle tab switching and filtering
+  // Track which section is currently visible
   useEffect(() => {
-    const aiToolCards = document.querySelectorAll('.ai-tool-card');
-    
-    aiToolCards.forEach(card => {
-      const cardElement = card as HTMLElement;
-      const cardCategory = cardElement.getAttribute('data-category');
-      
-      if (activeTab === 'all' || cardCategory === activeTab) {
-        cardElement.style.display = 'block';
-        cardElement.style.animation = 'fadeInUp 0.3s ease';
-      } else {
-        cardElement.style.display = 'none';
+    // Clean up previous observer
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
+
+    const options = {
+      root: null,
+      rootMargin: `-${navHeight + 20}px 0px -70% 0px`,
+      threshold: 0
+    };
+
+    observerRef.current = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id.replace('-section', '');
+          setActiveTab(sectionId);
+          // Update URL hash
+          window.history.replaceState(null, '', `#${sectionId}`);
+        }
+      });
+    }, options);
+
+    // Observe all category sections
+    categories.forEach((category) => {
+      const section = document.getElementById(`${category.id}-section`);
+      if (section && observerRef.current) {
+        observerRef.current.observe(section);
       }
     });
 
-    // Update URL hash for bookmarking
-    if (activeTab !== 'all') {
-      window.history.replaceState(null, '', `#${activeTab}`);
-    } else {
-      window.history.replaceState(null, '', window.location.pathname);
-    }
-  }, [activeTab]);
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [navHeight]);
 
   // Handle initial load with hash
   useEffect(() => {
     const hash = window.location.hash.slice(1);
     const validCategories = categories.map(c => c.id);
     if (hash && validCategories.includes(hash)) {
-      setActiveTab(hash);
+      // Wait for sections to render, then scroll
+      setTimeout(() => {
+        scrollToSection(hash);
+      }, 100);
     }
   }, []);
 
-  const handleTabClick = (categoryId: string) => {
+  const scrollToSection = (categoryId: string) => {
+    const section = document.getElementById(`${categoryId}-section`);
+    if (!section || !navRef.current) return;
+
+    const navHeight = navRef.current.offsetHeight;
+    const sectionTop = section.offsetTop;
+    const offsetPosition = sectionTop - navHeight - 20; // 20px extra padding
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+
     setActiveTab(categoryId);
+    window.history.replaceState(null, '', `#${categoryId}`);
+  };
+
+  const handleTabClick = (categoryId: string) => {
+    scrollToSection(categoryId);
   };
 
   return (

@@ -1,9 +1,17 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import AIToolsHero from "@/features/ai-tools/components/AIToolsHero";
-import ImprovedStickyTabs from "@/features/ai-tools/components/ImprovedStickyTabs";
+import ImprovedStickyTabs, { categories } from "@/features/ai-tools/components/ImprovedStickyTabs";
 import AIToolCard from "@/features/ai-tools/components/AIToolCard.astro";
-import { sortedAiTools } from "@/features/ai-tools/data/tools";
+import { aiTools } from "@/features/ai-tools/data/tools";
+
+// Group tools by category
+const toolsByCategory = categories.reduce((acc, category) => {
+  acc[category.id] = aiTools
+    .filter(tool => tool.categoryId === category.id)
+    .sort((a, b) => b.rating - a.rating); // Sort by rating within category
+  return acc;
+}, {} as Record<string, typeof aiTools>);
 ---
 
 <Layout title="AI Tools" description="Discover powerful AI tools and resources ranked by performance, usability, and value">
@@ -11,40 +19,57 @@ import { sortedAiTools } from "@/features/ai-tools/data/tools";
     <!-- Hero Section - Full Width (outside any container) -->
     <div id="hero-section" class="hero-full-width">
       <AIToolsHero client:load />
-    </div>
+        </div>
 
   <!-- Sticky Navigation - Full Width -->
   <div class="sticky-nav-container">
     <ImprovedStickyTabs client:load />
-  </div>
+      </div>
 
   <!-- Content Area with White Background -->
   <div class="ai-tools-page-wrapper">
-    <!-- AI Tools Grid Container -->
+    <!-- AI Tools Sections by Category -->
     <div class="container mx-auto px-6">
       <div class="max-w-6xl mx-auto">
-          <div class="space-y-6 py-8">
-            {sortedAiTools.map((tool) => (
-              <div class="relative">
-                <AIToolCard tool={tool} />
+        {categories.map((category) => {
+          const categoryTools = toolsByCategory[category.id] || [];
+          
+          // Skip empty categories
+          if (categoryTools.length === 0) return null;
+          
+          return (
+            <section id={`${category.id}-section`} class="category-section">
+              {/* Section Header */}
+              <div class="section-header">
+                <h2 class="section-title">{category.title}</h2>
+                <p class="section-description">{category.description}</p>
               </div>
-            ))}
+              
+              {/* Tools in this category */}
+              <div class="space-y-6">
+                {categoryTools.map((tool) => (
+                  <div class="relative">
+            <AIToolCard tool={tool} />
           </div>
+        ))}
+      </div>
+            </section>
+          );
+        })}
 
-          <!-- Footer Note -->
-          <div class="text-center py-12 mt-16">
+      <!-- Footer Note -->
+      <div class="text-center py-12 mt-16">
             <div class="footer-disclosure">
               <p class="disclosure-text">
-                <strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links, meaning I may earn a commission if you make a purchase through them. This doesn't affect my reviews or recommendations.
-              </p>
+            <strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links, meaning I may earn a commission if you make a purchase through them. This doesn't affect my reviews or recommendations.
+          </p>
               <p class="disclosure-date">
-                Last updated: {new Date().toLocaleDateString()}
-              </p>
+            Last updated: {new Date().toLocaleDateString()}
+          </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </Layout>
@@ -103,5 +128,107 @@ import { sortedAiTools } from "@/features/ai-tools/data/tools";
   .disclosure-date {
     color: #4a4a4a;
     font-size: 0.875rem;
+  }
+
+  /* Category Sections */
+  .category-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    scroll-margin-top: 100px; /* Account for sticky nav */
+  }
+
+  .category-section:first-of-type {
+    padding-top: 2rem;
+  }
+
+  /* Section Headers */
+  .section-header {
+    margin: 0 auto 3rem;
+    padding: 2rem 2.5rem;
+    background: linear-gradient(145deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 20px;
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.06),
+      0 2px 4px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    max-width: 56rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #5AA469 0%, #6FC7B8 50%, #5AA469 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 0%;
+    }
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.025em;
+    position: relative;
+  }
+
+  .section-description {
+    font-size: 1.125rem;
+    color: #5a5a5a;
+    line-height: 1.7;
+    position: relative;
+  }
+
+  /* Responsive section headers */
+  @media (max-width: 768px) {
+    .category-section {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .section-header {
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2rem;
+      border-radius: 16px;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+    }
+
+    .section-description {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section-header {
+      padding: 1.25rem 1.5rem;
+      border-radius: 14px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+    }
+
+    .section-description {
+      font-size: 0.95rem;
+    }
   }
 </style>
