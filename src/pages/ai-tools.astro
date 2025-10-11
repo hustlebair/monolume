@@ -1,69 +1,87 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import AIToolCard from "@components/AIToolCard.astro";
-import TabNavigation from "@components/TabNavigation.astro";
+import AIToolsHero from "@components/AIToolsHero";
+import ImprovedStickyTabs from "@components/ImprovedStickyTabs";
 import { sortedAiTools } from "@data/ai-tools";
 ---
 
 <Layout title="AI Tools" description="Discover powerful AI tools and resources ranked by Jake's reviews">
-  <div class="container mx-auto px-6 pt-24">
-    <div class="max-w-6xl mx-auto">
-      <!-- Header Section -->
-      <div class="text-center py-20 mb-12">
-        <h1 class="heading text-4xl md:text-6xl mb-8 primary-gradient-text">
-          AI Tools
-        </h1>
-        <p class="text-xl text-secondary mb-8 max-w-3xl mx-auto">
-          Discover the best AI tools ranked by my personal reviews. Each tool is tested and rated based on performance, usability, and value.
-        </p>
-        <div class="bg-background/50 backdrop-blur-sm rounded-2xl p-6 border border-dashed border-secondary max-w-2xl mx-auto">
-          <p class="text-lg text-secondary mb-4">
-            <strong>How I Rate:</strong> Each tool is tested extensively and rated on a 5-star scale based on:
-          </p>
-          <ul class="text-secondary text-left space-y-2">
-            <li>• Performance and accuracy</li>
-            <li>• User experience and interface</li>
-            <li>• Value for money</li>
-            <li>• Unique features and capabilities</li>
-            <li>• Overall recommendation</li>
-          </ul>
-        </div>
-      </div>
+  <div class="ai-tools-layout">
+    <!-- Hero Section - Full Width (outside any container) -->
+    <div id="hero-section" class="hero-full-width">
+      <AIToolsHero client:load />
+    </div>
 
-      <!-- Tab Navigation -->
-      <TabNavigation />
+    <!-- Content Area with White Background -->
+    <div class="ai-tools-page-wrapper">
+    <!-- Sticky Navigation -->
+    <ImprovedStickyTabs client:load />
 
-      <!-- AI Tools Grid -->
-      <div class="space-y-6">
-        {sortedAiTools.map((tool, index) => (
-          <div class="relative">
-            <!-- Ranking Badge -->
-            <div class="absolute -left-4 -top-4 z-10">
-              <div class="ranking-badge">
-                #{index + 1}
+    <!-- AI Tools Grid Container -->
+    <div class="container mx-auto px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="space-y-6 py-8">
+            {sortedAiTools.map((tool, index) => (
+              <div class="relative">
+                <!-- Ranking Badge -->
+                <div class="absolute -left-4 -top-4 z-10">
+                  <div class="ranking-badge">
+                    #{index + 1}
+                  </div>
+                </div>
+                <AIToolCard tool={tool} />
               </div>
-            </div>
-            <AIToolCard tool={tool} />
+            ))}
           </div>
-        ))}
-      </div>
 
-      <!-- Footer Note -->
-      <div class="text-center py-12 mt-16">
-        <div class="bg-background/30 backdrop-blur-sm rounded-2xl p-8 border border-dashed border-secondary max-w-2xl mx-auto">
-          <p class="text-secondary mb-4">
-            <strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links, meaning I may earn a commission if you make a purchase through them. This doesn't affect my reviews or recommendations.
-          </p>
-          <p class="text-sm text-secondary">
-            Last updated: {new Date().toLocaleDateString()}
-          </p>
+          <!-- Footer Note -->
+          <div class="text-center py-12 mt-16">
+            <div class="footer-disclosure">
+              <p class="disclosure-text">
+                <strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links, meaning I may earn a commission if you make a purchase through them. This doesn't affect my reviews or recommendations.
+              </p>
+              <p class="disclosure-date">
+                Last updated: {new Date().toLocaleDateString()}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </Layout>
 
 <style>
+  /* Override Layout container for full-width hero */
+  .ai-tools-layout {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: none !important;
+  }
+
+  /* Hero Section - Full Width */
+  .hero-full-width {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Content Area - Back to Centered Layout */
+  .ai-tools-page-wrapper {
+    min-height: 100vh;
+    background: #ffffff;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
   .ranking-badge {
     background: linear-gradient(135deg, #FF4C4C, #FF6B3D);
     color: white;
@@ -76,7 +94,28 @@ import { sortedAiTools } from "@data/ai-tools";
     font-weight: bold;
     font-size: 18px;
     box-shadow: 0 4px 12px rgba(255, 76, 76, 0.3);
-    border: 3px solid rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.9);
+  }
+
+  .footer-disclosure {
+    background: rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 2px dashed rgba(0, 0, 0, 0.15);
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  .disclosure-text {
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .disclosure-date {
+    color: #4a4a4a;
+    font-size: 0.875rem;
   }
 
   @media (max-width: 768px) {

@@ -214,6 +214,10 @@ article h1:first-child {
   transition: left 0.5s ease;
 }
 
+[data-theme="light"] .ai-tool-card::before {
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+}
+
 .ai-tool-card:hover::before {
   left: 100%;
 }

@@ -1,6 +1,5 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import WarpBackground from "@components/warp-background";
 import ThemedBlogCard from "@components/ThemedBlogCard.astro";
 import BlogFilter from "@components/BlogFilter.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
@@ -27,19 +26,7 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
 ---
 
 <Layout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
-  <!-- Fixed left decorative Warp outside main container -->
-  <div class="fixed left-0 top-0 h-screen w-[2px] sm:w-4 md:w-12 lg:w-72 overflow-hidden rounded-b-full pointer-events-none -z-10">
-    <WarpBackground
-      colors={["#ffffff", "#27272a", "#FF4C4C"]}
-      speed={0.25}
-      swirl={1.5}
-      swirlIterations={10}
-      shapeScale={0.3}
-      client:load
-    />
-  </div>
-
-  <section id="Blog" class="container mx-auto px-6 pt-18 relative z-10 pl-[2px] sm:pl-4 md:pl-12 lg:pl-72">
+  <section id="Blog" class="container mx-auto px-6 pt-18">
     <div>
         <h2 class="heading text-5xl md:text-9xl uppercase mr-4 md:mr-8 my-8 hero-gradient-text">
           THE WATCHTOWER

@@ -121,18 +121,20 @@ const { tool } = Astro.props as Props;
 
 <style>
   .ai-tool-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border: 2px solid rgba(0, 0, 0, 0.15);
     border-radius: 16px;
     padding: 24px;
     margin-bottom: 24px;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   .ai-tool-card:hover {
-    border-color: rgba(255, 76, 76, 0.3);
-    box-shadow: 0 8px 32px rgba(255, 76, 76, 0.1);
+    border-color: rgba(90, 164, 105, 0.4);
+    box-shadow: 0 8px 24px rgba(90, 164, 105, 0.15);
+    transform: translateY(-2px);
   }
 
   .card-main {
@@ -155,10 +157,10 @@ const { tool } = Astro.props as Props;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.03);
     border-radius: 12px;
     margin-bottom: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .tool-logo {
@@ -195,7 +197,7 @@ const { tool } = Astro.props as Props;
 
   .website-text {
     font-size: 12px;
-    color: #d9d9d9;
+    color: #666666;
     margin: 0;
   }
 
@@ -220,12 +222,12 @@ const { tool } = Astro.props as Props;
 
   .rating-label {
     font-weight: 600;
-    color: #d9d9d9;
+    color: #1a1a1a;
     font-size: 14px;
   }
 
   .info-icon {
-    color: #d9d9d9;
+    color: #4a4a4a;
     opacity: 0.7;
   }
 
@@ -241,8 +243,8 @@ const { tool } = Astro.props as Props;
   }
 
   .star {
-    color: #d9d9d9;
-    opacity: 0.3;
+    color: #cccccc;
+    opacity: 0.5;
   }
 
   .star.filled {
@@ -251,7 +253,7 @@ const { tool } = Astro.props as Props;
   }
 
   .star.half {
-    background: linear-gradient(90deg, #FFD700 50%, #d9d9d9 50%);
+    background: linear-gradient(90deg, #FFD700 50%, #cccccc 50%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 1;
@@ -260,7 +262,7 @@ const { tool } = Astro.props as Props;
   .rating-number {
     font-weight: 600;
     font-size: 18px;
-    color: #d9d9d9;
+    color: #000000;
     text-decoration: underline;
   }
 
@@ -290,18 +292,18 @@ const { tool } = Astro.props as Props;
 
   .detail-label {
     font-size: 14px;
-    color: #d9d9d9;
-    font-weight: 500;
+    color: #666666;
+    font-weight: 600;
   }
 
   .detail-value {
     font-size: 16px;
-    color: #fefefe;
-    font-weight: 400;
+    color: #000000;
+    font-weight: 500;
   }
 
   .collapsible-sections {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
     padding-top: 16px;
   }
 
@@ -315,8 +317,8 @@ const { tool } = Astro.props as Props;
     align-items: center;
     padding: 12px 0;
     cursor: pointer;
-    font-weight: 600;
-    color: #d9d9d9;
+    font-weight: 700;
+    color: #000000;
     list-style: none;
   }
 
@@ -326,7 +328,7 @@ const { tool } = Astro.props as Props;
 
   .chevron {
     transition: transform 0.3s ease;
-    color: #d9d9d9;
+    color: #1a1a1a;
   }
 
   .collapsible-section[open] .chevron {
@@ -335,7 +337,7 @@ const { tool } = Astro.props as Props;
 
   .section-content {
     padding: 16px 0;
-    color: #d9d9d9;
+    color: #1a1a1a;
     line-height: 1.6;
   }
 
@@ -344,7 +346,7 @@ const { tool } = Astro.props as Props;
   }
 
   .features-list h4 {
-    color: #fefefe;
+    color: #000000;
     font-size: 16px;
     margin-bottom: 8px;
   }
@@ -358,11 +360,12 @@ const { tool } = Astro.props as Props;
     padding: 4px 0;
     padding-left: 16px;
     position: relative;
+    color: #1a1a1a;
   }
 
   .features-list li::before {
     content: "•";
-    color: #FF4C4C;
+    color: #5AA469;
     position: absolute;
     left: 0;
   }
