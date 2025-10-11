@@ -28,10 +28,17 @@ const { title, description } = Astro.props;
 </html>
 
 <style>
+  .layout-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   @media (max-width: 768px) {
     .layout-wrapper {
       padding-left: 0;
       padding-right: 0;
+      max-width: 100vw;
     }
   }
 </style>

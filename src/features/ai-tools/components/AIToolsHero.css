@@ -62,14 +62,17 @@
   .hero-section {
     padding: 3rem 0 2rem;
     min-height: 300px;
+    max-width: 100vw;
   }
 
   .hero-content {
     padding: 0 1rem;
+    max-width: 100%;
   }
 
   .hero-title {
     font-size: 2.5rem;
+    word-wrap: break-word;
   }
 
   .hero-subtitle {
