@@ -63,7 +63,7 @@ export const aiTools: AITool[] = [
   {
     id: "notion-ai",
     name: "Notion AI",
-    logo: "/logos/notion-logo.png",
+    logo: "/logos/Notion-logo.png",
     rating: 4.3,
     reviewUrl: "/blog/notion-ai-review",
     affiliateUrl: "https://notion.so?ref=your-affiliate-id",
@@ -78,7 +78,7 @@ export const aiTools: AITool[] = [
   {
     id: "github-copilot",
     name: "GitHub Copilot",
-    logo: "/logos/github-copilot-logo.png",
+    logo: "/logos/github-copilot-logo.jpg",
     rating: 4.4,
     reviewUrl: "/blog/github-copilot-review",
     affiliateUrl: "https://github.com/features/copilot?ref=your-affiliate-id",
@@ -93,7 +93,7 @@ export const aiTools: AITool[] = [
   {
     id: "runway",
     name: "Runway ML",
-    logo: "/logos/runway-logo.png",
+    logo: "/logos/Runway_Logo.webp",
     rating: 4.2,
     reviewUrl: "/blog/runway-ml-review",
     affiliateUrl: "https://runwayml.com?ref=your-affiliate-id",
@@ -108,7 +108,7 @@ export const aiTools: AITool[] = [
   {
     id: "suno",
     name: "Suno AI",
-    logo: "/logos/suno-logo.png",
+    logo: "/logos/suno-logo.webp",
     rating: 4.1,
     reviewUrl: "/blog/suno-ai-review",
     affiliateUrl: "https://suno.ai?ref=your-affiliate-id",

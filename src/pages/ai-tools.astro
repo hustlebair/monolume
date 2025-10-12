@@ -46,7 +46,7 @@ const toolsByCategory = categories.reduce((acc, category) => {
               </div>
               
               {/* Tools in this category */}
-              <div class="space-y-4">
+              <div class="space-y-6">
                 {categoryTools.map((tool) => (
                   <div class="relative">
             <AIToolCard tool={tool} />
@@ -178,7 +178,7 @@ const toolsByCategory = categories.reduce((acc, category) => {
   }
 
   .category-section:first-of-type .section-header {
-    padding-top: 0.25rem;
+    padding-top: 2rem;
   }
 
   .section-title {
@@ -213,7 +213,7 @@ const toolsByCategory = categories.reduce((acc, category) => {
     }
 
     .category-section:first-of-type .section-header {
-      padding-top: 0.5rem;
+      padding-top: 1.5rem;
     }
 
     .section-title {
