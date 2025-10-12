@@ -114,6 +114,10 @@ const toolsByCategory = categories.reduce((acc, category) => {
     overflow-x: hidden;
   }
 
+  :global([data-theme="dark"]) .sticky-nav-container {
+    background: #0a0a0f;
+  }
+
   /* Content Area - Back to Centered Layout */
   .ai-tools-page-wrapper {
     min-height: 100vh;
@@ -123,6 +127,10 @@ const toolsByCategory = categories.reduce((acc, category) => {
     margin: 0 auto;
     padding: 0;
     overflow-x: hidden;
+  }
+
+  :global([data-theme="dark"]) .ai-tools-page-wrapper {
+    background: #0a0a0f;
   }
 
   .ai-tools-page-wrapper .container {
@@ -145,15 +153,28 @@ const toolsByCategory = categories.reduce((acc, category) => {
     margin: 0 auto;
   }
 
+  :global([data-theme="dark"]) .footer-disclosure {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
   .disclosure-text {
     color: #1a1a1a;
     margin-bottom: 1rem;
     font-size: 1rem;
   }
 
+  :global([data-theme="dark"]) .disclosure-text {
+    color: #e0e0e0;
+  }
+
   .disclosure-date {
     color: #4a4a4a;
     font-size: 0.875rem;
+  }
+
+  :global([data-theme="dark"]) .disclosure-date {
+    color: #9ca3af;
   }
 
   /* Category Sections */
@@ -189,11 +210,19 @@ const toolsByCategory = categories.reduce((acc, category) => {
     letter-spacing: -0.025em;
   }
 
+  :global([data-theme="dark"]) .section-title {
+    color: #ffffff;
+  }
+
   .section-description {
     font-size: 1rem;
     color: #6b7280;
     line-height: 1.6;
     margin: 0;
+  }
+
+  :global([data-theme="dark"]) .section-description {
+    color: #9ca3af;
   }
 
   /* Responsive section headers */

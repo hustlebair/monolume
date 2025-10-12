@@ -130,9 +130,19 @@ const { tool } = Astro.props as Props;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 
+  :global([data-theme="dark"]) .ai-tool-card {
+    background: #1a1a1a;
+    border-color: #3f3f46;
+  }
+
   .ai-tool-card:hover {
     border-color: #9ca3af;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  :global([data-theme="dark"]) .ai-tool-card:hover {
+    border-color: #52525b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   }
 
   .card-main {
@@ -202,6 +212,10 @@ const { tool } = Astro.props as Props;
     margin: 0;
   }
 
+  :global([data-theme="dark"]) .website-text {
+    color: #9ca3af;
+  }
+
   .card-right {
     flex: 1;
     display: flex;
@@ -227,9 +241,17 @@ const { tool } = Astro.props as Props;
     font-size: 13px;
   }
 
+  :global([data-theme="dark"]) .rating-label {
+    color: #ffffff;
+  }
+
   .info-icon {
     color: #4a4a4a;
     opacity: 0.7;
+  }
+
+  :global([data-theme="dark"]) .info-icon {
+    color: #9ca3af;
   }
 
   .rating-display {
@@ -267,6 +289,10 @@ const { tool } = Astro.props as Props;
     text-decoration: underline;
   }
 
+  :global([data-theme="dark"]) .rating-number {
+    color: #ffffff;
+  }
+
   .review-link {
     color: #60A5FA;
     text-decoration: none;
@@ -297,10 +323,18 @@ const { tool } = Astro.props as Props;
     font-weight: 600;
   }
 
+  :global([data-theme="dark"]) .detail-label {
+    color: #9ca3af;
+  }
+
   .detail-value {
     font-size: 15px;
     color: #000000;
     font-weight: 400;
+  }
+
+  :global([data-theme="dark"]) .detail-value {
+    color: #e0e0e0;
   }
 
   .collapsible-sections {
@@ -308,9 +342,17 @@ const { tool } = Astro.props as Props;
     padding-top: 12px;
   }
 
+  :global([data-theme="dark"]) .collapsible-sections {
+    border-top-color: #3f3f46;
+  }
+
   .collapsible-section {
     margin-bottom: 0;
     border-bottom: 1px solid #e5e7eb;
+  }
+
+  :global([data-theme="dark"]) .collapsible-section {
+    border-bottom-color: #3f3f46;
   }
 
   .collapsible-section:last-child {
@@ -329,6 +371,10 @@ const { tool } = Astro.props as Props;
     list-style: none;
   }
 
+  :global([data-theme="dark"]) .section-summary {
+    color: #9ca3af;
+  }
+
   .section-summary::-webkit-details-marker {
     display: none;
   }
@@ -336,6 +382,10 @@ const { tool } = Astro.props as Props;
   .chevron {
     transition: transform 0.3s ease;
     color: #6b7280;
+  }
+
+  :global([data-theme="dark"]) .chevron {
+    color: #9ca3af;
   }
 
   .collapsible-section[open] .chevron {
@@ -349,6 +399,10 @@ const { tool } = Astro.props as Props;
     line-height: 1.6;
   }
 
+  :global([data-theme="dark"]) .section-content {
+    color: #e0e0e0;
+  }
+
   .features-list {
     margin-top: 16px;
   }
@@ -357,6 +411,10 @@ const { tool } = Astro.props as Props;
     color: #000000;
     font-size: 16px;
     margin-bottom: 8px;
+  }
+
+  :global([data-theme="dark"]) .features-list h4 {
+    color: #ffffff;
   }
 
   .features-list ul {
@@ -369,6 +427,10 @@ const { tool } = Astro.props as Props;
     padding-left: 16px;
     position: relative;
     color: #1a1a1a;
+  }
+
+  :global([data-theme="dark"]) .features-list li {
+    color: #d1d5db;
   }
 
   .features-list li::before {
