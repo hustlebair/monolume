@@ -6,7 +6,7 @@
   margin: 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  min-height: 300px;
+  min-height: 400px;
 }
 
 .market-hero-content {
@@ -16,6 +16,11 @@
   padding: 0 1.5rem;
   position: relative;
   z-index: 10;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .market-hero-title {
@@ -45,13 +50,14 @@
 @media (max-width: 768px) {
   .market-hero-section {
     padding: 2.5rem 0 2rem;
-    min-height: 250px;
+    min-height: 350px;
     max-width: 100vw;
   }
 
   .market-hero-content {
     padding: 0 1rem;
     max-width: 100%;
+    min-height: 350px;
   }
 
   .market-hero-title {
@@ -67,11 +73,12 @@
 @media (max-width: 480px) {
   .market-hero-section {
     padding: 2rem 0 1.5rem;
-    min-height: 200px;
+    min-height: 300px;
   }
 
   .market-hero-content {
     padding: 0 1rem;
+    min-height: 300px;
   }
 
   .market-hero-title {
