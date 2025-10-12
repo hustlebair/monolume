@@ -15,7 +15,7 @@ export default function PulseHero() {
           THE PULSE
         </h1>
         <p className="pulse-hero-subtitle">
-          Real-time AI intel. No fluff. Just the signal.
+          Real-time AI intel. Built for people who actually build.
         </p>
         <p className="pulse-hero-description">
           Daily quick hits on the latest AI developments, tools, and breakthroughs. Stay ahead of the curve with bite-sized updates.

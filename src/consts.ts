@@ -27,7 +27,7 @@ export const PROJECTS = {
 export const PULSE = {
   TITLE: "The Pulse",
   DESCRIPTION:
-    "Real-time AI intel. Daily quick hits on the latest AI developments, tools, and breakthroughs. No fluff. Just the signal.",
+    "Real-time AI intel. Daily quick hits on the latest AI developments, tools, and breakthroughs. Real-time AI intel. Built for people who actually build.",
 };
 
 export const SOCIALS = [
