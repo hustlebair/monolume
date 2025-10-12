@@ -6,7 +6,7 @@
   margin: 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  background: #1a1a1a; /* Fallback background */
+  background: #383838; /* Fallback background */
   min-height: 300px;
 }
 

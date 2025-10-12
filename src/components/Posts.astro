@@ -9,32 +9,7 @@ const allPosts: CollectionEntry<"blog">[] = (await getCollection("blog"))
   .slice(0, 6);
 ---
 
-<div class="overflow-hidden mb-12">
-  <div class="container mx-auto mx-4">
-    <div class="flex animate-scroll">
-      <div class="flex shrink-0 whitespace-nowrap">
-        {
-          Array.from({ length: 10 }).map((_) => (
-            <h2 class="heading text-5xl md:text-9xl uppercase mr-6 md:mr-18 -mb-2 scrolling-text">
-              LEARN
-            </h2>
-          ))
-        }
-      </div>
-      <div class="flex shrink-0 whitespace-nowrap" aria-hidden="true">
-        {
-          Array.from({ length: 10 }).map((_) => (
-            <h2 class="heading text-5xl md:text-9xl uppercase mr-6 md:mr-18 -mb-2 scrolling-text">
-              LEARN 
-            </h2>
-          ))
-        }
-      </div>
-    </div>
-  </div>
-</div>
-
-<section id="Projects" class="container mx-auto px-6 relative">
+<section id="Posts" class="container mx-auto px-6 relative">
   <div class="absolute inset-0 -z-10 opacity-30">
     <img src="/background.svg" alt="" class="w-full h-full object-cover" />
   </div>
@@ -50,18 +25,3 @@ const allPosts: CollectionEntry<"blog">[] = (await getCollection("blog"))
     </div>
   </div>
 </section>
-
-<style>
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  .animate-scroll {
-    animation: scroll 10s linear infinite;
-  }
-</style>

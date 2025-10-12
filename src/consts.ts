@@ -1,40 +1,37 @@
 export const SITE = {
-  URL: "https://your_site.com",
-  TITLE: "Jake Vibe Codes",
+  URL: "https://planettakeover.com",
+  TITLE: "Planet Take Over",
   DESCRIPTION:
-    "A full-stack developer with a strong focus on building fast, accessible, and maintainable web applications.",
-  EMAIL: "hi@monolume.com",
+    "Navigate the AI revolution. Discover cutting-edge tools, build automated systems, and learn strategies to thrive in the age of artificial intelligence.",
+  EMAIL: "PlanetTakeOver@Gmail.com",
 };
 
 export const HOME = {
   TITLE: "Home",
   DESCRIPTION:
-    "A personal blog about coding, building projects, and figuring things out",
+    "Your command center for AI dominance. Explore tools, systems, and insights to stay ahead in the technological takeover.",
 };
 
 export const BLOG = {
   TITLE: "Blog",
   DESCRIPTION:
-    "A collection of articles on programming, projects and other stuff",
+    "The Resistance & The Takeover. Articles on AI, automation, and surviving (or thriving) in the new machine age.",
 };
 
 export const PROJECTS = {
   TITLE: "Projects",
   DESCRIPTION:
-    "A collection of my projects with links to repositories and live demos.",
+    "Real-world implementations. Case studies and projects showcasing AI integration, automation systems, and revenue-generating tools.",
 };
 
 export const SOCIALS = [
   {
     NAME: "X",
-    HREF: "https://x.com/your_username",
+    HREF: "https://x.com/jakevibecodes",
   },
   {
-    NAME: "Linkedin",
-    HREF: "https://linkedin.com/",
+    NAME: "TikTok",
+    HREF: "https://TikTok.com/@jakevibecodes",
   },
-  {
-    NAME: "Github",
-    HREF: "https://github.com/your_username",
-  },
+
 ];

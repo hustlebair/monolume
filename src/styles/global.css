@@ -60,6 +60,13 @@ body {
     max-width: 100%;
     height: auto;
   }
+
+  /* Prevent text overflow and overlap */
+  p, h1, h2, h3, h4, h5, h6, span, a, li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
 }
 
 @media (max-width: 480px) {
@@ -67,6 +74,13 @@ body {
   .px-6 {
     padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
+  }
+
+  /* Extra text overflow prevention for smaller screens */
+  p, h1, h2, h3, h4, h5, h6, span, a, li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 }
 
