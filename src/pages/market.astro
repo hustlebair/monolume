@@ -1,27 +1,90 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import TradingViewWidget from "@components/TradingViewWidget.jsx";
+import MarketHero from "@/features/market/components/MarketHero";
 ---
 
 <Layout title="The Market" description="Market insights and investment strategies.">
-  <div class="container mx-auto px-6 pt-24">
-    <div class="max-w-4xl mx-auto text-center py-20">
-      <h1 class="heading text-4xl md:text-6xl mb-8 primary-gradient-text">
-        The Market
-      </h1>
-      <p class="text-xl text-secondary mb-8">
-        Real-time market data and investment insights for building wealth.
-      </p>
-      <div class="bg-background/50 backdrop-blur-sm rounded-2xl p-8 border border-dashed border-secondary">
-        <p class="text-lg text-secondary">
-          Track key stocks and market trends with live data and analysis.
-        </p>
-      </div>
+  <div class="market-layout">
+    <!-- Hero Section - Full Width -->
+    <div id="hero-section" class="hero-full-width">
+      <MarketHero client:load />
     </div>
 
-    <!-- TradingView Widget: Responsive container -->
-    <div class="max-w-6xl mx-auto mt-10">
-      <TradingViewWidget client:load />
+    <!-- Content Area -->
+    <div class="market-page-wrapper">
+      <div class="container mx-auto px-6">
+        <!-- TradingView Widget: Responsive container -->
+        <div class="max-w-6xl mx-auto mt-10">
+          <TradingViewWidget client:load />
+        </div>
+      </div>
     </div>
   </div>
 </Layout>
+
+<style>
+  /* Override Layout container for full-width hero */
+  .market-layout {
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 769px) {
+    .market-layout {
+      width: 100vw;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+  }
+
+  /* Hero Section - Full Width */
+  .hero-full-width {
+    width: 100%;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  /* Content Area - Back to Centered Layout */
+  .market-page-wrapper {
+    min-height: 100vh;
+    background: #ffffff;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  [data-theme="dark"] .market-page-wrapper {
+    background: #0a0a0f;
+  }
+
+  @media (max-width: 768px) {
+    .market-page-wrapper {
+      max-width: 100vw;
+    }
+    
+    .market-page-wrapper .container {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .market-page-wrapper .container {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+</style>

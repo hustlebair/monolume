@@ -56,30 +56,15 @@ const isResistance = tag === "resistance";
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    padding: 1.5rem;
-    border-radius: 24px;
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(10px);
     transition: all 0.3s ease;
-    height: 100%;
-  }
-
-  [data-theme="light"] .blog-card-container {
-    border: 2px solid rgba(0, 0, 0, 0.15);
-    background: rgba(255, 255, 255, 1);
   }
 
   .takeover-theme:hover .blog-card-container {
     transform: translateY(-4px);
-    border-color: rgba(255, 76, 76, 0.3);
-    box-shadow: 0 8px 32px rgba(255, 76, 76, 0.15);
   }
 
   .resistance-theme:hover .blog-card-container {
     transform: translateY(-4px);
-    border-color: rgba(90, 164, 105, 0.3);
-    box-shadow: 0 8px 32px rgba(90, 164, 105, 0.15);
   }
 
   .takeover-theme:hover .takeover-gradient-text {
