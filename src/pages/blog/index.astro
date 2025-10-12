@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import ThemedBlogCard from "@components/ThemedBlogCard.astro";
+import BlogSpotlightCard from "@components/BlogSpotlightCard.astro";
 import BlogFilter from "@components/BlogFilter.astro";
 import BlogHero from "@components/BlogHero";
 import { getCollection, type CollectionEntry } from "astro:content";
@@ -44,9 +44,9 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
           <section class="animate space-y-4">
             <h4 class="heading text-2xl lg:text-4xl">{year}</h4>
             <div>
-              <ul class="not-prose grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <ul class="not-prose grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {posts[year].map((post) => (
-                  <ThemedBlogCard entry={post} />
+                  <BlogSpotlightCard entry={post} />
                 ))}
               </ul>
             </div>

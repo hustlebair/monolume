@@ -1,22 +1,10 @@
 import React from 'react';
-import WarpBackground from '@/components/warp-background';
+import { AuroraBackground } from '@/components/aurora-background';
 import './AIToolsHero.css';
 
 export default function AIToolsHero() {
   return (
-    <section className="hero-section">
-      {/* Warp Background Layer */}
-      <div className="hero-warp-background">
-        <WarpBackground
-          colors={["#ffffff", "#27272a"]}
-          speed={0.25}
-          swirl={1.5}
-          swirlIterations={10}
-          shapeScale={0.3}
-        />
-      </div>
-      
-      {/* Content Layer */}
+    <AuroraBackground className="hero-section" showRadialGradient={true}>
       <div className="hero-content">
         <h1 className="hero-title">
           AI Tools
@@ -25,7 +13,7 @@ export default function AIToolsHero() {
           Discover the best AI tools ranked by performance, usability, and value.
         </p>
       </div>
-    </section>
+    </AuroraBackground>
   );
 }
 

@@ -1,0 +1,142 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { GlowCard } from "@/components/ui/spotlight-card";
+---
+
+<Layout title="Spotlight Card Demo" description="Interactive spotlight card component showcase">
+  <div class="min-h-screen w-full bg-background pt-24 pb-20">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 text-foreground">
+          Spotlight Card Component
+        </h1>
+        <p class="text-xl text-secondary max-w-2xl mx-auto">
+          Interactive cards with cursor-following spotlight effects. Move your mouse to see the magic! ✨
+        </p>
+      </div>
+
+      <!-- Default Cards -->
+      <section class="mb-20">
+        <h2 class="text-3xl font-bold mb-8 text-foreground">Default Cards</h2>
+        <div class="flex flex-wrap items-center justify-center gap-10">
+          <GlowCard client:load>
+            <div class="flex flex-col h-full">
+              <h3 class="text-2xl font-bold text-foreground mb-2">Blue Glow</h3>
+              <p class="text-secondary">Default blue spotlight effect</p>
+            </div>
+          </GlowCard>
+
+          <GlowCard client:load glowColor="purple">
+            <div class="flex flex-col h-full">
+              <h3 class="text-2xl font-bold text-foreground mb-2">Purple Glow</h3>
+              <p class="text-secondary">Mystical purple spotlight</p>
+            </div>
+          </GlowCard>
+
+          <GlowCard client:load glowColor="green">
+            <div class="flex flex-col h-full">
+              <h3 class="text-2xl font-bold text-foreground mb-2">Green Glow</h3>
+              <p class="text-secondary">Fresh green spotlight</p>
+            </div>
+          </GlowCard>
+        </div>
+      </section>
+
+      <!-- Size Variations -->
+      <section class="mb-20">
+        <h2 class="text-3xl font-bold mb-8 text-foreground">Size Variations</h2>
+        <div class="flex flex-wrap items-end justify-center gap-10">
+          <GlowCard client:load size="sm" glowColor="red">
+            <div class="flex flex-col h-full">
+              <h3 class="text-xl font-bold text-foreground mb-2">Small</h3>
+              <p class="text-sm text-secondary">Compact card</p>
+            </div>
+          </GlowCard>
+
+          <GlowCard client:load size="md" glowColor="orange">
+            <div class="flex flex-col h-full">
+              <h3 class="text-2xl font-bold text-foreground mb-2">Medium</h3>
+              <p class="text-secondary">Standard size</p>
+            </div>
+          </GlowCard>
+
+          <GlowCard client:load size="lg" glowColor="purple">
+            <div class="flex flex-col h-full">
+              <h3 class="text-3xl font-bold text-foreground mb-2">Large</h3>
+              <p class="text-lg text-secondary">Extra spacious</p>
+            </div>
+          </GlowCard>
+        </div>
+      </section>
+
+      <!-- Custom Content Cards -->
+      <section class="mb-20">
+        <h2 class="text-3xl font-bold mb-8 text-foreground">Content Examples</h2>
+        <div class="flex flex-wrap items-center justify-center gap-10">
+          <!-- AI Tool Card -->
+          <GlowCard client:load glowColor="blue">
+            <div class="flex flex-col h-full">
+              <div class="flex-1">
+                <div class="text-4xl mb-4">🤖</div>
+                <h3 class="text-2xl font-bold text-foreground mb-2">AI Tools</h3>
+                <p class="text-secondary mb-4">Discover powerful AI tools and resources</p>
+              </div>
+              <button class="bg-primary text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+                Explore Tools
+              </button>
+            </div>
+          </GlowCard>
+
+          <!-- Blog Card -->
+          <GlowCard client:load glowColor="purple">
+            <div class="flex flex-col h-full">
+              <div class="flex-1">
+                <div class="text-4xl mb-4">📝</div>
+                <h3 class="text-2xl font-bold text-foreground mb-2">Latest Blog</h3>
+                <p class="text-secondary mb-4">Read the latest insights on AI and technology</p>
+              </div>
+              <button class="bg-primary text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+                Read More
+              </button>
+            </div>
+          </GlowCard>
+
+          <!-- Project Card -->
+          <GlowCard client:load glowColor="green">
+            <div class="flex flex-col h-full">
+              <div class="flex-1">
+                <div class="text-4xl mb-4">🚀</div>
+                <h3 class="text-2xl font-bold text-foreground mb-2">Projects</h3>
+                <p class="text-secondary mb-4">Check out our latest projects and builds</p>
+              </div>
+              <button class="bg-primary text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+                View Projects
+              </button>
+            </div>
+          </GlowCard>
+        </div>
+      </section>
+
+      <!-- Custom Size Example -->
+      <section>
+        <h2 class="text-3xl font-bold mb-8 text-foreground">Custom Size</h2>
+        <div class="flex justify-center">
+          <GlowCard client:load customSize={true} width="600px" height="400px" glowColor="red">
+            <div class="flex flex-col h-full justify-center items-center text-center">
+              <h3 class="text-4xl font-bold text-foreground mb-4">Custom Dimensions</h3>
+              <p class="text-lg text-secondary mb-6">600px × 400px with red spotlight</p>
+              <p class="text-secondary">Perfect for hero sections or feature highlights</p>
+            </div>
+          </GlowCard>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  body {
+    cursor: default;
+  }
+</style>
+

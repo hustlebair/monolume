@@ -53,6 +53,20 @@ body {
   animation: ripple var(--duration, 2s) ease calc(var(--i, 0) * 0.2s) infinite;
 }
 
+/* Aurora animation */
+@keyframes aurora {
+  from {
+    background-position: 50% 50%, 50% 50%;
+  }
+  to {
+    background-position: 350% 50%, 350% 50%;
+  }
+}
+
+.animate-aurora {
+  animation: aurora 60s linear infinite;
+}
+
 /* Mobile Edge-to-Edge Content */
 @media (max-width: 768px) {
   .container.mx-auto.px-6,

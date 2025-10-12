@@ -1,5 +1,5 @@
 import React from 'react';
-import { Ripple } from './ripple';
+import { Ripple } from '@components/ripple';
 import './PulseHero.css';
 
 export default function PulseHero() {
