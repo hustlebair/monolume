@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { ShineBorder } from "@/components/ui/shine-border";
 
 type Props = {
     entry: CollectionEntry<"blog">;
@@ -12,26 +11,13 @@ const { entry } = Astro.props as {
 
 const tag = entry.data.tag || "resistance";
 const isTakeover = tag === "takeover";
-
-// Define shine colors based on tag
-const shineColors = isTakeover 
-  ? ["#FF4C4C", "#FF6B3D", "#E63946"]
-  : ["#5AA469", "#6FC7B8", "#2E8BC0"];
 ---
 
 <a
-    class={`group relative block cursor-pointer blog-card-link ${isTakeover ? 'takeover-theme' : 'resistance-theme'}`}
+    class={`group block cursor-pointer blog-card-link ${isTakeover ? 'takeover-theme' : 'resistance-theme'}`}
     href={`/${entry.collection}/${entry.id}`}
 >
     <div class="blog-card-container">
-        <ShineBorder 
-          client:load
-          shineColor={shineColors}
-          borderRadius={24}
-          borderWidth={2}
-          duration={14}
-          className="opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        />
         <div
             class="w-full aspect-[610/400] overflow-hidden rounded-2xl"
         >
@@ -70,22 +56,16 @@ const shineColors = isTakeover
     gap: 1.5rem;
     padding: 1.5rem;
     border-radius: 24px;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
-    overflow: visible;
-    z-index: 1;
+    height: 100%;
   }
 
   [data-theme="light"] .blog-card-container {
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 0.95);
-  }
-
-  .blog-card-container > * {
-    position: relative;
-    z-index: 2;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 1);
   }
 
   .takeover-theme:hover .blog-card-container {
