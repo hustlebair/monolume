@@ -8,11 +8,29 @@
   --font-geist: "Geist", sans-serif;
   --font-bricolage: "Bricolage Grotesque", sans-serif;
 
-          /* colors */
-          --color-primary: #FF4C4C;
+  /* colors */
+  --color-primary: #FF4C4C;
+  --color-primary-foreground: oklch(99.7 0 0); /* white */
   --color-background: oklch(0 0 0); /* #000000 */
   --color-foreground: oklch(99.7 0 0); /* #fefefe */
   --color-secondary: #d9d9d9; /* near-white gray for normal text */
+  --color-secondary-foreground: oklch(0 0 0); /* black */
+  
+  /* shadcn-style colors for components */
+  --color-card: oklch(0.1 0 0); /* very dark gray */
+  --color-card-foreground: oklch(99.7 0 0); /* white */
+  --color-muted: oklch(0.2 0 0); /* dark gray */
+  --color-muted-foreground: oklch(0.65 0 0); /* medium gray */
+  --color-border: oklch(0.25 0 0); /* border gray */
+  --color-ring: oklch(0.7 0.15 145); /* focus ring */
+  
+  /* status colors */
+  --color-success: oklch(0.70 0.15 145); /* green */
+  --color-success-foreground: oklch(0.98 0 0); /* white */
+  --color-warning: oklch(0.75 0.12 85); /* amber/yellow */
+  --color-warning-foreground: oklch(0.15 0 0); /* dark */
+  --color-destructive: oklch(0.55 0.22 25); /* red */
+  --color-destructive-foreground: oklch(0.98 0 0); /* white */
 }
 
 /* Prevent horizontal scrolling */
@@ -129,6 +147,22 @@ body {
   --color-background: oklch(99.7 0 0); /* #fefefe */
   --color-foreground: oklch(0 0 0); /* #000000 */
   --color-secondary: oklch(0.3 0 0); /* #4d4d4d */
+  --color-secondary-foreground: oklch(99.7 0 0); /* white */
+  
+  /* shadcn-style colors for light mode */
+  --color-card: oklch(100 0 0); /* white */
+  --color-card-foreground: oklch(0 0 0); /* black */
+  --color-muted: oklch(0.96 0 0); /* light gray */
+  --color-muted-foreground: oklch(0.45 0 0); /* medium gray */
+  --color-border: oklch(0.90 0 0); /* light border gray */
+  
+  /* status colors for light mode */
+  --color-success: oklch(0.65 0.18 150); /* darker green for light bg */
+  --color-success-foreground: oklch(0.98 0 0); /* white */
+  --color-warning: oklch(0.80 0.15 90); /* amber */
+  --color-warning-foreground: oklch(0.15 0 0); /* dark */
+  --color-destructive: oklch(0.50 0.24 25); /* red */
+  --color-destructive-foreground: oklch(0.98 0 0); /* white */
 }
 
 /* Hero grid background - only on hero section */
