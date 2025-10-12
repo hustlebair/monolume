@@ -39,6 +39,20 @@ body {
   padding-top: 4rem !important;
 }
 
+/* Ripple animation */
+@keyframes ripple {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+.animate-ripple {
+  animation: ripple var(--duration, 2s) ease calc(var(--i, 0) * 0.2s) infinite;
+}
+
 /* Mobile Edge-to-Edge Content */
 @media (max-width: 768px) {
   .container.mx-auto.px-6,

@@ -1,0 +1,120 @@
+.pulse-hero-section {
+  width: 100%;
+  min-height: 400px;
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0f 100%);
+}
+
+[data-theme="light"] .pulse-hero-section {
+  background: radial-gradient(circle at center, #e0e7ff 0%, #f3f4f6 100%);
+}
+
+.pulse-hero-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  position: relative;
+  z-index: 20;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.pulse-hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  font-family: "Bricolage Grotesque", sans-serif;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px rgba(255, 76, 76, 0.5),
+               0 0 40px rgba(255, 76, 76, 0.3);
+}
+
+[data-theme="light"] .pulse-hero-title {
+  color: #1a1a1a;
+  text-shadow: 0 2px 4px rgba(255, 76, 76, 0.3);
+}
+
+.pulse-hero-subtitle {
+  font-size: 1.5rem;
+  color: #e0e0e0;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  line-height: 1.6;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-family: "IBM Plex Mono", monospace;
+}
+
+[data-theme="light"] .pulse-hero-subtitle {
+  color: #2a2a2a;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.pulse-hero-description {
+  font-size: 1.125rem;
+  color: #b0b0b0;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+[data-theme="light"] .pulse-hero-description {
+  color: #4a4a4a;
+}
+
+@media (max-width: 768px) {
+  .pulse-hero-section {
+    min-height: 350px;
+  }
+
+  .pulse-hero-content {
+    padding: 3rem 1rem;
+    min-height: 350px;
+  }
+
+  .pulse-hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .pulse-hero-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .pulse-hero-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pulse-hero-section {
+    min-height: 300px;
+  }
+
+  .pulse-hero-content {
+    padding: 2rem 0.75rem;
+    min-height: 300px;
+  }
+
+  .pulse-hero-title {
+    font-size: 2rem;
+  }
+
+  .pulse-hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .pulse-hero-description {
+    font-size: 0.9rem;
+  }
+}
+

@@ -24,6 +24,12 @@ export const PROJECTS = {
     "Real-world implementations. Case studies and projects showcasing AI integration, automation systems, and revenue-generating tools.",
 };
 
+export const PULSE = {
+  TITLE: "The Pulse",
+  DESCRIPTION:
+    "Real-time AI intel. Daily quick hits on the latest AI developments, tools, and breakthroughs. No fluff. Just the signal.",
+};
+
 export const SOCIALS = [
   {
     NAME: "X",

@@ -10,7 +10,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
-const AI_TOOLS_FILE = 'src/data/ai-tools.ts';
+const AI_TOOLS_FILE = 'src/features/ai-tools/data/tools.ts';
 
 interface AIToolInput {
   name: string;
