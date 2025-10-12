@@ -52,16 +52,24 @@ const links = [
       </button>
     </div>
   </div>
-          <div
-            id="menu-mobile"
-            class="hidden md:hidden space-x-3 text-secondary bg-background backdrop-blur-2xl w-full p-4 mobile-menu-glow"
-          >
-    <nav class="flex flex-col gap-4 text-2xl">
+  
+  <!-- Mobile Menu Overlay -->
+  <div id="menu-overlay" class="menu-overlay"></div>
+  
+  <!-- Mobile Menu Sidebar -->
+  <div id="menu-mobile" class="mobile-menu">
+    <button id="menu-close" class="menu-close-btn" aria-label="Close menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <nav class="flex flex-col gap-6 text-xl mt-8">
       {
         links.map((link) => (
           <a
             href={link.href}
-            class={`hover:border-b-2 hover:border-dashed hover:border-secondary pb-0.5 ${link.glowing ? 'resistance-glow' : ''}`}
+            class="menu-link hover:border-b-2 hover:border-dashed hover:border-secondary pb-0.5"
           >
             {link.name}
           </a>
@@ -74,17 +82,6 @@ const links = [
 <style>
   .resistance-glow {
     color: #FF4C4C;
-    text-shadow: 0 0 10px #FF4C4C, 0 0 20px rgba(255, 76, 76, 0.5);
-    animation: pulse-glow 2s ease-in-out infinite alternate;
-  }
-
-  @keyframes pulse-glow {
-    from {
-      text-shadow: 0 0 10px #FF4C4C, 0 0 20px rgba(255, 76, 76, 0.5);
-    }
-    to {
-      text-shadow: 0 0 15px #FF4C4C, 0 0 30px rgba(255, 76, 76, 0.8);
-    }
   }
 
   .hamburger {
@@ -147,17 +144,81 @@ const links = [
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
   }
 
+  /* Mobile Menu Overlay */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Mobile Menu Sidebar */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 75%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--color-background);
+    z-index: 999;
+    padding: 2rem 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .mobile-menu.active {
+    transform: translateX(0);
+  }
+
+  .menu-link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    display: block;
+  }
+
+  .menu-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--color-secondary);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+
+  .menu-close-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .menu-close-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
   /* Mobile edge-to-edge */
   @media (max-width: 768px) {
     header .container {
       margin-left: 0.5rem;
       margin-right: 0.5rem;
-    }
-
-    #menu-mobile {
-      width: 100%;
-      left: 0;
-      right: 0;
     }
   }
 
@@ -168,22 +229,61 @@ const links = [
       padding: 0.75rem;
     }
   }
+
+  @media (min-width: 769px) {
+    .mobile-menu,
+    .menu-overlay {
+      display: none;
+    }
+  }
 </style>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const menuMobile = document.getElementById("menu-mobile");
+    const menuOverlay = document.getElementById("menu-overlay");
     const toggle = document.getElementById("menu-toggle");
     const themeToggle = document.getElementById("theme-toggle");
     const sunIcon = document.getElementById("sun-icon");
     const moonIcon = document.getElementById("moon-icon");
     
     // Mobile menu toggle
+    const openMenu = () => {
+      menuMobile?.classList.add("active");
+      menuOverlay?.classList.add("active");
+      toggle?.classList.add("active");
+      toggle?.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeMenu = () => {
+      menuMobile?.classList.remove("active");
+      menuOverlay?.classList.remove("active");
+      toggle?.classList.remove("active");
+      toggle?.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    };
+
     toggle?.addEventListener("click", () => {
-      menuMobile?.classList.toggle("hidden");
-      toggle.classList.toggle("active");
-      const expanded = toggle.classList.contains("active");
-      toggle.setAttribute("aria-expanded", String(expanded));
+      const isOpen = menuMobile?.classList.contains("active");
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    // Close menu when clicking overlay
+    menuOverlay?.addEventListener("click", closeMenu);
+
+    // Close menu when clicking close button
+    const closeButton = document.getElementById("menu-close");
+    closeButton?.addEventListener("click", closeMenu);
+
+    // Close menu when clicking a link
+    const menuLinks = menuMobile?.querySelectorAll("a");
+    menuLinks?.forEach((link) => {
+      link.addEventListener("click", closeMenu);
     });
 
             // Theme toggle
