@@ -18,7 +18,7 @@ export const aiTools: AITool[] = [
   {
     id: "claude",
     name: "Claude AI",
-    logo: "/logos/claude-logo.png",
+    logo: "/logos/claude_logo.svg",
     rating: 4.8,
     reviewUrl: "/blog/claude-ai-review",
     affiliateUrl: "https://claude.ai?ref=your-affiliate-id",

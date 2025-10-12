@@ -30,12 +30,25 @@ body {
   box-sizing: border-box;
 }
 
+/* Reduce top spacing on all pages */
+.pt-18 {
+  padding-top: 3rem !important;
+}
+
+.pt-24 {
+  padding-top: 4rem !important;
+}
+
 /* Mobile Edge-to-Edge Content */
 @media (max-width: 768px) {
   .container.mx-auto.px-6,
   .px-6 {
     padding-left: 0.75rem !important;
     padding-right: 0.75rem !important;
+  }
+
+  .pt-18, .pt-24 {
+    padding-top: 2rem !important;
   }
 
   /* Prevent any element from causing horizontal scroll */

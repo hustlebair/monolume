@@ -152,7 +152,7 @@ export default function ImprovedStickyTabs() {
 
     const navHeight = navRef.current.offsetHeight;
     const sectionTop = section.offsetTop;
-    const offsetPosition = sectionTop - navHeight - 20; // 20px extra padding
+    const offsetPosition = sectionTop - navHeight; // Position headline right below sticky nav
 
     window.scrollTo({
       top: offsetPosition,
