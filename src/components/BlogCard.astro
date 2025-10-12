@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { ShineBorder } from "@/components/ui/shine-border";
 
 type Props = {
     entry: CollectionEntry<"blog">;
@@ -8,33 +9,121 @@ type Props = {
 const { entry } = Astro.props as {
     entry: CollectionEntry<"blog">;
 };
+
+const tag = entry.data.tag || "resistance";
+const isTakeover = tag === "takeover";
+
+// Define shine colors based on tag
+const shineColors = isTakeover 
+  ? ["#FF4C4C", "#FF6B3D", "#E63946"]
+  : ["#5AA469", "#6FC7B8", "#2E8BC0"];
 ---
 
 <a
-    class="group relative flex flex-col gap-6 mb-8 pb-8 border-dashed border-b border-b-secondary cursor-pointer"
+    class={`group relative block cursor-pointer blog-card-link ${isTakeover ? 'takeover-theme' : 'resistance-theme'}`}
     href={`/${entry.collection}/${entry.id}`}
 >
-    <div
-        class="w-full aspect-[610/400] overflow-hidden border-dashed border-secondary rounded-3xl"
-    >
-        <img
-            src={entry.data.image?.url ||
-                `https://placehold.co/600x400?text=${entry.data.title}`}
-            alt={entry.data.image?.alt || entry.data.title}
-            class="w-full h-full object-cover"
+    <div class="blog-card-container">
+        <ShineBorder 
+          client:load
+          shineColor={shineColors}
+          borderRadius={24}
+          borderWidth={2}
+          duration={14}
+          className="opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         />
-    </div>
-
-    <div class="space-y-4 text-center">
-                <h3
-                    class="heading uppercase text-xl md:text-2xl line-clamp-2 primary-gradient-text"
-                >
-            {entry.data.title}
-        </h3>
-        <p
-            class="text-base md:text-lg text-secondary line-clamp-3"
+        <div
+            class="w-full aspect-[610/400] overflow-hidden rounded-2xl"
         >
-            {entry.data.description}
-        </p>
+            <img
+                src={entry.data.image?.url ||
+                    `https://placehold.co/600x400?text=${entry.data.title}`}
+                alt={entry.data.image?.alt || entry.data.title}
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+        </div>
+
+        <div class="space-y-4 text-center">
+            <h3
+                class={`heading uppercase text-xl md:text-2xl line-clamp-2 ${isTakeover ? 'takeover-gradient-text' : 'resistance-gradient-text'}`}
+            >
+                {entry.data.title}
+            </h3>
+            <p
+                class="text-base md:text-lg text-secondary line-clamp-3"
+            >
+                {entry.data.description}
+            </p>
+        </div>
     </div>
 </a>
+
+<style>
+  .blog-card-link {
+    text-decoration: none;
+  }
+
+  .blog-card-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 24px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    overflow: visible;
+    z-index: 1;
+  }
+
+  [data-theme="light"] .blog-card-container {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .blog-card-container > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .takeover-theme:hover .blog-card-container {
+    transform: translateY(-4px);
+    border-color: rgba(255, 76, 76, 0.3);
+    box-shadow: 0 8px 32px rgba(255, 76, 76, 0.15);
+  }
+
+  .resistance-theme:hover .blog-card-container {
+    transform: translateY(-4px);
+    border-color: rgba(90, 164, 105, 0.3);
+    box-shadow: 0 8px 32px rgba(90, 164, 105, 0.15);
+  }
+
+  .takeover-gradient-text {
+    background: linear-gradient(90deg, #FF4C4C, #FF6B3D, #E63946);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 8s ease-in-out infinite;
+  }
+
+  .resistance-gradient-text {
+    background: linear-gradient(90deg, #5AA469, #6FC7B8, #2E8BC0);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 8s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+</style>

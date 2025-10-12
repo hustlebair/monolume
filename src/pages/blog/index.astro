@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import BlogSpotlightCard from "@components/BlogSpotlightCard.astro";
+import ThemedBlogCard from "@components/ThemedBlogCard.astro";
 import BlogFilter from "@components/BlogFilter.astro";
 import BlogHero from "@components/BlogHero";
 import { getCollection, type CollectionEntry } from "astro:content";
@@ -46,7 +46,7 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
             <div>
               <ul class="not-prose grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {posts[year].map((post) => (
-                  <BlogSpotlightCard entry={post} />
+                  <ThemedBlogCard entry={post} />
                 ))}
               </ul>
             </div>

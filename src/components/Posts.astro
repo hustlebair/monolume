@@ -13,9 +13,9 @@ const allPosts: CollectionEntry<"blog">[] = (await getCollection("blog"))
   <div class="absolute inset-0 -z-10 opacity-30">
     <img src="/background.svg" alt="" class="w-full h-full object-cover" />
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {allPosts.map((post) => <BlogCard entry={post} />)}
-    <div class="flex items-center justify-center col-span-full mt-4">
+    <div class="flex items-center justify-center col-span-full mt-8">
       <a
         href="/blog"
         class="flex items-center justify-center primary-gradient text-white rounded-2xl py-3 px-6 sm:py-4 sm:px-10 cursor-pointer hover:opacity-90 transition"
