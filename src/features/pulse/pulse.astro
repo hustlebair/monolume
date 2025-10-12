@@ -1,0 +1,589 @@
+---
+import Layout from "@layouts/Layout.astro";
+import PulseHero from "@features/pulse/components/PulseHero";
+import "@features/pulse/styles/PulseCard.css";
+
+const title = "The Pulse";
+const description = "Real-time AI intel. Daily quick hits on the latest AI developments, tools, and breakthroughs.";
+
+// Pulse posts - add your TikTok embed codes here
+const pulsePosts = [
+  {
+    id: 1,
+    date: new Date(),
+    title: "OpenAI Releases GPT-5 Preview",
+    content: "New model shows 40% improvement in reasoning tasks. Early access rolling out to Plus users.",
+    moreInfo: "GPT-5 introduces multimodal improvements, better context handling up to 200K tokens, and enhanced reasoning capabilities. Beta testers report significant improvements in coding, creative writing, and complex problem-solving tasks.",
+    videoEmbed: '<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jakevibecodes/video/7560401803821501726" data-video-id="7560401803821501726" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@jakevibecodes" href="https://www.tiktok.com/@jakevibecodes?refer=embed">@jakevibecodes</a> Terms and conditions working overtime.  <a title="parkour" target="_blank" href="https://www.tiktok.com/tag/parkour?refer=embed">#parkour</a> <a title="sora" target="_blank" href="https://www.tiktok.com/tag/sora?refer=embed">#sora</a> <a target="_blank" title="♬ AirBnb - ian" href="https://www.tiktok.com/music/AirBnb-7369966216264976385?refer=embed">♬ AirBnb - ian</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>',
+    tags: ["LLM", "OpenAI"]
+  },
+  {
+    id: 2,
+    date: new Date(Date.now() - 86400000),
+    title: "Midjourney V7 Alpha Drops",
+    content: "Photorealism reaches new heights. Text rendering finally works consistently.",
+    moreInfo: "V7 brings major improvements to text generation, hands, and photorealistic rendering. The new model is 2x faster and produces more coherent, detailed images with better prompt adherence.",
+    videoEmbed: '<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jakevibecodes/video/7560401803821501726" data-video-id="7560401803821501726" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@jakevibecodes" href="https://www.tiktok.com/@jakevibecodes?refer=embed">@jakevibecodes</a> Terms and conditions working overtime.  <a title="parkour" target="_blank" href="https://www.tiktok.com/tag/parkour?refer=embed">#parkour</a> <a title="sora" target="_blank" href="https://www.tiktok.com/tag/sora?refer=embed">#sora</a> <a target="_blank" title="♬ AirBnb - ian" href="https://www.tiktok.com/music/AirBnb-7369966216264976385?refer=embed">♬ AirBnb - ian</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>',
+    tags: ["Image Gen"]
+  },
+  {
+    id: 3,
+    date: new Date(Date.now() - 172800000),
+    title: "Claude 4 Launches with Vision",
+    content: "Anthropic's new model can now analyze images, charts, and documents with unprecedented accuracy.",
+    moreInfo: "Claude 4 Vision can process PDFs, screenshots, diagrams, and photos. Early tests show 95% accuracy on complex chart interpretation and technical documentation analysis.",
+    videoEmbed: '<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jakevibecodes/video/7560401803821501726" data-video-id="7560401803821501726" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@jakevibecodes" href="https://www.tiktok.com/@jakevibecodes?refer=embed">@jakevibecodes</a> Terms and conditions working overtime.  <a title="parkour" target="_blank" href="https://www.tiktok.com/tag/parkour?refer=embed">#parkour</a> <a title="sora" target="_blank" href="https://www.tiktok.com/tag/sora?refer=embed">#sora</a> <a target="_blank" title="♬ AirBnb - ian" href="https://www.tiktok.com/music/AirBnb-7369966216264976385?refer=embed">♬ AirBnb - ian</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>',
+    tags: ["LLM", "Vision"]
+  }
+];
+---
+
+<Layout title={title} description={description}>
+  <div class="pulse-layout">
+    <!-- Hero Section - Full Width -->
+    <div class="hero-full-width">
+      <PulseHero client:load />
+    </div>
+
+    <!-- Content Area -->
+    <section id="Pulse" class="pulse-content-section">
+      <div class="pulse-container">
+        <!-- Pulse Posts Grid -->
+        <div class="pulse-grid">
+          {pulsePosts.map((post) => (
+            <article class="pulse-card" data-card="pulse">
+              <div class="pulse-card-content">
+                <div class="pulse-card-header">
+                  <time class="pulse-date">
+                    {post.date.toLocaleDateString('en-US', { 
+                      month: 'short', 
+                      day: 'numeric',
+                      year: 'numeric'
+                    })}
+                  </time>
+                  <div class="pulse-tags">
+                    {post.tags.map((tag) => (
+                      <span class="pulse-tag">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+                
+                <h2 class="pulse-title">{post.title}</h2>
+                
+                <p class="pulse-content">{post.content}</p>
+                
+                <div class="pulse-dropdowns">
+                  {/* Read More Dropdown - First, only if more info exists */}
+                  {post.moreInfo && (
+                    <details class="pulse-more-details" id={`more-${post.id}`}>
+                      <summary class="pulse-dropdown-summary">
+                        <span>Read more</span>
+                        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                      </summary>
+                      <div class="pulse-more-content">
+                        <p>{post.moreInfo}</p>
+                      </div>
+                    </details>
+                  )}
+                  
+                  {/* Show Video Dropdown - Second, only if video exists */}
+                  {post.videoEmbed && (
+                    <details class="pulse-video-details" id={`video-${post.id}`}>
+                      <summary class="pulse-dropdown-summary">
+                        <span>Show video</span>
+                        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                      </summary>
+                      <div class="pulse-video-dropdown-content">
+                        <div class="pulse-video-wrapper">
+                          <div class="pulse-video-container">
+                            <div class="pulse-video" set:html={post.videoEmbed} />
+                            <div class="pulse-video-overlay">
+                              <svg class="play-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="5,3 19,12 5,21"></polygon>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </details>
+                  )}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <!-- Coming Soon Message -->
+        <div class="coming-soon">
+          <p>⚡ More pulse updates coming daily</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .pulse-layout {
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 769px) {
+    .pulse-layout {
+      width: 100vw;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+  }
+
+  .hero-full-width {
+    width: 100%;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .pulse-content-section {
+    background: transparent;
+    width: 100%;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  [data-theme="light"] .pulse-content-section {
+    background: #f9fafb;
+    min-height: calc(100vh - 200px);
+  }
+
+  .pulse-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .pulse-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    width: 100%;
+  }
+
+  .pulse-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    padding: 0.5rem 1rem 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  [data-theme="light"] .pulse-date {
+    color: #555;
+  }
+
+  [data-theme="light"] .pulse-tag {
+    background: rgba(255, 76, 76, 0.15);
+    color: #c93939;
+  }
+
+  [data-theme="light"] .pulse-title {
+    color: #1a1a1a;
+  }
+
+  [data-theme="light"] .pulse-content {
+    color: #4a4a4a;
+  }
+
+  .pulse-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    height: 100%;
+  }
+
+  .pulse-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .pulse-date {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.875rem;
+    color: #888;
+    white-space: nowrap;
+  }
+
+  .pulse-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .pulse-tag {
+    background: rgba(255, 76, 76, 0.2);
+    color: #FF4C4C;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .pulse-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-foreground);
+    line-height: 1.3;
+    text-align: left;
+  }
+
+  .pulse-content {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--color-secondary);
+    text-align: left;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Dropdowns Container */
+  .pulse-dropdowns {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: auto;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 0.5rem;
+  }
+
+  [data-theme="light"] .pulse-dropdowns {
+    border-top-color: #e5e7eb;
+  }
+
+  [data-theme="dark"] .pulse-dropdowns {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Video Container */
+  .pulse-video-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+  }
+
+  .pulse-video-container {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 9 / 16;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .pulse-video-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  [data-theme="light"] .pulse-video-container:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .pulse-video {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .pulse-video :global(iframe),
+  .pulse-video :global(blockquote) {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
+  /* Hide TikTok embed metadata - show only video */
+  .pulse-video :global(blockquote section) {
+    display: none !important;
+  }
+
+  .pulse-video :global(blockquote section:first-child) {
+    display: block !important;
+  }
+
+  .pulse-video :global(blockquote) {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  .pulse-video :global(blockquote a),
+  .pulse-video :global(blockquote p),
+  .pulse-video :global(blockquote .tiktok-embed-header) {
+    display: none !important;
+  }
+
+  /* Play on hover */
+  .pulse-video-container:hover .pulse-video :global(iframe),
+  .pulse-video-container:hover .pulse-video :global(blockquote) {
+    pointer-events: auto;
+  }
+
+  /* Play Overlay */
+  .pulse-video-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .pulse-video-container:hover .pulse-video-overlay {
+    opacity: 0;
+  }
+
+  .play-icon {
+    color: white;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+    opacity: 0.9;
+  }
+
+  /* Dropdown Styling (both video and read more) */
+  .pulse-video-details,
+  .pulse-more-details {
+    margin-bottom: 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  [data-theme="dark"] .pulse-video-details,
+  [data-theme="dark"] .pulse-more-details {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .pulse-video-details:last-child,
+  .pulse-more-details:last-child {
+    border-bottom: none;
+  }
+
+  .pulse-dropdown-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.8125rem;
+    color: #4b5563;
+    list-style: none;
+    padding: 8px 12px;
+    background: transparent;
+    user-select: none;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  [data-theme="dark"] .pulse-dropdown-summary {
+    color: #9ca3af;
+  }
+
+  .pulse-dropdown-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .pulse-dropdown-summary:hover {
+    background: rgba(0, 0, 0, 0.02);
+    color: #1f2937;
+  }
+
+  [data-theme="dark"] .pulse-dropdown-summary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #e5e7eb;
+  }
+
+  .chevron {
+    transition: transform 0.3s ease;
+    color: #9ca3af;
+    flex-shrink: 0;
+  }
+
+  [data-theme="dark"] .chevron {
+    color: #6b7280;
+  }
+
+  .pulse-video-details[open] .chevron,
+  .pulse-more-details[open] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .pulse-more-content {
+    padding: 0.75rem 12px 1rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--color-secondary);
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  [data-theme="dark"] .pulse-more-content {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .pulse-more-content p {
+    margin: 0;
+  }
+
+  .pulse-video-dropdown-content {
+    padding: 0.875rem 12px;
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  [data-theme="dark"] .pulse-video-dropdown-content {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .coming-soon {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 76, 76, 0.1);
+    border: 2px dashed rgba(255, 76, 76, 0.3);
+    border-radius: 12px;
+    margin-top: 2rem;
+  }
+
+  [data-theme="light"] .coming-soon {
+    background: rgba(255, 76, 76, 0.05);
+    border: 2px dashed rgba(255, 76, 76, 0.4);
+  }
+
+  .coming-soon p {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 1.125rem;
+    color: #FF4C4C;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .pulse-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pulse-content-section {
+      padding: 2rem 1rem 4rem;
+    }
+
+    .pulse-container {
+      padding: 0;
+    }
+
+    .pulse-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .pulse-card {
+      padding: 0.5rem 0.875rem 0.875rem;
+    }
+
+    .pulse-video-container {
+      max-width: 280px;
+    }
+
+    .pulse-title {
+      font-size: 1.125rem;
+    }
+
+    .pulse-content {
+      font-size: 0.875rem;
+    }
+
+    .pulse-dropdown-summary {
+      font-size: 0.75rem;
+      padding: 8px 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .pulse-content-section {
+      padding: 1.5rem 0.75rem 3rem;
+    }
+
+    .pulse-card {
+      padding: 0.5rem 0.75rem 0.75rem;
+    }
+
+    .pulse-video-container {
+      max-width: 240px;
+    }
+
+    .play-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .pulse-title {
+      font-size: 1rem;
+    }
+
+    .pulse-content {
+      font-size: 0.8125rem;
+    }
+
+    .pulse-date {
+      font-size: 0.75rem;
+    }
+
+    .pulse-tag {
+      font-size: 0.625rem;
+      padding: 0.15rem 0.5rem;
+    }
+
+    .pulse-dropdown-summary {
+      font-size: 0.6875rem;
+      padding: 7px 10px;
+    }
+
+    .pulse-more-content {
+      padding: 0.625rem 10px 0.875rem;
+    }
+
+    .pulse-video-dropdown-content {
+      padding: 0.75rem 10px;
+    }
+  }
+</style>
+

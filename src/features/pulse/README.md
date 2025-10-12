@@ -9,13 +9,15 @@ src/features/pulse/
 │   └── PulseHero.css       # Hero section styles
 ├── styles/
 │   └── PulseCard.css       # Pulse card styling (with light theme border fix)
+├── pulse.astro             # Main Pulse page component
 └── README.md               # This file
 ```
 
 ## 📄 Main Page
 
-- **Location**: `src/pages/pulse.astro`
-- **Route**: `/pulse`
+- **Location**: `src/features/pulse/pulse.astro`
+- **Route**: `/pulse` (via `src/pages/pulse.astro` redirect)
+- **Note**: The actual page lives in the features folder, but a redirect file in `src/pages/pulse.astro` maintains the `/pulse` URL route.
 
 ## 🧩 Components
 
@@ -73,7 +75,7 @@ Each pulse post card has:
 
 ## 🔧 Adding a New Pulse Post
 
-Edit `src/pages/pulse.astro`:
+Edit `src/features/pulse/pulse.astro`:
 
 ```typescript
 const pulsePosts = [
@@ -98,7 +100,8 @@ const pulsePosts = [
 
 ## 🚀 Related Files
 
-- `src/pages/pulse.astro` - Main page
+- `src/features/pulse/pulse.astro` - Main page component
+- `src/pages/pulse.astro` - Route redirect file
 - `src/components/ripple.tsx` - Ripple animation component
 - `src/consts.ts` - Contains `PULSE` constant for SEO
 
