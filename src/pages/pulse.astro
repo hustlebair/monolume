@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import PulseHero from "@components/PulseHero";
+import "@components/PulseCard.css";
 
 const title = "The Pulse";
 const description = "Real-time AI intel. Daily quick hits on the latest AI developments, tools, and breakthroughs.";
@@ -39,7 +40,7 @@ const pulsePosts = [
         <!-- Pulse Posts Grid -->
         <div class="pulse-grid">
           {pulsePosts.map((post) => (
-            <article class="pulse-card">
+            <article class="pulse-card" data-card="pulse">
               <div class="pulse-card-content">
                 <div class="pulse-card-header">
                   <time class="pulse-date">
@@ -139,8 +140,6 @@ const pulsePosts = [
   .pulse-card {
     display: flex;
     gap: 1.5rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
     padding: 1.5rem;
     transition: all 0.3s ease;
@@ -148,31 +147,6 @@ const pulsePosts = [
     position: relative;
     box-sizing: border-box;
     width: 100%;
-  }
-
-  .pulse-card:hover {
-    border-color: rgba(255, 76, 76, 0.7);
-    box-shadow: 0 8px 32px rgba(255, 76, 76, 0.2);
-    transform: translateY(-2px);
-  }
-
-  /* Light theme styles */
-  [data-theme="light"] .pulse-card {
-    background: #ffffff !important;
-    border: 2px solid #6b7280 !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-  }
-
-  [data-theme="light"] .pulse-card:hover {
-    border-color: #FF4C4C !important;
-    box-shadow: 0 4px 16px rgba(255, 76, 76, 0.3), 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-  }
-  
-  /* Extra specificity for light theme borders */
-  [data-theme="light"] article.pulse-card {
-    border-width: 2px !important;
-    border-style: solid !important;
-    border-color: #6b7280 !important;
   }
 
   [data-theme="light"] .pulse-date {

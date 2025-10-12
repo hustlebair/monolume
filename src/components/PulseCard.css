@@ -1,0 +1,48 @@
+/* Pulse Card Styles - Light Theme Border Fix */
+
+/* Maximum specificity for light theme borders */
+html[data-theme="light"] .pulse-layout article.pulse-card[data-card="pulse"],
+html[data-theme="light"] article.pulse-card.pulse-card[data-card="pulse"],
+html[data-theme="light"] article[data-card="pulse"].pulse-card,
+[data-theme="light"] .pulse-layout .pulse-grid article.pulse-card[data-card="pulse"],
+[data-theme="light"] article.pulse-card {
+  background: #ffffff !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: #9ca3af !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  outline: none !important;
+}
+
+/* Hover state for light theme */
+html[data-theme="light"] .pulse-layout article.pulse-card[data-card="pulse"]:hover,
+html[data-theme="light"] article.pulse-card.pulse-card[data-card="pulse"]:hover,
+html[data-theme="light"] article[data-card="pulse"].pulse-card:hover,
+[data-theme="light"] .pulse-layout .pulse-grid article.pulse-card[data-card="pulse"]:hover,
+[data-theme="light"] article.pulse-card:hover {
+  border-color: #FF4C4C !important;
+  box-shadow: 0 4px 16px rgba(255, 76, 76, 0.3), 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Dark theme - default styles */
+html[data-theme="dark"] .pulse-layout article.pulse-card[data-card="pulse"],
+html[data-theme="dark"] article.pulse-card.pulse-card[data-card="pulse"],
+html[data-theme="dark"] article[data-card="pulse"].pulse-card,
+html:not([data-theme]) article.pulse-card[data-card="pulse"],
+article.pulse-card[data-card="pulse"],
+article.pulse-card {
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%) !important;
+}
+
+html[data-theme="dark"] .pulse-layout article.pulse-card[data-card="pulse"]:hover,
+html[data-theme="dark"] article.pulse-card.pulse-card[data-card="pulse"]:hover,
+html[data-theme="dark"] article[data-card="pulse"].pulse-card:hover,
+html:not([data-theme]) article.pulse-card[data-card="pulse"]:hover,
+article.pulse-card[data-card="pulse"]:hover,
+article.pulse-card:hover {
+  border-color: rgba(255, 76, 76, 0.7) !important;
+  box-shadow: 0 8px 32px rgba(255, 76, 76, 0.2) !important;
+  transform: translateY(-2px);
+}
+
