@@ -1,8 +1,99 @@
 # UI Components
 
-This directory contains reusable UI components following shadcn/ui conventions.
+This directory contains reusable UI components from 21st.dev and custom implementations.
 
 ## Components
+
+### Background Paths (`background-paths.tsx`)
+
+An animated SVG background with flowing paths that create a dynamic, modern aesthetic.
+
+**Source**: [21st.dev - Background Paths](https://21st.dev/kokonutd/background-paths/default)
+
+#### Features
+- 🎨 **Theme-Aware**: Automatically adapts to light/dark mode
+- 🌊 **Smooth Animation**: 36 animated path layers with varying speeds
+- 🎯 **Layered Depth**: Multiple path positions create visual depth
+- 💫 **Subtle Motion**: Gentle opacity and path animations
+- 📱 **Responsive**: Scales beautifully on all screen sizes
+
+#### Basic Usage
+
+```tsx
+import { BackgroundPaths } from '@/components/ui/background-paths';
+
+<BackgroundPaths>
+  <div>
+    <h1>Your Content Here</h1>
+    <p>Content appears above the animated paths</p>
+  </div>
+</BackgroundPaths>
+```
+
+#### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | `undefined` | Content to display over the animated background |
+
+#### Implementation Details
+
+- **36 SVG Paths**: Each with unique animation timing
+- **Dual Direction**: Two `FloatingPaths` layers (position: 1 and -1) create bidirectional flow
+- **Animation Duration**: Random variation (20-30s) creates organic movement
+- **Opacity Animation**: Paths pulse between 0.3 and 0.6 opacity
+- **Path Offset**: Creates flowing motion effect
+
+#### Theme Colors
+
+- **Dark Mode**: White paths (`text-white`)
+- **Light Mode**: Dark slate paths (`text-slate-950`)
+
+#### Examples
+
+##### With Hero Content
+```tsx
+<div className="blog-hero-section">
+  <BackgroundPaths>
+    <div className="blog-hero-content">
+      <h1>THE WATCHTOWER</h1>
+      <p>The machines aren't coming — they're already here.</p>
+    </div>
+  </BackgroundPaths>
+</div>
+```
+
+##### Full Screen Background
+```tsx
+<div className="relative min-h-screen">
+  <BackgroundPaths>
+    <div className="container mx-auto px-4 py-16">
+      {/* Your page content */}
+    </div>
+  </BackgroundPaths>
+</div>
+```
+
+#### Best Use Cases
+
+1. **Hero Sections** - Add dynamic movement to landing pages
+2. **Blog Headers** - Create engaging entry points for content
+3. **Feature Pages** - Provide visual interest without distraction
+4. **About Pages** - Subtle animation that doesn't overwhelm text
+5. **Loading States** - Engaging background during data fetch
+
+#### Integration Notes
+
+- ⚠️ **Requires `client:load`** directive in Astro for animation
+- Uses Framer Motion for smooth animations
+- Paths are pointer-events: none (won't interfere with content interaction)
+- SVG viewBox is responsive (preserveAspectRatio: xMidYMid slice)
+
+#### Current Usage
+
+- **Blog Hero** (`src/components/BlogHero.tsx`)
+
+---
 
 ### Spotlight Card (`spotlight-card.tsx`)
 
