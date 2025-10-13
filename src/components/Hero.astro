@@ -4,8 +4,8 @@ import { Globe } from "@/components/Globe";
 ---
 
 <section
-  class="container mx-auto px-6 pt-24 relative hero-grid-bg flex items-center justify-center overflow-visible"
-  style="padding-top: calc(6rem + 15px); padding-bottom: 350px;"
+  class="container mx-auto px-6 pt-24 relative hero-grid-bg flex items-center justify-center overflow-visible hero-section"
+  style="padding-top: calc(6rem + 15px); padding-bottom: 370px;"
 >
   <div class="space-y-5 text-center max-w-4xl relative z-10">
     <h1 class="heading text-4xl md:text-6xl lg:text-7xl text-foreground">
@@ -31,7 +31,7 @@ import { Globe } from "@/components/Globe";
 <style>
   .globe-container {
     position: absolute;
-    top: 350px;
+    top: 370px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -43,6 +43,22 @@ import { Globe } from "@/components/Globe";
     -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
   }
 
+  .hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: radial-gradient(ellipse at center bottom, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  [data-theme="dark"] .hero-section::after {
+    background: radial-gradient(ellipse at center bottom, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  }
+
   /* Email embed container */
   .email-embed-glow {
     position: relative;
@@ -52,7 +68,7 @@ import { Globe } from "@/components/Globe";
   /* Responsive adjustments for mobile */
   @media (max-width: 768px) {
     .globe-container {
-      top: 280px;
+      top: 360px;
       max-width: 600px;
       height: 450px;
     }
@@ -60,7 +76,7 @@ import { Globe } from "@/components/Globe";
 
   @media (max-width: 480px) {
     .globe-container {
-      top: 260px;
+      top: 340px;
       max-width: 500px;
       height: 400px;
     }
