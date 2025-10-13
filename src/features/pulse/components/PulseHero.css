@@ -31,7 +31,7 @@
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: #ffffff;
-  font-family: "Bricolage Grotesque", sans-serif;
+  font-family: "DM Sans", sans-serif;
   letter-spacing: 0.05em;
   text-shadow: 0 0 20px rgba(255, 76, 76, 0.5),
                0 0 40px rgba(255, 76, 76, 0.3);
@@ -50,7 +50,7 @@
   line-height: 1.6;
   font-weight: 600;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Space Mono", "Courier Prime", monospace;
 }
 
 [data-theme="light"] .pulse-hero-subtitle {

@@ -30,7 +30,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-family: "Bricolage Grotesque", sans-serif;
+  font-family: "DM Sans", sans-serif;
   position: relative;
   z-index: 10;
 }
@@ -44,6 +44,7 @@
   font-weight: 400;
   position: relative;
   z-index: 10;
+  font-family: "Space Mono", "Courier Prime", monospace;
 }
 
 @media (max-width: 768px) {

@@ -4,9 +4,9 @@
 
 @theme {
   /* fonts */
-  --font-plex: "IBM Plex Mono", monospace;
-  --font-geist: "Geist", sans-serif;
-  --font-bricolage: "Bricolage Grotesque", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-heading: "DM Sans", sans-serif;
+  --font-subheading: "Space Mono", "Courier Prime", monospace;
 
   /* colors */
   --color-primary: #FF4C4C;
@@ -261,7 +261,9 @@ body {
 }
 
 .heading {
-  @apply font-bricolage tracking-[-2%] font-bold;
+  font-family: "DM Sans", sans-serif;
+  letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
 html {
@@ -269,13 +271,19 @@ html {
 }
 
 body {
-  @apply font-geist text-foreground bg-background;
+  font-family: "DM Sans", sans-serif;
+  color: var(--color-foreground);
+  background: var(--color-background);
 }
 
 article {
   @apply prose prose-neutral prose-img:mx-auto prose-img:my-auto text-lg leading-8;
-  @apply prose-headings:font-bold prose-headings:font-bricolage prose-strong:text-foreground mx-auto;
+  @apply prose-headings:font-bold prose-strong:text-foreground mx-auto;
   @apply text-secondary prose-a:underline-offset-2 prose-a:text-sky-300 hover:prose-a:text-sky-200;
+}
+
+article h1, article h2, article h3, article h4, article h5, article h6 {
+  font-family: "DM Sans", sans-serif;
 }
 
 article h1, article h2, article h3, article h4, article h5, article h6 {
