@@ -69,6 +69,7 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
     margin-left: 0;
     margin-right: 0;
     overflow-x: hidden;
+    z-index: 1;
   }
 
   @media (min-width: 769px) {
@@ -87,5 +88,7 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    position: relative;
+    z-index: 1;
   }
 </style>
