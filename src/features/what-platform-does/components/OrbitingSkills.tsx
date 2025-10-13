@@ -287,20 +287,9 @@ export default function OrbitingSkills() {
   ];
 
   return (
-    <main className="w-full flex items-center justify-center overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div 
-          className="absolute inset-0" 
-          style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, #374151 0%, transparent 50%),
-                             radial-gradient(circle at 75% 75%, #4B5563 0%, transparent 50%)`,
-          }}
-        />
-      </div>
-
+    <main className="w-full flex items-center justify-center overflow-visible">
       <div 
-        className="relative w-[calc(100vw-40px)] h-[calc(100vw-40px)] md:w-[450px] md:h-[450px] flex items-center justify-center"
+        className="relative w-[min(90vw,550px)] h-[min(90vw,550px)] md:w-[550px] md:h-[550px] flex items-center justify-center"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >

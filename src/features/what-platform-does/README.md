@@ -5,23 +5,26 @@
 ```
 src/features/what-platform-does/
 ├── components/
-│   ├── OrbitingSkills.tsx        # Animated orbiting skills visualization
-│   └── WhatPlatformDoes.astro    # Section wrapper with heading
-├── index.ts                       # Feature exports
-└── README.md                      # This file
+│   ├── OrbitingSkills.tsx           # Animated orbiting skills visualization
+│   ├── ThemeAwareParticles.tsx      # Theme-aware particle background
+│   └── WhatPlatformDoes.astro       # Section wrapper with heading
+├── index.ts                          # Feature exports
+└── README.md                         # This file
 ```
 
 ## 🧩 Components
 
 ### WhatPlatformDoes.astro
 
-The main section component that wraps the orbiting skills with a heading and description.
+The main section component that wraps the orbiting skills with a heading, description, and animated particle background.
 
 **Features:**
 - Centered heading: "What The Platform Does"
 - Subheading with Space Mono font
 - Responsive container with proper spacing
 - Theme-aware styling
+- Animated particle background (light/dark compatible)
+- Proper z-index layering for visual depth
 
 **Usage:**
 ```astro
@@ -31,6 +34,25 @@ import { WhatPlatformDoes } from '@features/what-platform-does';
 
 <WhatPlatformDoes />
 ```
+
+### ThemeAwareParticles.tsx
+
+Interactive particle background component that automatically adapts to light/dark theme.
+
+**Features:**
+- 🎨 **Theme Detection**: Automatically switches particle color based on theme
+  - Dark theme: White particles (`#ffffff`)
+  - Light theme: Black particles (`#000000`)
+- 🖱️ **Mouse Interaction**: Particles react to mouse movement with magnetism effect
+- ✨ **Smooth Animation**: Canvas-based rendering with 60fps performance
+- 📱 **Responsive**: Adapts to container size changes
+- 🎯 **Configurable**: 80 particles with optimized ease settings
+
+**Technical Details:**
+- Uses `MutationObserver` to detect theme changes
+- Canvas-based rendering for performance
+- Particles fade in/out at edges
+- Mouse magnetism effect (particles follow cursor)
 
 ### OrbitingSkills.tsx
 
