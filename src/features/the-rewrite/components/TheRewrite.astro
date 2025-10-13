@@ -1,0 +1,65 @@
+---
+import { BlurTextEffect } from "@/components/BlurTextEffect";
+
+// Each line appears character-by-character in reading order
+// Each delay calculated as: previous_delay + (previous_chars × 0.03s stagger + 0.5s duration)
+const headlineDelay = 0;          // Starts immediately
+const subheadline1Delay = 4.1;    // After headline (~120 chars)
+const subheadline2Delay = 7.0;    // After sub1 (~80 chars)
+const subheadline3Delay = 10.0;   // After sub2 (~85 chars)
+const subheadline4Delay = 12.4;   // After sub3 (~62 chars)
+const subheadline5Delay = 17.2;   // After sub4 (~145 chars)
+---
+
+<section class="container mx-auto px-6 py-16 relative z-20 bg-background">
+  <div class="max-w-5xl mx-auto space-y-12">
+    <!-- Headline -->
+    <h2 class="heading text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight">
+      <BlurTextEffect 
+        client:load 
+        text="You're not behind. You're just living in a world that changed the rules while you were busy following them."
+        delay={headlineDelay}
+      />
+    </h2>
+
+    <!-- Subheadline -->
+    <div class="space-y-4">
+      <p class="text-lg md:text-xl text-secondary leading-relaxed" style="font-family: 'Space Mono', 'Courier Prime', monospace;">
+        <BlurTextEffect 
+          client:load 
+          text="Every industry is quietly being rewritten by people who can talk to machines."
+          delay={subheadline1Delay}
+        />
+      </p>
+      <p class="text-lg md:text-xl text-secondary leading-relaxed" style="font-family: 'Space Mono', 'Courier Prime', monospace;">
+        <BlurTextEffect 
+          client:load 
+          text="The ones who adapt aren't smarter — they're just faster to learn the new language."
+          delay={subheadline2Delay}
+        />
+      </p>
+      <p class="text-lg md:text-xl text-secondary leading-relaxed" style="font-family: 'Space Mono', 'Courier Prime', monospace;">
+        <BlurTextEffect 
+          client:load 
+          text="AI isn't the future. It's the operating system of the present."
+          delay={subheadline3Delay}
+        />
+      </p>
+      <p class="text-lg md:text-xl text-secondary leading-relaxed" style="font-family: 'Space Mono', 'Courier Prime', monospace;">
+        <BlurTextEffect 
+          client:load 
+          text="The difference between being replaceable and indispensable is now measured in how fast you can learn, experiment, and build with it."
+          delay={subheadline4Delay}
+        />
+      </p>
+      <p class="text-lg md:text-xl text-secondary leading-relaxed" style="font-family: 'Space Mono', 'Courier Prime', monospace;">
+        <BlurTextEffect 
+          client:load 
+          text="You don't need to code. You need to understand what's possible — and start bending these tools to your advantage."
+          delay={subheadline5Delay}
+        />
+      </p>
+    </div>
+  </div>
+</section>
+

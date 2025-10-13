@@ -8,12 +8,14 @@ import Contact from "@components/Contact.astro";
 import Hero from "@components/Hero.astro";
 import { HomeTimeline } from "@features/timeline";
 import { WhatPlatformDoes } from "@features/what-platform-does";
+import { TheRewrite } from "@features/the-rewrite";
 
 import { HOME } from "@consts";
 ---
 
 <Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Hero />
+  <TheRewrite />
   <HomeTimeline />
   <WhatPlatformDoes />
   <Posts />
