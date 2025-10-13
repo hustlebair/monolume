@@ -1,5 +1,6 @@
 ---
 import AboutMe from "@components/About.astro";
+import Projects from "@components/Projects.astro";
 import Layout from "@layouts/Layout.astro";
 import { SITE } from "@consts";
 ---
@@ -7,5 +8,6 @@ import { SITE } from "@consts";
 <Layout title={SITE.TITLE} description={SITE.DESCRIPTION}>
   <section class="pt-18">
     <AboutMe />
+    <Projects />
   </section>
 </Layout>
