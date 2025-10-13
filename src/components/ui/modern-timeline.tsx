@@ -152,12 +152,21 @@ export function Timeline({ items, className }: TimelineProps) {
                     whileHover={{ y: -2 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Card className={cn(
-                      "border transition-all duration-300 hover:shadow-md relative",
-                      "bg-card/50 backdrop-blur-sm",
-                      config.borderColor,
-                      "group-hover:border-primary/30"
-                    )}>
+                    <Card 
+                      className={cn(
+                        "border-2 transition-all duration-300 hover:shadow-md relative overflow-hidden",
+                        "backdrop-blur-md",
+                        config.borderColor,
+                        "group-hover:border-primary/30"
+                      )}
+                      style={{
+                        background: item.status === 'completed' 
+                          ? 'linear-gradient(135deg, rgba(34, 197, 94, 0.03), rgba(74, 222, 128, 0.03))' 
+                          : item.status === 'current' 
+                          ? 'linear-gradient(135deg, rgba(59, 130, 246, 0.03), rgba(96, 165, 250, 0.03))' 
+                          : 'linear-gradient(135deg, rgba(251, 146, 60, 0.03), rgba(253, 186, 116, 0.03))'
+                      }}
+                    >
                       <CardContent className="p-4 sm:p-6">
                         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-3">
                           <div className="flex-1 min-w-0">
