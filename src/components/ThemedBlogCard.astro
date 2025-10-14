@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 type Props = {
   entry: CollectionEntry<"blog">;
@@ -11,7 +12,6 @@ const { entry } = Astro.props as {
 
 const tag = entry.data.tag || "resistance";
 const isTakeover = tag === "takeover";
-const isResistance = tag === "resistance";
 ---
 
 <a
@@ -19,29 +19,40 @@ const isResistance = tag === "resistance";
   href={`/${entry.collection}/${entry.id}`}
   data-tag={tag}
 >
-  <div class="blog-card-container">
-    <div
-      class={`w-full aspect-[610/400] overflow-hidden rounded-2xl ${isResistance ? 'resistance-glow-border' : ''}`}
-    >
-      <img
-        src={entry.data.image?.url ||
-          `https://placehold.co/600x400?text=${entry.data.title}`}
-        alt={entry.data.image?.alt || entry.data.title}
-        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-      />
-    </div>
+  <div class="blog-card-wrapper relative rounded-2xl">
+    <GlowingEffect 
+      client:visible
+      blur={0}
+      borderWidth={2}
+      spread={60}
+      glow={false}
+      disabled={false}
+      proximity={64}
+      inactiveZone={0.01}
+      movementDuration={1.5}
+    />
+    <div class="blog-card-container relative border border-border rounded-2xl overflow-hidden">
+      <div class="w-full aspect-[610/400] overflow-hidden">
+        <img
+          src={entry.data.image?.url ||
+            `https://placehold.co/600x400?text=${entry.data.title}`}
+          alt={entry.data.image?.alt || entry.data.title}
+          class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
 
-    <div class="space-y-4 text-center">
-      <h3
-        class={`heading uppercase text-xl md:text-2xl line-clamp-2 ${isTakeover ? 'takeover-gradient-text' : 'resistance-gradient-text'}`}
-      >
-        {entry.data.title}
-      </h3>
-      <p
-        class="text-base md:text-lg text-secondary line-clamp-3"
-      >
-        {entry.data.description}
-      </p>
+      <div class="space-y-4 text-center p-6">
+        <h3
+          class={`heading uppercase text-xl md:text-2xl line-clamp-2 ${isTakeover ? 'takeover-gradient-text' : 'resistance-gradient-text'}`}
+        >
+          {entry.data.title}
+        </h3>
+        <p
+          class="text-base md:text-lg text-secondary line-clamp-3"
+        >
+          {entry.data.description}
+        </p>
+      </div>
     </div>
   </div>
 </a>
@@ -51,43 +62,30 @@ const isResistance = tag === "resistance";
     text-decoration: none;
   }
 
-  .blog-card-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  .blog-card-wrapper {
     transition: all 0.3s ease;
+    --card-border-radius: 1rem;
+    border-radius: var(--card-border-radius);
+  }
+  
+  .blog-card-wrapper :global(.glow::after) {
+    border-radius: var(--card-border-radius) !important;
   }
 
-  .takeover-theme:hover .blog-card-container {
+  .takeover-theme:hover .blog-card-wrapper {
     transform: translateY(-4px);
   }
 
-  .resistance-theme:hover .blog-card-container {
+  .resistance-theme:hover .blog-card-wrapper {
     transform: translateY(-4px);
+  }
+
+  .blog-card-container {
+    background: var(--background);
   }
 
   .takeover-theme:hover .takeover-gradient-text {
     animation: glitch-effect 0.6s ease-in-out;
-  }
-
-  .resistance-glow-border {
-    position: relative;
-  }
-
-  .resistance-glow-border::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(45deg, #5AA469, #6FC7B8, #2E8BC0);
-    border-radius: 1rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-  }
-
-  .resistance-theme:hover .resistance-glow-border::before {
-    opacity: 0.3;
   }
 
   .takeover-gradient-text {
@@ -95,6 +93,7 @@ const isResistance = tag === "resistance";
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
     animation: gradient-shift 8s ease-in-out infinite;
   }
 
@@ -103,6 +102,7 @@ const isResistance = tag === "resistance";
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
     animation: gradient-shift 8s ease-in-out infinite;
   }
 
