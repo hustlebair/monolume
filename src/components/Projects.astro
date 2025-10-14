@@ -1,5 +1,6 @@
 ---
 import Card from "./Card.astro";
+import { ScrollingText } from "./ScrollingText";
 
 import { getCollection, type CollectionEntry } from "astro:content";
 
@@ -9,5 +10,32 @@ const allProjects: CollectionEntry<"projects">[] = (
 ---
 
 <section id="Projects" class="container mx-auto px-6">
+  <div class="mb-12">
+    <ScrollingText 
+      text="PROJECTS" 
+      className="resistance-gradient-text"
+      client:load 
+    />
+  </div>
   {allProjects.map((project) => <Card entry={project} />)}
 </section>
+
+<style>
+  .resistance-gradient-text {
+    background: linear-gradient(90deg, #5AA469, #6FC7B8, #2E8BC0);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 8s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+</style>

@@ -11,8 +11,8 @@ const links = [
 ];
 ---
 
-<header class="w-full header-with-shadow">
-  <div class="container mx-auto flex items-center justify-between p-4 bg-background/90 backdrop-blur-sm rounded-b-2xl mx-4 header-glow">
+<header class="w-full sticky top-0 z-50 dark-header">
+  <div class="container mx-auto flex items-center justify-between p-4 bg-background/95 backdrop-blur-md border-b border-border/20 mx-4">
     <a href="/" class="font-bold text-4xl" style="font-family: 'Space Mono', 'Courier Prime', monospace;">
       P.T.O
     </a>
@@ -22,7 +22,8 @@ const links = [
           links.map((link) => (
             <a
               href={link.href}
-              class={`hover:border-b-2 hover:border-dashed hover:border-secondary pb-0.5 ${link.glowing ? 'resistance-glow' : ''}`}
+              class="hover:border-b-2 hover:border-dashed hover:border-secondary pb-0.5"
+              style="font-family: 'Space Mono', 'Courier Prime', monospace;"
             >
               {link.name}
             </a>
@@ -57,7 +58,7 @@ const links = [
   <div id="menu-overlay" class="menu-overlay"></div>
   
   <!-- Mobile Menu Sidebar -->
-  <div id="menu-mobile" class="mobile-menu">
+  <div id="menu-mobile" class="mobile-menu dark-mobile-menu">
     <button id="menu-close" class="menu-close-btn" aria-label="Close menu">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -70,6 +71,7 @@ const links = [
           <a
             href={link.href}
             class="menu-link hover:border-b-2 hover:border-dashed hover:border-secondary pb-0.5"
+            style="font-family: 'Space Mono', 'Courier Prime', monospace;"
           >
             {link.name}
           </a>
@@ -80,9 +82,6 @@ const links = [
 </header>
 
 <style>
-  .resistance-glow {
-    color: #FF4C4C;
-  }
 
   .hamburger {
     gap: 5px;
@@ -133,16 +132,18 @@ const links = [
 
   header {
     width: 100%;
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
-  .header-with-shadow {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  .dark-header {
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2), 0 2px 8px rgba(255, 255, 255, 0.15);
   }
 
-  [data-theme="dark"] .header-with-shadow {
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+  [data-theme="dark"] .dark-header {
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2), 0 2px 8px rgba(255, 255, 255, 0.15) !important;
   }
 
   /* Mobile Menu Overlay */
@@ -178,7 +179,15 @@ const links = [
     transform: translateX(100%);
     transition: transform 0.3s ease;
     overflow-y: auto;
-    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15), -2px 0 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark-mobile-menu {
+    box-shadow: -4px 0 20px rgba(255, 255, 255, 0.2), -2px 0 8px rgba(255, 255, 255, 0.15);
+  }
+
+  [data-theme="dark"] .dark-mobile-menu {
+    box-shadow: -4px 0 20px rgba(255, 255, 255, 0.2), -2px 0 8px rgba(255, 255, 255, 0.15) !important;
   }
 
   .mobile-menu.active {
@@ -304,6 +313,17 @@ const links = [
       
       document.documentElement.setAttribute("data-theme", newTheme);
       localStorage.setItem("theme", newTheme);
+      
+      // Force update header shadow for dark theme
+      const header = document.querySelector('header');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      if (newTheme === "dark") {
+        header?.style.setProperty('box-shadow', '0 4px 20px rgba(255, 255, 255, 0.2), 0 2px 8px rgba(255, 255, 255, 0.15)');
+        mobileMenu?.style.setProperty('box-shadow', '-4px 0 20px rgba(255, 255, 255, 0.2), -2px 0 8px rgba(255, 255, 255, 0.15)');
+      } else {
+        header?.style.setProperty('box-shadow', '0 4px 20px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1)');
+        mobileMenu?.style.setProperty('box-shadow', '-4px 0 20px rgba(0, 0, 0, 0.15), -2px 0 8px rgba(0, 0, 0, 0.1)');
+      }
       
       if (newTheme === "light") {
         sunIcon?.classList.add("hidden");
