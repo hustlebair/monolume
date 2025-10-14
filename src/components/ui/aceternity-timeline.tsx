@@ -18,11 +18,36 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setHeight(rect.height);
-    }
-  }, [ref]);
+    const updateHeight = () => {
+      if (ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        setHeight(rect.height);
+      }
+    };
+
+    // Initial height calculation
+    updateHeight();
+
+    // Recalculate height when images load
+    const images = ref.current?.querySelectorAll('img');
+    images?.forEach((img) => {
+      if (img.complete) {
+        updateHeight();
+      } else {
+        img.addEventListener('load', updateHeight);
+      }
+    });
+
+    // Also recalculate on window resize
+    window.addEventListener('resize', updateHeight);
+
+    return () => {
+      window.removeEventListener('resize', updateHeight);
+      images?.forEach((img) => {
+        img.removeEventListener('load', updateHeight);
+      });
+    };
+  }, [ref, data]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -54,7 +79,30 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           >
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-background dark:bg-background flex items-center justify-center">
-                <div className="h-4 w-4 rounded-full bg-secondary dark:bg-secondary border border-secondary dark:border-secondary p-2" />
+                {index === data.length - 1 ? (
+                  <div className="relative">
+                    <motion.div 
+                      className="absolute inset-0 rounded-full"
+                      style={{ backgroundColor: '#ff4c4c' }}
+                      animate={{
+                        scale: [1, 2.5],
+                        opacity: [0.6, 0]
+                      }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        ease: "easeOut",
+                        repeatDelay: 0.5
+                      }}
+                    />
+                    <div 
+                      className="h-4 w-4 rounded-full border border-[#ff4c4c] p-2 relative z-10"
+                      style={{ backgroundColor: '#ff4c4c', boxShadow: '0 0 10px #ff4c4c' }}
+                    />
+                  </div>
+                ) : (
+                  <div className="h-4 w-4 rounded-full bg-secondary dark:bg-secondary border border-secondary dark:border-secondary p-2" />
+                )}
               </div>
               <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-secondary dark:text-secondary heading">
                 {item.title}
