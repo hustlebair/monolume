@@ -5,7 +5,8 @@ import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { Card, CardContent } from "./card"
 import { Badge } from "./badge"
-import { CheckCircle, Clock, Circle } from "lucide-react"
+import { CheckCircle, Clock, Circle, MessageSquare, Code, Bot, Video, Brain, Workflow, AlertCircle } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
 
 export interface TimelineItem {
   title: string
@@ -14,6 +15,7 @@ export interface TimelineItem {
   image?: string
   status?: "completed" | "current" | "upcoming"
   category?: string
+  iconName?: string
 }
 
 export interface TimelineProps {
@@ -44,6 +46,23 @@ const getStatusConfig = (status: TimelineItem["status"]) => {
   }
   
   return configs[status || "upcoming"]
+}
+
+const getIconComponent = (iconName?: string): LucideIcon => {
+  const iconMap: Record<string, LucideIcon> = {
+    MessageSquare,
+    Code,
+    Bot,
+    Video,
+    Brain,
+    Workflow,
+    Clock,
+    AlertCircle,
+    CheckCircle,
+    Circle
+  }
+  
+  return iconMap[iconName || ""] || CheckCircle
 }
 
 const getStatusIcon = (status: TimelineItem["status"]) => {
@@ -96,7 +115,7 @@ export function Timeline({ items, className }: TimelineProps) {
         <div className="space-y-8 sm:space-y-12 relative">
           {items.map((item, index) => {
             const config = getStatusConfig(item.status)
-            const IconComponent = getStatusIcon(item.status)
+            const IconComponent = item.iconName ? getIconComponent(item.iconName) : getStatusIcon(item.status)
             
             return (
               <motion.div

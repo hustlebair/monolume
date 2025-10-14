@@ -6,6 +6,7 @@ import Hero from "@components/Hero.astro";
 import { HomeTimeline } from "@features/timeline";
 import { WhatPlatformDoes } from "@features/what-platform-does";
 import { TheRewrite } from "@features/the-rewrite";
+import { FuturisticDivider } from "@components/FuturisticDivider";
 
 import { HOME } from "@consts";
 ---
@@ -13,6 +14,7 @@ import { HOME } from "@consts";
 <Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Hero />
   <TheRewrite />
+  <FuturisticDivider client:load />
   <HomeTimeline />
   <WhatPlatformDoes />
   <Posts />
