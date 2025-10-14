@@ -5,7 +5,7 @@ date: 2025-10-08
 draft: false
 tag: "resistance"
 image:
-  url: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  url: "https://media.licdn.com/dms/image/v2/D5612AQGfS2P1lzxhfQ/article-cover_image-shrink_720_1280/B56ZdAlfmVGQAI-/0/1749135262800?e=1763596800&v=beta&t=AgyQTpuQWiyiuInf_MjfZACjq_OUWZ_see-odPDY91Q"
   alt: "Futuristic AI and technology concept with glowing neural networks"
 ---
 

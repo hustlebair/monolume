@@ -5,7 +5,7 @@ date: 2025-01-15
 draft: false
 tag: "takeover"
 image:
-  url: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  url: "https://specials-images.forbesimg.com/imageserve/5fa46a48a9ca8d255a37c8bd/The-idea-of-having-AI-and-machine-learning-write-an-essay-is-no-longer-science/960x0.jpg?fit=scale"
   alt: "AI automation replacing human workers"
 ---
 
