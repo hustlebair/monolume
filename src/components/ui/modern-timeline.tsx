@@ -258,7 +258,21 @@ export function Timeline({ items, className }: TimelineProps) {
           viewport={{ once: true }}
           aria-hidden="true"
         >
-          <div className="w-3 h-3 bg-primary rounded-full shadow-sm" />
+          <div className="relative">
+            <motion.div 
+              className="absolute inset-0 w-3 h-3 bg-primary rounded-full"
+              animate={{
+                scale: [1, 1.5, 1],
+                opacity: [0.5, 0.8, 0.5]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <div className="w-3 h-3 bg-primary rounded-full shadow-sm relative z-10" />
+          </div>
         </motion.div>
       </div>
     </section>
