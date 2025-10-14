@@ -8,6 +8,7 @@ interface TimelineEntry {
     heading: string;
     description: string;
     highlight?: boolean;
+    image?: string;
   };
 }
 
@@ -72,6 +73,16 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                   <p className="text-secondary text-base md:text-lg mb-8" style={{ fontFamily: "'Space Mono', 'Courier Prime', monospace" }}>
                     {item.content.description}
                   </p>
+                  {item.content.image && (
+                    <div className="mt-4 rounded-lg overflow-hidden border border-secondary/20">
+                      <img 
+                        src={item.content.image} 
+                        alt={item.content.heading}
+                        className="w-full h-auto object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
                 </div>
               ) : (
                 item.content
