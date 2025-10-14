@@ -62,12 +62,12 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full bg-background dark:bg-background font-sans md:px-10"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 text-foreground max-w-4xl heading">
-          The AI Revolution Timeline
+      <div className="max-w-7xl mx-auto p-4 text-center">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl mb-6 text-foreground font-bold heading">
+          The <span className="hero-gradient-text">AI Revolution</span> Timeline
         </h2>
-        <p className="text-secondary text-sm md:text-base max-w-sm">
-          From ChatGPT's explosive debut to today's intelligence leap. The pace of change isn't slowing down...it's accelerating.
+        <p className="text-secondary text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: "'Space Mono', 'Courier Prime', monospace" }}>
+          From ChatGPT's explosive debut to today's intelligence leap. The pace of change isn't slowing down. It's accelerating.
         </p>
       </div>
 
@@ -149,7 +149,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               height: heightTransform,
               opacity: opacityTransform,
             }}
-            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full"
+            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-[#ff4c4c] via-[#ff6b3d] to-[#e63946] from-[0%] via-[50%] rounded-full"
           />
         </div>
       </div>

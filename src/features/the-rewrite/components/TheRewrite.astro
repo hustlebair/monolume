@@ -2,13 +2,13 @@
 import { BlurTextEffect } from "@/components/BlurTextEffect";
 
 // Each line appears character-by-character in reading order
-// Each delay calculated as: previous_delay + (previous_chars × 0.03s stagger + 0.5s duration)
+// Reduced gaps for faster sequential appearance
 const headlineDelay = 0;          // Starts immediately
-const subheadline1Delay = 4.1;    // After headline (~120 chars)
-const subheadline2Delay = 7.0;    // After sub1 (~80 chars)
-const subheadline3Delay = 10.0;   // After sub2 (~85 chars)
-const subheadline4Delay = 12.4;   // After sub3 (~62 chars)
-const subheadline5Delay = 17.2;   // After sub4 (~145 chars)
+const subheadline1Delay = 2.5;    // After headline
+const subheadline2Delay = 4.5;    // After sub1
+const subheadline3Delay = 6.5;    // After sub2
+const subheadline4Delay = 8.0;    // After sub3
+const subheadline5Delay = 11.5;   // After sub4
 ---
 
 <section class="container mx-auto px-6 py-16 relative z-20 bg-background">
