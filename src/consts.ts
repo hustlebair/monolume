@@ -2,14 +2,14 @@ export const SITE = {
   URL: "https://planettakeover.com",
   TITLE: "Planet Take Over",
   DESCRIPTION:
-    "Navigate the AI revolution. Discover cutting-edge tools, build automated systems, and learn strategies to thrive in the age of artificial intelligence.",
+    "The AI gap grows every day you wait. Master the AI tools reshaping business, discover where smart money is moving, and join thousands staying ahead while others fall behind.",
   EMAIL: "PlanetTakeOver@Gmail.com",
 };
 
 export const HOME = {
-  TITLE: "Home",
+  TITLE: "Master AI Before the Gap Widens | Planet Take Over 🌎",
   DESCRIPTION:
-    "Your command center for AI dominance. Explore tools, systems, and insights to stay ahead in the technological takeover.",
+    "The AI gap grows every day you wait. Master the AI tools reshaping business, discover where smart money is moving, and join thousands getting updated weekly while others fall behind.",
 };
 
 export const BLOG = {

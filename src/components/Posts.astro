@@ -9,10 +9,7 @@ const allPosts: CollectionEntry<"blog">[] = (await getCollection("blog"))
   .slice(0, 6);
 ---
 
-<section id="Posts" class="container mx-auto px-6 py-8 relative">
-  <div class="absolute inset-0 -z-10 opacity-30">
-    <img src="/background.svg" alt="" class="w-full h-full object-cover" />
-  </div>
+<section id="Posts" class="container mx-auto px-6 py-8">
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
     {allPosts.map((post) => <BlogCard entry={post} />)}
   </div>
