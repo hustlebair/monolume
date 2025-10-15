@@ -6,7 +6,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 
 const allProjects: CollectionEntry<"projects">[] = (
   await getCollection("projects")
-).slice(0, 3);
+).filter(project => project.id !== "first3seconds").slice(0, 3);
 ---
 
 <section id="Projects" class="container mx-auto px-6">
