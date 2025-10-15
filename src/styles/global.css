@@ -290,6 +290,10 @@ article {
   @apply text-white prose-a:underline-offset-2 prose-a:text-sky-300 hover:prose-a:text-sky-200;
 }
 
+[data-theme="light"] article {
+  @apply text-foreground;
+}
+
 article h1, article h2, article h3, article h4, article h5, article h6 {
   font-family: "DM Sans", sans-serif;
 }
