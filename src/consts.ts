@@ -13,9 +13,9 @@ export const HOME = {
 };
 
 export const BLOG = {
-  TITLE: "Blog",
+  TITLE: "The Uprising - AI Newsletter & Blog | Planet Take Over",
   DESCRIPTION:
-    "The Resistance & The Takeover. Articles on AI, automation, and surviving (or thriving) in the new machine age.",
+    "Weekly transmissions on AI tools, market intelligence, and implementation strategies. Join thousands staying ahead in the AI revolution. Read the latest or subscribe for weekly intel.",
 };
 
 export const PROJECTS = {
