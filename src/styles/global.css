@@ -287,7 +287,7 @@ body {
 article {
   @apply prose prose-neutral prose-img:mx-auto prose-img:my-auto text-lg leading-8;
   @apply prose-headings:font-bold prose-strong:text-foreground mx-auto;
-  @apply text-secondary prose-a:underline-offset-2 prose-a:text-sky-300 hover:prose-a:text-sky-200;
+  @apply text-white prose-a:underline-offset-2 prose-a:text-sky-300 hover:prose-a:text-sky-200;
 }
 
 article h1, article h2, article h3, article h4, article h5, article h6 {
