@@ -7,7 +7,7 @@ function TradingViewWidget() {
     if (!container.current) return;
 
     // Set explicit dimensions on the container
-    const containerHeight = Math.max(window.innerHeight - 80, 1000);
+    const containerHeight = Math.max(window.innerHeight - 80, 1000) / 2;
     container.current.style.width = '100%';
     container.current.style.height = `${containerHeight}px`;
 
@@ -76,7 +76,7 @@ function TradingViewWidget() {
     // Handle window resize for responsiveness
     const handleResize = () => {
       if (container.current) {
-        const newHeight = Math.max(window.innerHeight - 80, 1000);
+        const newHeight = Math.max(window.innerHeight - 80, 1000) / 2;
         container.current.style.height = `${newHeight}px`;
       }
     };
