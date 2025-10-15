@@ -17,6 +17,19 @@ import MarketHero from "@/features/market/components/MarketHero";
       <div class="w-full px-2 sm:px-4 mt-4 mb-10">
         <TradingViewWidget client:load />
       </div>
+      
+      <!-- Stock Heatmap Widget -->
+      <div class="w-full px-2 sm:px-4 mb-10">
+        <div class="tradingview-widget-container rounded-2xl overflow-hidden border border-dashed border-secondary" id="heatmap-container" style="width: 100%;">
+          <div class="tradingview-widget-container__widget" style="width: 100%; height: 100%;"></div>
+          <div class="tradingview-widget-copyright p-3 text-center text-sm text-secondary">
+            <a href="https://www.tradingview.com/heatmap/stock/" rel="noopener nofollow" target="_blank" class="text-blue-500 hover:text-blue-400">
+              <span>Stock Heatmap</span>
+            </a>
+            <span class="ml-1">by TradingView</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </Layout>
@@ -59,16 +72,12 @@ import MarketHero from "@/features/market/components/MarketHero";
   /* Content Area - Full Width Layout */
   .market-page-wrapper {
     min-height: 100vh;
-    background: #ffffff;
+    background: var(--color-background);
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
     padding: 0;
     overflow-x: hidden;
-  }
-
-  [data-theme="dark"] .market-page-wrapper {
-    background: #0a0a0f;
   }
 
   @media (max-width: 768px) {
@@ -89,3 +98,62 @@ import MarketHero from "@/features/market/components/MarketHero";
     }
   }
 </style>
+
+<script>
+  // Load TradingView Heatmap Widget
+  document.addEventListener('DOMContentLoaded', function() {
+    const heatmapContainer = document.getElementById('heatmap-container');
+    if (!heatmapContainer) return;
+
+    // Set explicit dimensions - use dynamic height like stock chart
+    const containerHeight = Math.max(window.innerHeight - 80, 1000) / 2;
+    heatmapContainer.style.width = '100%';
+    heatmapContainer.style.height = `${containerHeight}px`;
+
+    // Wait for container to be properly sized
+    setTimeout(() => {
+      const script = document.createElement('script');
+      script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js';
+      script.type = 'text/javascript';
+      script.async = true;
+      script.innerHTML = JSON.stringify({
+        dataSource: "SPX500",
+        blockSize: "market_cap_basic",
+        blockColor: "change",
+        grouping: "sector",
+        locale: "en",
+        symbolUrl: "",
+        colorTheme: "dark",
+        exchanges: [],
+        hasTopBar: false,
+        isDataSetEnabled: false,
+        isZoomEnabled: true,
+        hasSymbolTooltip: true,
+        isMonoSize: false,
+        width: "100%",
+        height: "100%"
+      });
+
+      // Add script load handlers
+      script.onload = () => {
+        console.log('TradingView heatmap script loaded successfully');
+      };
+
+      script.onerror = () => {
+        console.error('Failed to load TradingView heatmap script');
+      };
+
+      heatmapContainer.appendChild(script);
+    }, 300);
+
+    // Handle window resize for responsiveness
+    const handleResize = () => {
+      if (heatmapContainer) {
+        const newHeight = Math.max(window.innerHeight - 80, 1000) / 2;
+        heatmapContainer.style.height = `${newHeight}px`;
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+  });
+</script>
