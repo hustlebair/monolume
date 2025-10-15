@@ -135,15 +135,15 @@ const links = [
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.06);
   }
 
   .dark-header {
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2), 0 2px 8px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.12), 0 2px 8px rgba(255, 255, 255, 0.08);
   }
 
   [data-theme="dark"] .dark-header {
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2), 0 2px 8px rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.12), 0 2px 8px rgba(255, 255, 255, 0.08) !important;
   }
 
   /* Mobile Menu Overlay */
@@ -334,7 +334,7 @@ const links = [
       const isMenuActive = mobileMenuEl?.classList.contains('active');
       if (newTheme === "dark") {
         if (headerEl instanceof HTMLElement) {
-          headerEl.style.setProperty('box-shadow', '0 4px 20px rgba(255, 255, 255, 0.2), 0 2px 8px rgba(255, 255, 255, 0.15)');
+          headerEl.style.setProperty('box-shadow', '0 4px 20px rgba(255, 255, 255, 0.12), 0 2px 8px rgba(255, 255, 255, 0.08)');
         }
         // Only apply dark glow if menu is open
         if (mobileMenuEl instanceof HTMLElement) {
@@ -346,7 +346,7 @@ const links = [
         }
       } else {
         if (headerEl instanceof HTMLElement) {
-          headerEl.style.setProperty('box-shadow', '0 4px 20px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1)');
+          headerEl.style.setProperty('box-shadow', '0 4px 20px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.06)');
         }
         // Only apply light glow if menu is open
         if (mobileMenuEl instanceof HTMLElement) {

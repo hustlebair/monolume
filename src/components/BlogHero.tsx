@@ -8,13 +8,13 @@ export default function BlogHero() {
       <BackgroundPaths>
         <div className="blog-hero-content">
           <h1 className="blog-hero-title">
-            THE WATCHTOWER
+            The Uprising
           </h1>
           <p className="blog-hero-subtitle">
-            The machines aren't coming — they're already here.
+            Weekly transmissions from the front lines of AI.
           </p>
           <p className="blog-hero-description">
-            The Watchtower is your intel source for learning the tools, skills, and systems to stay ahead in the age of AI. Adapt fast. Upgrade your mind. Stay human.
+            The gap grows every day you wait. Get unfiltered intel on the tools reshaping business, where smart money is moving, and the strategies separating the updated from the obsolete.
           </p>
         </div>
       </BackgroundPaths>

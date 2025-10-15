@@ -59,8 +59,9 @@ export const Ripple = React.memo(function Ripple({
         const opacity = mainCircleOpacity - i * 0.03;
         const animationDelay = `${i * 0.06}s`;
         const borderStyle = "solid";
-        const borderColor = isDark ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 0, 0, 0.5)';
-        const bgColor = isDark ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.15)';
+        // increase FF4C4C visibility
+        const borderColor = isDark ? 'rgba(255, 76, 76, 0.6)' : 'rgba(255, 76, 76, 0.45)';
+        const bgColor = 'rgba(255, 76, 76, 0.20)';
         
         return (
           <div
@@ -74,7 +75,7 @@ export const Ripple = React.memo(function Ripple({
                 opacity,
                 animationDelay,
                 borderStyle,
-                borderWidth: "1px",
+                borderWidth: "2px",
                 borderColor: borderColor,
                 backgroundColor: bgColor,
                 top: "50%",

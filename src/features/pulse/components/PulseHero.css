@@ -4,11 +4,11 @@
   position: relative;
   margin: 0;
   overflow: hidden;
-  background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0f 100%);
+  background: #000000; /* more black on dark theme */
 }
 
 [data-theme="light"] .pulse-hero-section {
-  background: radial-gradient(circle at center, #e0e7ff 0%, #f3f4f6 100%);
+  background: #ffffff; /* more white on light theme */
 }
 
 .pulse-hero-content {
@@ -33,8 +33,6 @@
   color: #ffffff;
   font-family: "DM Sans", sans-serif;
   letter-spacing: 0.05em;
-  text-shadow: 0 0 20px rgba(255, 76, 76, 0.5),
-               0 0 40px rgba(255, 76, 76, 0.3);
 }
 
 [data-theme="light"] .pulse-hero-title {
@@ -42,16 +40,7 @@
   text-shadow: 0 2px 4px rgba(255, 76, 76, 0.3);
 }
 
-.pulse-hero-subtitle {
-  font-size: 1.5rem;
-  color: #e0e0e0;
-  max-width: 700px;
-  margin: 0 auto 1rem;
-  line-height: 1.6;
-  font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  font-family: "Space Mono", "Courier Prime", monospace;
-}
+/* subtitle removed */
 
 [data-theme="light"] .pulse-hero-subtitle {
   color: #2a2a2a;
@@ -59,16 +48,17 @@
 }
 
 .pulse-hero-description {
-  font-size: 1.125rem;
-  color: #b0b0b0;
-  max-width: 800px;
+  font-size: 1.25rem; /* match AI Tools hero-subtitle */
+  color: #e0e0e0; /* match AI Tools dark */
+  max-width: 700px; /* match width */
   margin: 0 auto;
-  line-height: 1.8;
-  font-weight: 400;
+  line-height: 1.6;
+  font-weight: 400; /* match weight */
+  font-family: "Space Mono", "Courier Prime", monospace; /* match font */
 }
 
 [data-theme="light"] .pulse-hero-description {
-  color: #4a4a4a;
+  color: #2a2a2a; /* match AI Tools light */
 }
 
 @media (max-width: 768px) {
@@ -86,12 +76,10 @@
     margin-bottom: 1rem;
   }
 
-  .pulse-hero-subtitle {
-    font-size: 1.125rem;
-  }
+  /* subtitle removed */
 
   .pulse-hero-description {
-    font-size: 1rem;
+    font-size: 1rem; /* match AI Tools at mobile */
   }
 }
 

@@ -12,13 +12,10 @@ export default function PulseHero() {
       />
       <div className="pulse-hero-content">
         <h1 className="pulse-hero-title">
-          THE PULSE
+          The Pulse
         </h1>
-        <p className="pulse-hero-subtitle">
-          Real-time AI intel. Built for people who actually build.
-        </p>
         <p className="pulse-hero-description">
-          Daily quick hits on the latest AI developments, tools, and breakthroughs. Stay ahead of the curve with bite-sized updates.
+          Daily quick hits on the latest AI developments, tools, and breakthroughs.
         </p>
       </div>
     </div>
