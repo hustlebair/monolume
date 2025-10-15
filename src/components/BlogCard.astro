@@ -18,12 +18,12 @@ const isTakeover = tag === "takeover";
     class={`group block cursor-pointer blog-card-link ${isTakeover ? 'takeover-theme' : 'resistance-theme'}`}
     href={`/${entry.collection}/${entry.id}`}
 >
-  <div class="blog-card-wrapper relative rounded-2xl">
+  <div class="blog-card-wrapper relative">
     <GlowingEffect 
       client:visible
       glow={true}
       borderWidth={4}
-      className="rounded-2xl"
+      className="rounded-[15px]"
       disabled={false}
       spread={100}
       blur={0}
@@ -32,7 +32,7 @@ const isTakeover = tag === "takeover";
       movementDuration={2}
       variant="default"
     />
-    <div class="blog-card-container relative rounded-2xl overflow-hidden border-2 border-border">
+    <div class="blog-card-container relative overflow-hidden border-4 border-gray-500 rounded-[15px]">
             <div
                 class="w-full aspect-[610/400] overflow-hidden"
             >
