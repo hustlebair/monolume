@@ -23,7 +23,9 @@ const { title, description } = Astro.props;
     <div class="min-h-screen w-full relative max-w-7xl mx-auto layout-wrapper">
       <slot />
     </div>
-    <MinimalFooter client:load />
+    <div class="mt-5">
+      <MinimalFooter client:load />
+    </div>
   </body>
 </html>
 

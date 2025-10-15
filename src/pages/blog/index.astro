@@ -1,7 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import ThemedBlogCard from "@components/ThemedBlogCard.astro";
-import BlogFilter from "@components/BlogFilter.astro";
 import BlogHero from "@components/BlogHero";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { BLOG } from "@consts";
@@ -36,8 +35,6 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
     <!-- Content Area -->
     <section id="Blog" class="container mx-auto px-6 pt-12">
       <div>
-        <BlogFilter />
-        
         <section>
       {
         years.map((year) => (

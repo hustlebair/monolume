@@ -18,9 +18,7 @@ export const BackgroundGradient = ({
   animate = true,
   theme = "resistance",
 }: BackgroundGradientProps) => {
-  const gradientColors = theme === "resistance" 
-    ? "from-[#5AA469] via-[#6FC7B8] to-[#2E8BC0]"
-    : "from-[#FF4C4C] via-[#FF6B3D] to-[#E63946]";
+  const gradientColors = "from-[#3B82F6] via-[#FFFFFF] to-[#A855F7]";
 
   return (
     <div
@@ -32,7 +30,7 @@ export const BackgroundGradient = ({
       {/* Glow effect */}
       <div
         className={cn(
-          "absolute inset-0 rounded-xl z-[1] opacity-60 group-hover:opacity-100 blur-xl transition duration-500",
+          "absolute inset-0 rounded-xl z-[1] opacity-40 group-hover:opacity-70 blur-xl transition duration-500",
           `bg-gradient-to-r ${gradientColors}`,
           animate && "animate-pulse"
         )}
