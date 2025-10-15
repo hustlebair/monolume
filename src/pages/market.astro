@@ -13,11 +13,9 @@ import MarketHero from "@/features/market/components/MarketHero";
 
     <!-- Content Area -->
     <div class="market-page-wrapper">
-      <div class="container mx-auto px-6">
-        <!-- TradingView Widget: Responsive container -->
-        <div class="max-w-6xl mx-auto mt-10">
-          <TradingViewWidget client:load />
-        </div>
+      <!-- TradingView Widget: Full width responsive container -->
+      <div class="w-full px-2 sm:px-4 mt-4 mb-10">
+        <TradingViewWidget client:load />
       </div>
     </div>
   </div>
@@ -58,12 +56,12 @@ import MarketHero from "@/features/market/components/MarketHero";
     z-index: 1;
   }
 
-  /* Content Area - Back to Centered Layout */
+  /* Content Area - Full Width Layout */
   .market-page-wrapper {
     min-height: 100vh;
     background: #ffffff;
     width: 100%;
-    max-width: 1280px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0;
     overflow-x: hidden;

@@ -6,10 +6,13 @@ function TradingViewWidget() {
   useEffect(() => {
     if (!container.current) return;
 
+    // Set explicit dimensions on the container
+    const containerHeight = Math.max(window.innerHeight - 80, 1000);
+    container.current.style.width = '100%';
+    container.current.style.height = `${containerHeight}px`;
+
     // Clean any previous scripts to avoid duplicates during HMR
-    container.current.innerHTML = '<div class="tradingview-widget-container__widget h-[420px] md:h-[560px] w-full"></div>' +
-      '<div class="tradingview-widget-copyright p-3 text-center text-sm">' +
-      '<a href="https://www.tradingview.com/markets/" rel="noopener nofollow" target="_blank"><span class="blue-text">World markets</span></a> by TradingView</div>';
+    container.current.innerHTML = '<div class="tradingview-widget-container__widget" style="width: 100%; height: 100%;"></div>';
 
     const script = document.createElement('script');
     script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
@@ -58,10 +61,10 @@ function TradingViewWidget() {
       "dateRanges": ["1d|1", "1m|30", "3m|60", "12m|1D", "60m|1W", "all|1M"],
       "fontSize": "10",
       "headerFontSize": "medium",
-      "autosize": false,
-      "lineColor": "rgba(56, 142, 60, 1)",
+      "autosize": true,
       "width": "100%",
       "height": "100%",
+      "lineColor": "rgba(56, 142, 60, 1)",
       "noTimeScale": false,
       "hideDateRanges": false,
       "hideMarketStatus": false,
@@ -70,7 +73,18 @@ function TradingViewWidget() {
 
     container.current.appendChild(script);
 
+    // Handle window resize for responsiveness
+    const handleResize = () => {
+      if (container.current) {
+        const newHeight = Math.max(window.innerHeight - 80, 1000);
+        container.current.style.height = `${newHeight}px`;
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
     return () => {
+      window.removeEventListener('resize', handleResize);
       if (container.current) {
         container.current.innerHTML = '';
       }
