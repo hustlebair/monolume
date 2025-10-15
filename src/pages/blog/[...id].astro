@@ -50,7 +50,7 @@ const { Content } = await render(post);
         <h1 class="heading text-3xl md:text-5xl uppercase">
           {post.data.title}
         </h1>
-        <p class="text-white [data-theme='light']:text-foreground">{post.data.description}</p>
+        <p class="text-foreground">{post.data.description}</p>
         <p class="text-secondary">
           <FormattedDate date={post.data.date} />
         </p>

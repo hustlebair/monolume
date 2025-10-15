@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { BackgroundGradient } from "@/components/ui/background-gradient";
 
 type Props = {
     entry: CollectionEntry<"blog">;
@@ -19,18 +19,14 @@ const isTakeover = tag === "takeover";
     href={`/${entry.collection}/${entry.id}`}
 >
   <div class="blog-card-wrapper relative rounded-2xl">
-    <GlowingEffect 
+    <BackgroundGradient 
       client:visible
-      blur={0}
-      borderWidth={4}
-      spread={60}
-      glow={false}
-      disabled={false}
-      proximity={64}
-      inactiveZone={0.01}
-      movementDuration={1.5}
-    />
-    <div class="blog-card-container relative border-2 border-border rounded-2xl overflow-hidden">
+      className="rounded-2xl"
+      containerClassName="rounded-2xl"
+      animate={true}
+      theme={isTakeover ? "takeover" : "resistance"}
+    >
+      <div class="blog-card-container relative rounded-2xl overflow-hidden">
             <div
                 class="w-full aspect-[610/400] overflow-hidden"
             >
@@ -49,12 +45,13 @@ const isTakeover = tag === "takeover";
                     {entry.data.title}
                 </h3>
                 <p
-                    class="text-base md:text-lg text-white [data-theme='light']:text-foreground line-clamp-3"
+                    class="text-base md:text-lg text-foreground line-clamp-3"
                 >
                     {entry.data.description}
                 </p>
             </div>
         </div>
+    </BackgroundGradient>
     </div>
 </a>
 
