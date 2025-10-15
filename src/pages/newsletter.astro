@@ -1,0 +1,89 @@
+---
+import Layout from "@layouts/Layout.astro";
+import ThemedBlogCard from "@components/ThemedBlogCard.astro";
+import BlogHero from "@components/BlogHero";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const title = "The Uprising - AI Newsletter & Blog | Planet Take Over";
+const description = "Weekly transmissions on AI tools, market intelligence, and implementation strategies. Join thousands staying ahead in the AI revolution. Read the latest or subscribe for weekly intel.";
+
+const data = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+type Acc = {
+  [year: string]: CollectionEntry<"blog">[];
+};
+
+const posts = data.reduce((acc: Acc, post) => {
+  const year = post.data.date.getFullYear().toString();
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(post);
+  return acc;
+}, {} as Acc);
+
+const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
+---
+
+<Layout title={title} description={description}>
+  <div class="blog-layout">
+    <div class="hero-full-width">
+      <BlogHero client:load />
+    </div>
+
+    <section id="Newsletter" class="container mx-auto px-6 pt-12">
+      <div>
+        <section>
+          {years.map((year) => (
+            <section class="animate space-y-4 py-8">
+              <h4 class="heading text-2xl lg:text-4xl">{year}</h4>
+              <div>
+                <ul class="not-prose grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                  {posts[year].map((post) => (
+                    <ThemedBlogCard entry={post} />
+                  ))}
+                </ul>
+              </div>
+            </section>
+          ))}
+        </section>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .blog-layout {
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    overflow-x: hidden;
+    z-index: 1;
+  }
+
+  @media (min-width: 769px) {
+    .blog-layout {
+      width: 100vw;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+  }
+
+  .hero-full-width {
+    width: 100%;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 1;
+  }
+</style>

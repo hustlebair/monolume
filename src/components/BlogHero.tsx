@@ -11,7 +11,7 @@ export default function BlogHero() {
             The Uprising
           </h1>
           <p className="blog-hero-subtitle">
-            Weekly transmissions from the front lines of AI.
+            Weekly newsletter from the front lines of AI.
           </p>
           <p className="blog-hero-description">
             The gap grows every day you wait. Get unfiltered intel on the tools reshaping business, where smart money is moving, and the strategies separating the updated from the obsolete.
