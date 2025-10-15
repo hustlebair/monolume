@@ -38,10 +38,11 @@ const { title, description, image = "/placeholder.png" } = Astro.props;
 <meta property="og:image" content={new URL(image, Astro.site)} />
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary" />
+<meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL("/twitter-card.png", Astro.site)} />
 
 <!-- google fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
