@@ -5,7 +5,7 @@ date: 2025-10-08
 draft: false
 tag: "resistance"
 image:
-  url: "https://media.licdn.com/dms/image/v2/D5612AQGfS2P1lzxhfQ/article-cover_image-shrink_720_1280/B56ZdAlfmVGQAI-/0/1749135262800?e=1763596800&v=beta&t=AgyQTpuQWiyiuInf_MjfZACjq_OUWZ_see-odPDY91Q"
+  url: "/blog/roadmap_blog.jpg"
   alt: "Futuristic AI and technology concept with glowing neural networks"
 ---
 
