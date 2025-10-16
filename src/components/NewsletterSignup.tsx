@@ -23,7 +23,7 @@ export function NewsletterSignup() {
           className="px-8 py-4 bg-gradient-to-r from-[#FF4C4C] to-[#FF6B3D] text-white font-bold rounded-lg hover:from-[#FF6B3D] hover:to-[#E63946] transition-all duration-300 transform hover:scale-105 shadow-lg"
           style={{ fontFamily: 'Space Mono, Courier Prime, monospace' }}
         >
-          Join The Uprising
+          Join the Transmission
         </button>
       </div>
 
