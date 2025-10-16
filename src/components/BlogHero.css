@@ -4,11 +4,7 @@
   position: relative;
   margin: 0;
   overflow: hidden;
-  background: #0a0a0f;
-}
-
-[data-theme="light"] .blog-hero-section {
-  background: #ffffff;
+  background: transparent;
 }
 
 [data-theme="light"] .blog-hero-title {

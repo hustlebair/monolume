@@ -1,5 +1,5 @@
 import React from 'react';
-import { DottedSurface } from '@/components/ui/dotted-surface';
+import { SparklesCore } from '@/components/ui/sparkles';
 import { cn } from '@/lib/utils';
 import './AIToolsHero.css';
 
@@ -7,7 +7,15 @@ export default function AIToolsHero() {
   return (
     <div className="hero-section" style={{ position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 0 }}>
-        <DottedSurface />
+        <SparklesCore 
+          id="ai-tools-sparkles"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={100}
+          particleColor="#FF4C4C"
+          speed={1}
+        />
       </div>
       <div style={{ position: 'relative', zIndex: 10, minHeight: '300px' }} className="flex items-center justify-center">
         <div

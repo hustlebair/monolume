@@ -13,7 +13,7 @@ export const HOME = {
 };
 
 export const BLOG = {
-  TITLE: "The Uprising - AI Newsletter & Blog | Planet Take Over",
+  TITLE: "The Tramsmission - AI Newsletter | Planet Take Over",
   DESCRIPTION:
     "Weekly transmissions on AI tools, market intelligence, and implementation strategies. Join thousands staying ahead in the AI revolution. Read the latest or subscribe for weekly intel.",
 };
