@@ -2,6 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import FormattedDate from "@components/FormattedDate.astro";
+import NewsletterSignup from "@components/NewsletterSignup";
 
 export async function getStaticPaths() {
   const posts = (await getCollection("blog"))
@@ -71,6 +72,9 @@ const { Content } = await render(post);
     <article class={`px-3 flex-2 mx-auto mb-18 ${isTakeover ? 'takeover-article' : 'resistance-article'}`}>
       <Content />
     </article>
+
+    <!-- Newsletter Signup -->
+    <NewsletterSignup client:load />
   </div>
 
   <script is:inline>
