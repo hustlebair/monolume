@@ -50,7 +50,7 @@ body {
 
 /* Blog post link styling only */
 .prose a, .blog-content a, article a {
-  color: #1e40af !important; /* Dark blue */
+  color: #577cf3 !important; /* Dark blue */
   text-decoration: underline;
 }
 
