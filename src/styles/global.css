@@ -48,6 +48,16 @@ body {
   box-sizing: border-box;
 }
 
+/* Blog post link styling only */
+.prose a, .blog-content a, article a {
+  color: #1e40af !important; /* Dark blue */
+  text-decoration: underline;
+}
+
+.prose a:hover, .blog-content a:hover, article a:hover {
+  color: #1d4ed8 !important; /* Slightly lighter blue on hover */
+}
+
 /* Reduce top spacing on all pages */
 .pt-18 {
   padding-top: 3rem !important;
